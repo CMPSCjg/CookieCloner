@@ -9,7 +9,13 @@ export default function supportUs() {
             </Head>
 
             <main>
-                <h2>Support Us</h2>
+                <h1 className="title">
+                    Support Us
+                </h1>
+
+                <p className="description">
+                    This is a blank description.
+                </p>
             </main>
 
             <footer>

@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Link from 'next/link'
 
+
 export default function Home() {
 
   const test: String = 'hello';
@@ -13,9 +14,10 @@ export default function Home() {
       </Head>
 
       <main>
-        <h1 className="title">
+        {/* <h1 className="title">
           COOKIE CLONER
-        </h1>
+        </h1> */}
+        <img src="/images/CookieClonerLogo_Smaller.png" />
 
         <div className="grid">
           <Link href="/cookie-cloner/game">
@@ -136,22 +138,22 @@ export default function Home() {
         }
 
         .card {
-          margin: 1rem;
+          margin: 0.5rem;
           flex-basis: 45%;
           padding: 1.5rem;
           text-align: left;
           color: inherit;
           text-decoration: none;
-          border: 1px solid #eaeaea;
+          border: 4px solid #eaeaea;
           border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
+          transition: color 0.2s ease, border-color 0.2s ease;
         }
 
         .card:hover,
         .card:focus,
         .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
+          background-color: #E6CEA0;
+          border-color: #9c8354;
         }
 
         .card h3 {

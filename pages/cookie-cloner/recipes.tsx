@@ -9,7 +9,13 @@ export default function recipes() {
             </Head>
 
             <main>
-                <h2>Recipes</h2>
+                <h1 className="title">
+                    Recipes
+                </h1>
+
+                <p className="description">
+                    This is a blank description.
+                </p>
             </main>
 
             <footer>

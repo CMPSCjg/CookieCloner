@@ -9,7 +9,13 @@ export default function about() {
             </Head>
 
             <main>
-                <h2>About</h2>
+                <h1 className="title">
+                    About
+                </h1>
+
+                <p className="description">
+                    This is a blank description.
+                </p>
             </main>
 
             <footer>

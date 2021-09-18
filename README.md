@@ -1,1 +1,3 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+# Cookie Cloner
+
+This is a simple clone of the popular web game, [Cookie Clicker](https://orteil.dashnet.org/cookieclicker/), built using [NextJS](https://nextjs.org/).
