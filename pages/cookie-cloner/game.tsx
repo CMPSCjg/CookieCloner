@@ -195,7 +195,6 @@ export default function game() {
             const serializedGameProgress = window.localStorage.getItem('CookieClonerGameProgress');
             const derializedGameProgress = atob(serializedGameProgress);
             const separatedGameProgress = derializedGameProgress.split(';')
-            debugger
             return Number(separatedGameProgress[0]);
 
         } catch(error) {
