@@ -1,6 +1,41 @@
-import Head from 'next/head'
+import Head from 'next/head';
+import fetch from 'node-fetch';
+import { useEffect } from 'react';
+import RecipeCard from '../../components/recipe-card/recipe-card';
+import { NutritionalInformation } from '../../models/NutritionalInformation';
+import RecipesService, { MOCK_COOKIE_RECIPES_RESPONSE } from '../api/recipes';
 
 export default function recipes() {
+
+    // let recipesData = MOCK_COOKIE_RECIPES_RESPONSE;
+
+    // const nutritionalInformation: NutritionalInformation[] = [
+    //     {
+    //         servingSize: 12,
+    //         calories: 1000,
+    //         protein: 50,
+    //         fat: 40,
+    //         carb: 100,
+    //         cholestrol: 1,
+    //         sodium: 2,
+    //         calcium: 3,
+    //         magnesium: 4,
+    //         potassium: 5,
+    //         iron: 6
+    //     }
+    // ]
+
+    // useEffect(() => {
+    //      fetch('http://localhost:3000/api/recipes').then(data => recipesData = data);
+    //     console.log('Recipes data: ' + JSON.stringify(recipesData))
+    // })
+
+    // fetch('http://localhost:3000/api/recipes').then(data => {
+    //     recipesData = data.body
+    //     console.log('data: ' + JSON.stringify(data))
+    // });
+
+
     return (
         <div className="container">
             <Head>
@@ -51,10 +86,6 @@ export default function recipes() {
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                }
-
-                footer img {
-                margin-left: 0.5rem;
                 }
 
                 footer a {

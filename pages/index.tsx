@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
 
-
 export default function Home() {
 
   const test: String = 'hello';
@@ -14,9 +13,6 @@ export default function Home() {
       </Head>
 
       <main>
-        {/* <h1 className="title">
-          COOKIE CLONER
-        </h1> */}
         <img src="/images/CookieClonerLogo_Smaller.png" />
 
         <div className="grid">
@@ -83,10 +79,6 @@ export default function Home() {
           display: flex;
           justify-content: center;
           align-items: center;
-        }
-
-        footer img {
-          margin-left: 0.5rem;
         }
 
         footer a {

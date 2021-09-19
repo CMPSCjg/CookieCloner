@@ -53,10 +53,6 @@ export default function supportUs() {
                 align-items: center;
                 }
 
-                footer img {
-                margin-left: 0.5rem;
-                }
-
                 footer a {
                 display: flex;
                 justify-content: center;

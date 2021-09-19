@@ -73,10 +73,6 @@ export default function game() {
                 align-items: center;
                 }
 
-                footer img {
-                margin-left: 0.5rem;
-                }
-
                 footer a {
                 display: flex;
                 justify-content: center;
