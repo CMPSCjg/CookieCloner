@@ -1,6 +1,17 @@
 import Head from 'next/head'
+import { useEffect } from 'react';
+
+var WINDOW;
 
 export default function game() {
+
+    let cookieTotalAmount = 0;
+    useEffect(() => { 
+        WINDOW = window; 
+        cookieTotalAmount = getCurrentGameProgressFromBrowser(WINDOW) || 0; 
+        document.getElementById('cookie-total-amount').innerHTML = cookieTotalAmount + " cookies";
+    })
+
     return (
         <div className="container">
             <Head>
@@ -9,7 +20,15 @@ export default function game() {
             </Head>
 
             <main>
-                <h2>Game</h2>
+                <h1 className="title">Game</h1>
+
+                <div className="game">
+                    <h3 id="cookie-total-amount">{cookieTotalAmount} cookies</h3>
+                    <img 
+                        src="/images/CookieClonerLogo_Smaller.png" 
+                        onClick={() => manualCookeClick()}
+                    />
+                </div>
             </main>
 
             <footer>
@@ -27,6 +46,13 @@ export default function game() {
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                }
+
+                #cookie-total-amount {
+                    margin: 0;
+                    line-height: 1.15;
+                    font-size: 2rem;
+                    text-align: center;
                 }
 
                 main {
@@ -152,5 +178,29 @@ export default function game() {
             </style>
         </div>
     )
+
+    function manualCookeClick() {
+        cookieTotalAmount += 1;
+        document.getElementById('cookie-total-amount').innerHTML = cookieTotalAmount + " cookies";
+        setCurrentGameProgressToBrowser(cookieTotalAmount);
+    }
+
+    function setCurrentGameProgressToBrowser(cookieTotalAmount: number) {
+        const serializedGameProgress = btoa(cookieTotalAmount + ';');
+        WINDOW.localStorage.setItem('CookieClonerGameProgress', serializedGameProgress);
+    }
+
+    function getCurrentGameProgressFromBrowser(window): any {
+        try {
+            const serializedGameProgress = window.localStorage.getItem('CookieClonerGameProgress');
+            const derializedGameProgress = atob(serializedGameProgress);
+            const separatedGameProgress = derializedGameProgress.split(';')
+            debugger
+            return Number(separatedGameProgress[0]);
+
+        } catch(error) {
+            console.error('Unable to get current game progress from browser: ' + error);
+        }
+    }
 }
 
