@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import Link from 'next/link'
 
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 export default function Home() {
 
   const test: String = 'hello';
@@ -73,7 +75,7 @@ export default function Home() {
         }
 
         footer {
-          width: 100%;
+          width: 150%;
           height: 100px;
           border-top: 1px solid #eaeaea;
           display: flex;

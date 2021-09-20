@@ -1,6 +1,11 @@
 import Head from 'next/head'
+import { Row, Col, Container } from 'react-bootstrap'
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 export default function supportUs() {
+
     return (
         <div className="container">
             <Head>
@@ -45,7 +50,7 @@ export default function supportUs() {
                 }
 
                 footer {
-                width: 100%;
+                width: 150%;
                 height: 100px;
                 border-top: 1px solid #eaeaea;
                 display: flex;
