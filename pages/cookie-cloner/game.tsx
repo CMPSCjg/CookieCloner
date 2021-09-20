@@ -31,7 +31,6 @@ export default function game() {
         const gameProgressFromBrowser: GameProgress = getCurrentGameProgressFromBrowser(WINDOW); 
 
         cookieTotalAmount = gameProgressFromBrowser.cookieTotalAmount;
-        renderUpdatedCookieValues(cookieTotalAmount, cookiesPerSecond);
 
         cursor = new Cursor(gameProgressFromBrowser.store.cursor.amountOwned, gameProgressFromBrowser.store.cursor.buyCost);
         document.getElementById('cursor-buy-cost').innerHTML = gameProgressFromBrowser.store.cursor.buyCost + '';
@@ -57,6 +56,7 @@ export default function game() {
         document.getElementById('bank-buy-cost').innerHTML = gameProgressFromBrowser.store.bank.buyCost + '';
         document.getElementById('bank-amount-owned').innerHTML = gameProgressFromBrowser.store.bank.amountOwned + '';
 
+        renderUpdatedCookieValues(cookieTotalAmount, cookiesPerSecond);
         beginCookieGeneratingEngine();
         beginGameProgressSavingEngine();
     })
@@ -64,7 +64,7 @@ export default function game() {
     return (
         <div className="container">
             <Head>
-            <title id="browser-title">Cookie Cloner</title>
+            <title>Cookie Cloner</title>
             <link rel="icon" href="/favicon.ico" />
             </Head>
 
@@ -467,9 +467,12 @@ export default function game() {
         }, 60000)
     }
 
-    function renderUpdatedCookieValues(cookieTotalAmount: number, cookiesPerSecond: number) {
+    async function renderUpdatedCookieValues(cookieTotalAmount: number, cookiesPerSecond: number) {
         document.getElementById('cookie-total-amount').innerHTML = cookieTotalAmount + "<br>cookies<br>per second : " + cookiesPerSecond;
-        document.getElementById('browser-title').innerHTML = cookieTotalAmount + ' cookies';
+
+        if (document.querySelector('title')) {
+            document.querySelector('title').innerHTML = cookieTotalAmount + ' cookies - Cookie Cloner';
+        }
     }
 
     function getCurrentGameProgress(): GameProgress {
