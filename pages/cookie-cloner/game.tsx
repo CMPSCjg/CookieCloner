@@ -1,8 +1,11 @@
 import Head from 'next/head'
 import { useEffect } from 'react';
+import { Col, Container, Row } from 'react-bootstrap';
 import { GameProgress } from '../../models/GameProgress';
 import { Cursor } from '../../models/store/Cursor';
 import { Grandma } from '../../models/store/Grandma';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 var WINDOW;
 
@@ -44,29 +47,33 @@ export default function game() {
             <main>
                 <div className="game">
                     <h3 id="cookie-total-amount">{cookieTotalAmount} cookies</h3>
-                    <img 
+                    <img
+                        className="the-cookie"
                         src="../images/CookieClonerLogo_Smaller.png" 
                         onClick={() => manualCookeClick()}
                     />
                 </div>
+                <Container>
+                    <Row>
+                        <Col style={{ border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(cursor.id)}>
+                            <img className="building-icon" src={cursor.icon} />
+                            <h3 className="building-name">{cursor.name}</h3>
+                            <div>
+                                <h4 className="building-buy-cost" id="cursor-buy-cost">{cursor.buyCost}</h4>
+                                <h4 className="building-amount-owned" id="cursor-amount-owned">{cursor.amountOwned}</h4>
+                            </div>
+                        </Col>
 
-                <div className="building-container" onClick={() => purchaseStoreBuilding(cursor.id)}>
-                    <img className="building-icon" src={cursor.icon} />
-                    <h3 className="building-name">{cursor.name}</h3>
-                    <div>
-                        <h4 className="building-buy-cost" id="cursor-buy-cost">{cursor.buyCost}</h4>
-                        <h4 className="building-amount-owned" id="cursor-amount-owned">{cursor.amountOwned}</h4>
-                    </div>
-                </div>
-
-                <div className="building-container" onClick={() => purchaseStoreBuilding(grandma.id)}>
-                    <img className="building-icon" src={grandma.icon} />
-                    <h3 className="building-name">{grandma.name}</h3>
-                    <div>
-                        <h4 className="building-buy-cost" id="grandma-buy-cost">{grandma.buyCost}</h4>
-                        <h4 className="building-amount-owned" id="grandma-amount-owned">{grandma.amountOwned}</h4>
-                    </div>
-                </div>
+                        <Col style={{ border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(grandma.id)}>
+                            <img className="building-icon" src={grandma.icon} />
+                            <h3 className="building-name">{grandma.name}</h3>
+                            <div>
+                                <h4 className="building-buy-cost" id="grandma-buy-cost">{grandma.buyCost}</h4>
+                                <h4 className="building-amount-owned" id="grandma-amount-owned">{grandma.amountOwned}</h4>
+                            </div>
+                        </Col>
+                    </Row>
+                </Container>
             </main>
 
             <footer>
@@ -86,16 +93,21 @@ export default function game() {
                 align-items: center;
                 }
 
+                .the-cookie {
+                    margin-bottom: 8px;
+                    cursor: pointer;
+                    transition: scale 2s ease;
+                }
+
+                .the-cookie:hover {
+                    transform: scale(1.1);
+                }
+
                 #cookie-total-amount {
                     margin: 0;
                     line-height: 1.15;
                     font-size: 2rem;
                     text-align: center;
-                }
-
-                .building-container {
-                    grid-template-columns: [first] 200px [line2] 50px;
-                    grid-template-rows: [row1-start] 25% [row1-end] 100px;
                 }
 
                 .building-icon {
@@ -110,7 +122,7 @@ export default function game() {
 
                 .building-buy-cost {
                     font-size: 1.5rem;
-                    color: green;
+                    color: #76ff03;
                     float: left;
                 }
 
@@ -129,7 +141,7 @@ export default function game() {
                 }
 
                 footer {
-                width: 100%;
+                width: 150%;
                 height: 100px;
                 border-top: 1px solid #eaeaea;
                 display: flex;
@@ -198,6 +210,7 @@ export default function game() {
     function purchaseStoreBuilding(id: number) {
         let cost;
         let cookiesPerSecond;
+        console.log('Purchase: ' + id)
         switch (id) {
             case 0:
                 cost = calculateStoreBuildingCost(id);

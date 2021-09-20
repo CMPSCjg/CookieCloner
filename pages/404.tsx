@@ -51,7 +51,7 @@ export default function PageNotFound() {
                 }
 
                 footer {
-                width: 100%;
+                width: 150%;
                 height: 100px;
                 border-top: 1px solid #eaeaea;
                 display: flex;
