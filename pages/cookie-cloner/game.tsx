@@ -64,7 +64,7 @@ export default function game() {
     return (
         <div className="container">
             <Head>
-            <title id="browser-title">{cookieTotalAmount} cookies</title>
+            <title id="browser-title">Cookie Cloner</title>
             <link rel="icon" href="/favicon.ico" />
             </Head>
 
@@ -83,7 +83,7 @@ export default function game() {
 
                 <Container>
                     <Row>
-                        <Col style={{ border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(cursor.id)}>
+                        <Col style={{ cursor: 'pointer', border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(cursor.id)}>
                             <img className="building-icon" src={cursor.icon} />
                             <h3 className="building-name">{cursor.name}</h3>
                             <div>
@@ -92,7 +92,7 @@ export default function game() {
                             </div>
                         </Col>
 
-                        <Col style={{ border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(grandma.id)}>
+                        <Col style={{ cursor: 'pointer', border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(grandma.id)}>
                             <img className="building-icon" src={grandma.icon} />
                             <h3 className="building-name">{grandma.name}</h3>
                             <div>
@@ -103,7 +103,7 @@ export default function game() {
                     </Row>
 
                     <Row>
-                        <Col style={{ border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(farm.id)}>
+                        <Col style={{ cursor: 'pointer', border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(farm.id)}>
                             <img className="building-icon" src={farm.icon} />
                             <h3 className="building-name">{farm.name}</h3>
                             <div>
@@ -112,7 +112,7 @@ export default function game() {
                             </div>
                         </Col>
 
-                        <Col style={{ border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(mine.id)}>
+                        <Col style={{ cursor: 'pointer', border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(mine.id)}>
                             <img className="building-icon" src={mine.icon} />
                             <h3 className="building-name">{mine.name}</h3>
                             <div>
@@ -123,7 +123,7 @@ export default function game() {
                     </Row>
 
                     <Row>
-                        <Col style={{ border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(factory.id)}>
+                        <Col style={{ cursor: 'pointer', border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(factory.id)}>
                             <img className="building-icon" src={factory.icon} />
                             <h3 className="building-name">{factory.name}</h3>
                             <div>
@@ -132,7 +132,7 @@ export default function game() {
                             </div>
                         </Col>
 
-                        <Col style={{ border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(bank.id)}>
+                        <Col style={{ cursor: 'pointer', border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(bank.id)}>
                             <img className="building-icon" src={bank.icon} />
                             <h3 className="building-name">{bank.name}</h3>
                             <div>
@@ -169,6 +169,10 @@ export default function game() {
 
                 .the-cookie:hover {
                     transform: scale(1.1);
+                }
+
+                .the-cookie:active {
+                    transform: scale(1);
                 }
 
                 #cookie-total-amount {
@@ -254,6 +258,10 @@ export default function game() {
     )
 
     function manualCookeClick() {
+        const clickAudio = new Audio();
+        clickAudio.src = "../audio/click.mp3";
+        clickAudio.load();
+        clickAudio.play();
         cookieTotalAmount += 1;
         renderUpdatedCookieValues(cookieTotalAmount, cookiesPerSecond);
     }
