@@ -1,9 +1,4 @@
 import Head from 'next/head';
-import fetch from 'node-fetch';
-import { useEffect } from 'react';
-import RecipeCard from '../../components/recipe-card/recipe-card';
-import { NutritionalInformation } from '../../models/NutritionalInformation';
-import RecipesService, { MOCK_COOKIE_RECIPES_RESPONSE } from '../api/recipes';
 
 export default function recipes() {
 
