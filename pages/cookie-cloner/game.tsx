@@ -23,7 +23,7 @@ export default function game() {
         const gameProgressFromBrowser: GameProgress = getCurrentGameProgressFromBrowser(WINDOW); 
 
         cookieTotalAmount = gameProgressFromBrowser.cookieTotalAmount;
-        document.getElementById('cookie-total-amount').innerHTML = cookieTotalAmount + "<br>cookies<br>per second : " + cookiesPerSecond;
+        renderUpdatedCookieValues(cookieTotalAmount, cookiesPerSecond);
 
         cursor = new Cursor(gameProgressFromBrowser.store.cursor.amountOwned, gameProgressFromBrowser.store.cursor.buyCost);
         document.getElementById('cursor-buy-cost').innerHTML = gameProgressFromBrowser.store.cursor.buyCost + '';
@@ -40,7 +40,7 @@ export default function game() {
     return (
         <div className="container">
             <Head>
-            <title>Cookie Cloner</title>
+            <title id="browser-title">{cookieTotalAmount} cookies</title>
             <link rel="icon" href="/favicon.ico" />
             </Head>
 
@@ -179,7 +179,7 @@ export default function game() {
 
     function manualCookeClick() {
         cookieTotalAmount += 1;
-        document.getElementById('cookie-total-amount').innerHTML = cookieTotalAmount + "<br>cookies<br>per second : " + cookiesPerSecond;
+        renderUpdatedCookieValues(cookieTotalAmount, cookiesPerSecond);
     }
 
     function getCurrentGameProgressFromBrowser(window): any {
@@ -237,7 +237,7 @@ export default function game() {
         cookiesPerSecond =
             (cursor.amountOwned * cursor.cookiesPerSecond) +
             (grandma.amountOwned * grandma.cookiesPerSecond)
-        document.getElementById('cookie-total-amount').innerHTML = cookieTotalAmount + "<br>cookies<br>per second : " + cookiesPerSecond;
+        renderUpdatedCookieValues(cookieTotalAmount, cookiesPerSecond);
     }
 
     function calculateStoreBuildingCost(id: number) {
@@ -271,6 +271,7 @@ export default function game() {
 
         cookieTotalAmount += cookiesPerSecond;
         document.getElementById('cookie-total-amount').innerHTML = cookieTotalAmount + "<br>cookies<br>per second : " + cookiesPerSecond;
+        document.getElementById('browser-title').innerHTML = cookieTotalAmount + ' cookies';
 
         setInterval(() => {
             cookiesPerSecond =
@@ -278,7 +279,7 @@ export default function game() {
                 (grandma.amountOwned * grandma.cookiesPerSecond)
 
             cookieTotalAmount += cookiesPerSecond;
-            document.getElementById('cookie-total-amount').innerHTML = cookieTotalAmount + "<br>cookies<br>per second : " + cookiesPerSecond;
+            renderUpdatedCookieValues(cookieTotalAmount, cookiesPerSecond);
         }, 1000)
     }
 
@@ -303,6 +304,11 @@ export default function game() {
             );
             WINDOW.localStorage.setItem('CookieClonerGameProgress', serializedGameProgress);
         }, 60000)
+    }
+
+    function renderUpdatedCookieValues(cookieTotalAmount: number, cookiesPerSecond: number) {
+        document.getElementById('cookie-total-amount').innerHTML = cookieTotalAmount + "<br>cookies<br>per second : " + cookiesPerSecond;
+        document.getElementById('browser-title').innerHTML = cookieTotalAmount + ' cookies';
     }
 
     function getCurrentGameProgress(): GameProgress {
