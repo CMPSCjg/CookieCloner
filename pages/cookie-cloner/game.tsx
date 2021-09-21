@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { useEffect } from 'react';
-import { Col, Container, Row } from 'react-bootstrap';
+import { Col, Container, Row, Nav, Badge } from 'react-bootstrap';
 import { GameProgress } from '../../models/GameProgress';
 import { Cursor } from '../../models/store/Cursor';
 import { Grandma } from '../../models/store/Grandma';
@@ -26,16 +26,16 @@ export default function game() {
     let factory = new Factory(0, 130000);
     let bank = new Bank(0, 1400000);
 
-    useEffect(() => { 
+    useEffect(() => {
         WINDOW = window;
-        const gameProgressFromBrowser: GameProgress = getCurrentGameProgressFromBrowser(WINDOW); 
+        const gameProgressFromBrowser: GameProgress = getCurrentGameProgressFromBrowser(WINDOW);
 
         cookieTotalAmount = gameProgressFromBrowser.cookieTotalAmount;
 
         cursor = new Cursor(gameProgressFromBrowser.store.cursor.amountOwned, gameProgressFromBrowser.store.cursor.buyCost);
         document.getElementById('cursor-buy-cost').innerHTML = gameProgressFromBrowser.store.cursor.buyCost + '';
         document.getElementById('cursor-amount-owned').innerHTML = gameProgressFromBrowser.store.cursor.amountOwned + '';
-        
+
         grandma = new Grandma(gameProgressFromBrowser.store.grandma.amountOwned, gameProgressFromBrowser.store.grandma.buyCost);
         document.getElementById('grandma-buy-cost').innerHTML = gameProgressFromBrowser.store.grandma.buyCost + '';
         document.getElementById('grandma-amount-owned').innerHTML = gameProgressFromBrowser.store.grandma.amountOwned + '';
@@ -63,23 +63,42 @@ export default function game() {
 
     return (
         <div className="container">
+            <Nav
+                activeKey="/cookie-cloner/game"
+            >
+                <Nav.Item>
+                    <Nav.Link href="/">Home</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link href="/cookie-cloner/about">About</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link href="/cookie-cloner/game">Game</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link href="/cookie-cloner/recipes">Recipes</Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                    <Nav.Link href="/cookie-cloner/support-us">Support Us</Nav.Link>
+                </Nav.Item>
+            </Nav>
             <Head>
-            <title>Cookie Cloner</title>
-            <link rel="icon" href="/favicon.ico" />
+                <title>Cookie Cloner</title>
+                <link rel="icon" href="/favicon.ico" />
             </Head>
-
+            <Badge bg="warning" text="dark">cookies</Badge>
             <main>
                 <div className="game">
-                    <h3 id="cookie-total-amount">{cookieTotalAmount} cookies</h3>
+                    <h3 id="cookie-total-amount">{cookieTotalAmount}cookies</h3>
                     <img
                         className="the-cookie"
-                        src="../images/CookieClonerLogo_Smaller.png" 
+                        src="../images/CookieClonerLogo_Smaller.png"
                         onClick={() => manualCookeClick()}
                     />
                 </div>
                 <p><strong>Game progress will automatically save every 60 seconds!</strong></p>
 
-                <p id="game-saved-message" className="game-saved" style={ { opacity: '0', height: '0' } }>Your game progress has been saved!</p>
+                <p id="game-saved-message" className="game-saved" style={{ opacity: '0', height: '0' }}>Your game progress has been saved!</p>
 
                 <Container>
                     <Row>
@@ -146,8 +165,8 @@ export default function game() {
 
             <footer>
                 <span>Powered by{' '}
-                <img src="/favicon.ico" alt="cookie" className="logo" />
-                s and users like you.
+                    <img src="/favicon.ico" alt="cookie" className="logo" />
+                    s and users like you.
                 </span>
             </footer>
 
@@ -280,7 +299,7 @@ export default function game() {
                     },
                     grandma: {
                         amountOwned: separatedGameProgress[3] ?? 0,
-                        buyCost: separatedGameProgress[4] ?? 100                    
+                        buyCost: separatedGameProgress[4] ?? 100
                     },
                     farm: {
                         amountOwned: separatedGameProgress[5] ?? 0,
@@ -302,7 +321,7 @@ export default function game() {
             }
             return gameProgress;
 
-        } catch(error) {
+        } catch (error) {
             console.error('Unable to get current game progress from browser: ' + error);
         }
     }
@@ -434,7 +453,7 @@ export default function game() {
         }, 1000)
     }
 
-    
+
     function beginGameProgressSavingEngine() {
 
 
