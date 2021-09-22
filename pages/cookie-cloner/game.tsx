@@ -1,6 +1,7 @@
 import Head from 'next/head'
+import Nav from '../components/Nav';
 import { useEffect } from 'react';
-import { Col, Container, Row, Nav, Badge } from 'react-bootstrap';
+import { Col, Container, Row, Badge } from 'react-bootstrap';
 import { GameProgress } from '../../models/GameProgress';
 import { Cursor } from '../../models/store/Cursor';
 import { Grandma } from '../../models/store/Grandma';
@@ -63,29 +64,11 @@ export default function game() {
 
     return (
         <div className="container">
-            <Nav
-                activeKey="/cookie-cloner/game"
-            >
-                <Nav.Item>
-                    <Nav.Link href="/">Home</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link href="/cookie-cloner/about">About</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link href="/cookie-cloner/game">Game</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link href="/cookie-cloner/recipes">Recipes</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                    <Nav.Link href="/cookie-cloner/support-us">Support Us</Nav.Link>
-                </Nav.Item>
-            </Nav>
             <Head>
                 <title>Cookie Cloner</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+            <Nav></Nav>
             <Badge bg="warning" text="dark">cookies</Badge>
             <main>
                 <div className="game">
