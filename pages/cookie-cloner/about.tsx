@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Nav from '../components/Nav';
 
 export default function about() {
     return (
@@ -7,7 +8,7 @@ export default function about() {
             <title>Cookie Cloner</title>
             <link rel="icon" href="/favicon.ico" />
             </Head>
-
+            <Nav></Nav>
             <main>
                 <h1 className="title">
                     About

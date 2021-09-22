@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Nav from '../components/Nav';
 import { Row, Col, Container } from 'react-bootstrap'
 import * as kanyeQuotes from '../../public/mocks/kanye-quotes.json';
 
@@ -15,7 +16,7 @@ export default function supportUs() {
             <title>Cookie Cloner</title>
             <link rel="icon" href="/favicon.ico" />
             </Head>
-
+            <Nav></Nav>
             <Row>
                 <Col></Col>
                 <Col xs={12}>
@@ -44,6 +45,13 @@ export default function supportUs() {
                             <div className="card">
                                 <h3 className="card-title">Send us merch from Kanye's DONDA release</h3>
                                 <p className="card-description">Looking specifically for these two long-sleeve shirts that were a limited release.</p>
+                                <img className="card-image" src="/images/donda-merch-main.png" />
+                            </div>
+                        </Col>
+                        <Col>
+                            <div className="card">
+                                <h3 className="card-title">Become a contributor</h3>
+                                <p className="card-description">Check out the repo on ➡️ <a href='https://github.com/CMPSCjg/CookieCloner'>GitHub</a></p>
                                 <img className="card-image" src="/images/donda-merch-main.png" />
                             </div>
                         </Col>
@@ -101,6 +109,9 @@ export default function supportUs() {
                     margin: 0;
                     font-size: 1rem;
                     line-height: 1.5;
+                }
+                .card-description a {
+                    color: green;
                 }
 
                 .card-image {
