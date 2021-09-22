@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Nav from '../../components/nav/nav';
+import Navbar from '../../components/nav/nav';
 import { useEffect } from 'react';
 import { Col, Container, Row, Badge } from 'react-bootstrap';
 import { GameProgress } from '../../models/GameProgress';
@@ -68,7 +68,7 @@ export default function game() {
                 <title>Cookie Cloner</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Nav></Nav>
+            <Navbar></Navbar>
             <Badge bg="warning" text="dark">cookies</Badge>
             <main>
                 <div className="game">

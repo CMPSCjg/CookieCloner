@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Nav from '../../components/nav/nav';
+import Navbar from '../../components/nav/nav';
 
 export default function recipes() {
 
@@ -38,7 +38,7 @@ export default function recipes() {
             <title>Cookie Cloner</title>
             <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Nav></Nav>
+            <Navbar></Navbar>
             <main>
                 <h1 className="title">
                     Recipes

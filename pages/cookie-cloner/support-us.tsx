@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Nav from '../../components/nav/nav';
+import Navbar from '../../components/nav/nav';
 import { Row, Col, Container } from 'react-bootstrap'
 import * as kanyeQuotes from '../../public/mocks/kanye-quotes.json';
 
@@ -16,7 +16,7 @@ export default function supportUs() {
             <title>Cookie Cloner</title>
             <link rel="icon" href="/favicon.ico" />
             </Head>
-            <Nav></Nav>
+            <Navbar></Navbar>
             <Row>
                 <Col></Col>
                 <Col xs={12}>

@@ -1,8 +1,10 @@
 import { Nav } from 'react-bootstrap';
 
-export default function nav() {
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+export default function Navbar() {
     return (
-        <Nav>
+        <Nav style={{justifyContent: 'center'}}>
             <Nav.Item>
                 <Nav.Link href="/">Home</Nav.Link>
             </Nav.Item>
