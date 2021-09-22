@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Nav from '../components/Nav';
 import { Row, Col, Container } from 'react-bootstrap'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -12,14 +13,14 @@ export default function supportUs() {
             <title>Cookie Cloner</title>
             <link rel="icon" href="/favicon.ico" />
             </Head>
-
+            <Nav></Nav>
             <main>
                 <h1 className="title">
                     Support Us
                 </h1>
-
+                <hr />
                 <p className="description">
-                    This is a blank description.
+                    Contribute to the game on ➡️ <a href='https://github.com/CMPSCjg/CookieCloner'>GitHub.</a>
                 </p>
             </main>
 
@@ -94,6 +95,10 @@ export default function supportUs() {
                 .description {
                 line-height: 1.5;
                 font-size: 1.5rem;
+                }
+
+                .description a {
+                color: green;
                 }
 
                 code {
