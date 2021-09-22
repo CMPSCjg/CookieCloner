@@ -1,163 +1,162 @@
 import Head from 'next/head'
 import { Row, Col, Container } from 'react-bootstrap'
+import * as kanyeQuotes from '../../public/mocks/kanye-quotes.json';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 export default function supportUs() {
 
+    const randomKanyeQuoteIndex = Math.floor(Math.random() * kanyeQuotes.length);
+
     return (
-        <div className="container">
+        <Container>
             <Head>
             <title>Cookie Cloner</title>
             <link rel="icon" href="/favicon.ico" />
             </Head>
 
-            <main>
-                <h1 className="title">
-                    Support Us
-                </h1>
+            <Row>
+                <Col></Col>
+                <Col xs={12}>
+                    <h1 className="title">Support Us</h1>
 
-                <p className="description">
-                    This is a blank description.
-                </p>
-            </main>
+                    <p className="description">There are 2 options available for how you can help support Cookie Cloner!</p>
 
-            <footer>
-                <span>Powered by{' '}
-                <img src="/favicon.ico" alt="Vercel" className="logo" />
-                s and users like you.
-                </span>
-            </footer>
+                    <div className="donda-square" onClick={() => playDondaSound()} tabIndex={0}>
+                        <p className="donda-square-text">DONDA</p>
+                    </div>
+
+                    <Row>
+                        <Col>
+                            <div className="card">
+                                <h3 className="card-title">Stream DONDA</h3>
+                                <p className="card-description">Listen to DONDA on any streaming platform on repeat.</p>
+                                <Row>
+                                    <Col><img className="card-image clickable" src="/images/spotify.png" onClick={() => openDondaLink('spotify')}  tabIndex={0}/></Col>
+                                    <Col><img className="card-image clickable" src="/images/apple.png" onClick={() => openDondaLink('apple')}  tabIndex={0}/></Col>
+                                    <Col><img className="card-image clickable" src="/images/tidal.png" onClick={() => openDondaLink('tidal')}  tabIndex={0} /></Col>
+                                </Row>
+
+                            </div>
+                        </Col>
+                        <Col>
+                            <div className="card">
+                                <h3 className="card-title">Send us merch from Kanye's DONDA release</h3>
+                                <p className="card-description">Looking specifically for these two long-sleeve shirts that were a limited release.</p>
+                                <img className="card-image" src="/images/donda-merch-main.png" />
+                            </div>
+                        </Col>
+                    </Row>
+                </Col>
+                <Col></Col>
+            </Row>
+
+            <Row>
+                <div className="kanye-quote">
+                    {`"`}{kanyeQuotes[randomKanyeQuoteIndex]}{`"`}{`\t\t`}{' -- Kanye West'}
+                </div>
+            </Row>
 
             <style jsx>{`
-                .container {
-                min-height: 100vh;
-                padding: 0 0.5rem;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                }
-
-                main {
-                padding: 5rem 0;
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                }
-
-                footer {
-                width: 150%;
-                height: 100px;
-                border-top: 1px solid #eaeaea;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                }
-
-                footer a {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                }
-
-                a {
-                color: inherit;
-                text-decoration: none;
-                }
-
-                .title a {
-                color: #0070f3;
-                text-decoration: none;
-                }
-
-                .title a:hover,
-                .title a:focus,
-                .title a:active {
-                text-decoration: underline;
-                }
-
                 .title {
-                margin: 0;
-                line-height: 1.15;
-                font-size: 4rem;
-                }
-
-                .title,
-                .description {
-                text-align: center;
+                    font-size: 4rem;
+                    font-weight: 800;
+                    text-align: center;
                 }
 
                 .description {
-                line-height: 1.5;
-                font-size: 1.5rem;
+                    font-size: 1.5rem;
+                    text-align: center;
                 }
 
-                code {
-                background: #fafafa;
-                border-radius: 5px;
-                padding: 0.75rem;
-                font-size: 1.1rem;
-                font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-                    DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+                .donda-square {
+                    color: white;
+                    width: 100px;
+                    height: 100px;
+                    background-color: black;
+                    margin: auto auto 16px auto;
+                    cursor: pointer;
                 }
 
-                .grid {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-wrap: wrap;
-
-                max-width: 800px;
-                margin-top: 3rem;
+                .donda-square-text {
+                    text-align: center;
+                    line-height: 100px;
+                    font-weight: 600;
                 }
 
                 .card {
-                margin: 1rem;
-                flex-basis: 45%;
-                padding: 1.5rem;
-                text-align: left;
-                color: inherit;
-                text-decoration: none;
-                border: 1px solid #eaeaea;
-                border-radius: 10px;
-                transition: color 0.15s ease, border-color 0.15s ease;
+                    padding: 1.5rem;
+                    border: 2px #eaeaea solid;
+                    height: 480px;
+                    border-radius: 10px;
                 }
 
-                .card:hover,
-                .card:focus,
-                .card:active {
-                color: #0070f3;
-                border-color: #0070f3;
+                .card-title {
+                    margin: 0 0 1rem 0;
+                    font-size: 1.5rem;
                 }
 
-                .card h3 {
-                margin: 0 0 1rem 0;
-                font-size: 1.5rem;
+                .card-description {
+                    margin: 0;
+                    font-size: 1rem;
+                    line-height: 1.5;
                 }
 
-                .card p {
-                margin: 0;
-                font-size: 1.25rem;
-                line-height: 1.5;
+                .card-image {
+                    width: 95%;
+                    margin: auto;
                 }
 
-                .logo {
-                height: 1em;
+                .card-image:hover {
+                    transform: scale(1.1);
                 }
 
-                @media (max-width: 600px) {
-                .grid {
-                    width: 100%;
-                    flex-direction: column;
+                .clickable {
+                    cursor: pointer;
                 }
+
+                .kanye-quote {
+                    text-align: center;
+                    margin: auto;
+                    margin-top: 4rem;
+                    font-weight: 600;
+                    font-size: 1rem;
+                    width: 50%
                 }
-            `}
-            </style>
-        </div>
+            `}</style>
+        </Container>
     )
+
+    function playDondaSound() {
+        const audio = new Audio();
+        audio.src = "../audio/donda.mp3";
+        audio.load();
+        audio.play();
+    }
+
+    function openDondaLink(website: string) {
+        let albumUrl;
+
+        switch (website) {
+            case 'spotify': {
+                albumUrl = 'https://open.spotify.com/album/340MjPcVdiQRnMigrPybZA';
+                break;
+            }
+            case 'apple': {
+                albumUrl = 'https://music.apple.com/us/album/donda/1583449420';
+                break;
+            }
+            case 'tidal': {
+                albumUrl = 'https://tidal.com/browse/album/195728118';
+                break;
+            }
+            default: {
+                albumUrl = 'https://www.youtube.com/playlist?list=PL8czsbhQP4tvew4t_V2PL-wUMbxIUdz4o'
+            }
+        }
+
+        window.open(albumUrl, '_blank');
+    }
 }
 
