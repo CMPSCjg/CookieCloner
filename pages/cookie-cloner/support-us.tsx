@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Navbar from '../../components/nav/nav';
 import { Row, Col, Container } from 'react-bootstrap'
 import * as kanyeQuotes from '../../public/mocks/kanye-quotes.json';
 
@@ -15,13 +16,13 @@ export default function supportUs() {
             <title>Cookie Cloner</title>
             <link rel="icon" href="/favicon.ico" />
             </Head>
-
+            <Navbar></Navbar>
             <Row>
                 <Col></Col>
                 <Col xs={12}>
                     <h1 className="title">Support Us</h1>
 
-                    <p className="description">There are 2 options available for how you can help support Cookie Cloner!</p>
+                    <p className="description">There are 3 options available for how you can help support Cookie Cloner!</p>
 
                     <div className="donda-square" onClick={() => playDondaSound()} tabIndex={0}>
                         <p className="donda-square-text">DONDA</p>
@@ -33,9 +34,9 @@ export default function supportUs() {
                                 <h3 className="card-title">Stream DONDA</h3>
                                 <p className="card-description">Listen to DONDA on any streaming platform on repeat.</p>
                                 <Row>
-                                    <Col><img className="card-image clickable" src="/images/spotify.png" onClick={() => openDondaLink('spotify')}  tabIndex={0}/></Col>
-                                    <Col><img className="card-image clickable" src="/images/apple.png" onClick={() => openDondaLink('apple')}  tabIndex={0}/></Col>
-                                    <Col><img className="card-image clickable" src="/images/tidal.png" onClick={() => openDondaLink('tidal')}  tabIndex={0} /></Col>
+                                    <Col><img className="card-image clickable" src="/images/spotify.png" onClick={() => openLink('spotify')}  tabIndex={0}/></Col>
+                                    <Col><img className="card-image clickable" src="/images/apple.png" onClick={() => openLink('apple')}  tabIndex={0}/></Col>
+                                    <Col><img className="card-image clickable" src="/images/tidal.png" onClick={() => openLink('tidal')}  tabIndex={0}/></Col>
                                 </Row>
 
                             </div>
@@ -45,6 +46,13 @@ export default function supportUs() {
                                 <h3 className="card-title">Send us merch from Kanye's DONDA release</h3>
                                 <p className="card-description">Looking specifically for these two long-sleeve shirts that were a limited release.</p>
                                 <img className="card-image" src="/images/donda-merch-main.png" />
+                            </div>
+                        </Col>
+                        <Col>
+                            <div className="card">
+                                <h3 className="card-title">Become a contributor</h3>
+                                <p className="card-description">Check out the repo on GitHub.</p>
+                                <img className="card-image" src="/images/git-logo.png" onClick={() => openLink('github')}  tabIndex={0} />
                             </div>
                         </Col>
                     </Row>
@@ -135,28 +143,32 @@ export default function supportUs() {
         audio.play();
     }
 
-    function openDondaLink(website: string) {
-        let albumUrl;
+    function openLink(website: string) {
+        let url;
 
         switch (website) {
             case 'spotify': {
-                albumUrl = 'https://open.spotify.com/album/340MjPcVdiQRnMigrPybZA';
+                url = 'https://open.spotify.com/album/340MjPcVdiQRnMigrPybZA';
                 break;
             }
             case 'apple': {
-                albumUrl = 'https://music.apple.com/us/album/donda/1583449420';
+                url = 'https://music.apple.com/us/album/donda/1583449420';
                 break;
             }
             case 'tidal': {
-                albumUrl = 'https://tidal.com/browse/album/195728118';
+                url = 'https://tidal.com/browse/album/195728118';
+                break;
+            }
+            case 'github': {
+                url = 'https://github.com/CMPSCjg/CookieCloner';
                 break;
             }
             default: {
-                albumUrl = 'https://www.youtube.com/playlist?list=PL8czsbhQP4tvew4t_V2PL-wUMbxIUdz4o'
+                url = 'https://www.youtube.com/playlist?list=PL8czsbhQP4tvew4t_V2PL-wUMbxIUdz4o'
             }
         }
 
-        window.open(albumUrl, '_blank');
+        window.open(url, '_blank');
     }
 }
 
