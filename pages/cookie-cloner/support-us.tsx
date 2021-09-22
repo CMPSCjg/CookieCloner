@@ -36,7 +36,7 @@ export default function supportUs() {
                                 <Row>
                                     <Col><img className="card-image clickable" src="/images/spotify.png" onClick={() => openDondaLink('spotify')}  tabIndex={0}/></Col>
                                     <Col><img className="card-image clickable" src="/images/apple.png" onClick={() => openDondaLink('apple')}  tabIndex={0}/></Col>
-                                    <Col><img className="card-image clickable" src="/images/tidal.png" onClick={() => openDondaLink('tidal')}  tabIndex={0} /></Col>
+                                    <Col><img className="card-image clickable" src="/images/tidal.png" onClick={() => openDondaLink('tidal')}  tabIndex={0}/></Col>
                                 </Row>
 
                             </div>
@@ -51,8 +51,8 @@ export default function supportUs() {
                         <Col>
                             <div className="card">
                                 <h3 className="card-title">Become a contributor</h3>
-                                <p className="card-description">Check out the repo on ➡️ <a href='https://github.com/CMPSCjg/CookieCloner'>GitHub</a></p>
-                                <img className="card-image" src="/images/git-logo.png" />
+                                <p className="card-description">Check out the repo on GitHub.</p>
+                                <img className="card-image" src="/images/git-logo.png" onClick={() => openDondaLink('github')}  tabIndex={0} />
                             </div>
                         </Col>
                     </Row>
@@ -160,6 +160,10 @@ export default function supportUs() {
             }
             case 'tidal': {
                 albumUrl = 'https://tidal.com/browse/album/195728118';
+                break;
+            }
+            case 'github': {
+                albumUrl = 'https://github.com/CMPSCjg/CookieCloner';
                 break;
             }
             default: {
