@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Nav from '../components/Nav';
+import Nav from '../../components/nav/nav';
 import { Row, Col, Container } from 'react-bootstrap'
 import * as kanyeQuotes from '../../public/mocks/kanye-quotes.json';
 
@@ -52,7 +52,7 @@ export default function supportUs() {
                             <div className="card">
                                 <h3 className="card-title">Become a contributor</h3>
                                 <p className="card-description">Check out the repo on ➡️ <a href='https://github.com/CMPSCjg/CookieCloner'>GitHub</a></p>
-                                <img className="card-image" src="/images/donda-merch-main.png" />
+                                <img className="card-image" src="/images/git-logo.png" />
                             </div>
                         </Col>
                     </Row>

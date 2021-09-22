@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Nav from '../components/Nav';
+import Nav from '../../components/nav/nav';
 
 export default function about() {
     return (

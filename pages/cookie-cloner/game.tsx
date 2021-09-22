@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import Nav from '../components/Nav';
+import Nav from '../../components/nav/nav';
 import { useEffect } from 'react';
 import { Col, Container, Row, Badge } from 'react-bootstrap';
 import { GameProgress } from '../../models/GameProgress';
