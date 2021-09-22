@@ -23,15 +23,19 @@ export default function supportUs() {
 
                     <p className="description">There are 2 options available for how you can help support Cookie Cloner!</p>
 
+                    <div className="donda-square" onClick={() => playDondaSound()} tabIndex={0}>
+                        <p className="donda-square-text">DONDA</p>
+                    </div>
+
                     <Row>
                         <Col>
                             <div className="card">
                                 <h3 className="card-title">Stream DONDA</h3>
                                 <p className="card-description">Listen to DONDA on any streaming platform on repeat.</p>
                                 <Row>
-                                    <Col><img className="card-image clickable" src="/images/spotify.png" onClick={() => openDondaLink('spotify')}/></Col>
-                                    <Col><img className="card-image clickable" src="/images/apple.png" onClick={() => openDondaLink('apple')}/></Col>
-                                    <Col><img className="card-image clickable" src="/images/tidal.png" onClick={() => openDondaLink('tidal')} /></Col>
+                                    <Col><img className="card-image clickable" src="/images/spotify.png" onClick={() => openDondaLink('spotify')}  tabIndex={0}/></Col>
+                                    <Col><img className="card-image clickable" src="/images/apple.png" onClick={() => openDondaLink('apple')}  tabIndex={0}/></Col>
+                                    <Col><img className="card-image clickable" src="/images/tidal.png" onClick={() => openDondaLink('tidal')}  tabIndex={0} /></Col>
                                 </Row>
 
                             </div>
@@ -66,6 +70,21 @@ export default function supportUs() {
                     text-align: center;
                 }
 
+                .donda-square {
+                    color: white;
+                    width: 100px;
+                    height: 100px;
+                    background-color: black;
+                    margin: auto auto 16px auto;
+                    cursor: pointer;
+                }
+
+                .donda-square-text {
+                    text-align: center;
+                    line-height: 100px;
+                    font-weight: 600;
+                }
+
                 .card {
                     padding: 1.5rem;
                     border: 2px #eaeaea solid;
@@ -89,6 +108,10 @@ export default function supportUs() {
                     margin: auto;
                 }
 
+                .card-image:hover {
+                    transform: scale(1.1);
+                }
+
                 .clickable {
                     cursor: pointer;
                 }
@@ -104,6 +127,13 @@ export default function supportUs() {
             `}</style>
         </Container>
     )
+
+    function playDondaSound() {
+        const audio = new Audio();
+        audio.src = "../audio/donda.mp3";
+        audio.load();
+        audio.play();
+    }
 
     function openDondaLink(website: string) {
         let albumUrl;
