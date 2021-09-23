@@ -22,6 +22,7 @@ export default function game() {
     const router = useRouter();
     let runningIntervalProcesses = [];
 
+    // Define cookie amount variables that can be used across the scope of the game.
     let cookieTotalAmount;
     let cookiesPerSecond;
 
@@ -34,36 +35,41 @@ export default function game() {
     let bank = new Bank(0, 1400000);
 
     useEffect(() => {
+        
+        // Retrieve the current game progress from their browser's local storage.
+        // The method has fallback code for default values if they either don't have progress or haven't unlocked buildings yet.
         WINDOW = window;
         const gameProgressFromBrowser: GameProgress = getCurrentGameProgressFromBrowser(WINDOW);
 
+        // Store their cookie total in memory and update the UI to reflect the value stored.
         cookieTotalAmount = gameProgressFromBrowser.cookieTotalAmount;
-
-        cursor = new Cursor(gameProgressFromBrowser.store.cursor.amountOwned, gameProgressFromBrowser.store.cursor.buyCost);
-        document.getElementById('cursor-buy-cost').innerHTML = gameProgressFromBrowser.store.cursor.buyCost + '';
-        document.getElementById('cursor-amount-owned').innerHTML = gameProgressFromBrowser.store.cursor.amountOwned + '';
-
-        grandma = new Grandma(gameProgressFromBrowser.store.grandma.amountOwned, gameProgressFromBrowser.store.grandma.buyCost);
-        document.getElementById('grandma-buy-cost').innerHTML = gameProgressFromBrowser.store.grandma.buyCost + '';
-        document.getElementById('grandma-amount-owned').innerHTML = gameProgressFromBrowser.store.grandma.amountOwned + '';
-
-        farm = new Farm(gameProgressFromBrowser.store.farm.amountOwned, gameProgressFromBrowser.store.farm.buyCost);
-        document.getElementById('farm-buy-cost').innerHTML = gameProgressFromBrowser.store.farm.buyCost + '';
-        document.getElementById('farm-amount-owned').innerHTML = gameProgressFromBrowser.store.farm.amountOwned + '';
-
-        mine = new Mine(gameProgressFromBrowser.store.mine.amountOwned, gameProgressFromBrowser.store.mine.buyCost);
-        document.getElementById('mine-buy-cost').innerHTML = gameProgressFromBrowser.store.mine.buyCost + '';
-        document.getElementById('mine-amount-owned').innerHTML = gameProgressFromBrowser.store.mine.amountOwned + '';
-
-        factory = new Factory(gameProgressFromBrowser.store.factory.amountOwned, gameProgressFromBrowser.store.factory.buyCost);
-        document.getElementById('factory-buy-cost').innerHTML = gameProgressFromBrowser.store.factory.buyCost + '';
-        document.getElementById('factory-amount-owned').innerHTML = gameProgressFromBrowser.store.factory.amountOwned + '';
-
-        bank = new Bank(gameProgressFromBrowser.store.bank.amountOwned, gameProgressFromBrowser.store.bank.buyCost);
-        document.getElementById('bank-buy-cost').innerHTML = gameProgressFromBrowser.store.bank.buyCost + '';
-        document.getElementById('bank-amount-owned').innerHTML = gameProgressFromBrowser.store.bank.amountOwned + '';
-
         renderUpdatedCookieValues(cookieTotalAmount, cookiesPerSecond);
+
+        // Instantiate the Cursor class with their total amount owned and the price for their next purchase. Update the UI to reflect these values.
+        cursor = new Cursor(gameProgressFromBrowser.store.cursor.amountOwned, gameProgressFromBrowser.store.cursor.buyCost);
+        renderUpdatedStoreValues(cursor.id);
+
+        // Instantiate the Grandma class with their total amount owned and the price for their next purchase. Update the UI to reflect these values.
+        grandma = new Grandma(gameProgressFromBrowser.store.grandma.amountOwned, gameProgressFromBrowser.store.grandma.buyCost);
+        renderUpdatedStoreValues(grandma.id);
+
+        // Instantiate the Farm class with their total amount owned and the price for their next purchase. Update the UI to reflect these values.~
+        farm = new Farm(gameProgressFromBrowser.store.farm.amountOwned, gameProgressFromBrowser.store.farm.buyCost);
+        renderUpdatedStoreValues(farm.id);
+
+        // Instantiate the Mine class with their total amount owned and the price for their next purchase. Update the UI to reflect these values.
+        mine = new Mine(gameProgressFromBrowser.store.mine.amountOwned, gameProgressFromBrowser.store.mine.buyCost);
+        renderUpdatedStoreValues(mine.id);
+
+        // Instantiate the Factory class with their total amount owned and the price for their next purchase. Update the UI to reflect these values.
+        factory = new Factory(gameProgressFromBrowser.store.factory.amountOwned, gameProgressFromBrowser.store.factory.buyCost);
+        renderUpdatedStoreValues(factory.id);
+
+        // Instantiate the Bank class with their total amount owned and the price for their next purchase. Update the UI to reflect these values.
+        bank = new Bank(gameProgressFromBrowser.store.bank.amountOwned, gameProgressFromBrowser.store.bank.buyCost);
+        renderUpdatedStoreValues(bank.id);
+
+        // Kick off the repeated, setInterval code to have the player gain cookies every second and save their progress to Local Storage every 60 seconds.
         beginCookieGeneratingEngine();
         beginGameProgressSavingEngine();
 
@@ -176,12 +182,12 @@ export default function game() {
                 }
 
                 .container {
-                min-height: 100vh;
-                padding: 0 0.5rem;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
+                    min-height: 100vh;
+                    padding: 0 0.5rem;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
                 }
 
                 .the-cookie {
@@ -231,49 +237,29 @@ export default function game() {
 
                 .building-amount-owned {
                     font-size: 1.5rem;
-                    font-family: gluten;
                     float: right;
                 }
 
                 main {
-                padding: 5rem 0;
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
+                    padding: 5rem 0;
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
                 }
 
                 footer {
-                width: 150%;
-                height: 100px;
-                border-top: 1px solid #eaeaea;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                }
-
-                footer a {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                }
-
-                a {
-                color: inherit;
-                text-decoration: none;
-                }
-                
-                code {
-                background: #fafafa;
-                border-radius: 5px;
-                padding: 0.75rem;
-                font-size: 1.1rem;
-                font-family: gluten;-
+                    width: 150%;
+                    height: 100px;
+                    border-top: 1px solid #eaeaea;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
                 }
 
                 .logo {
-                height: 1em;
+                    height: 1em;
                 }
             `}
             </style>
@@ -281,10 +267,13 @@ export default function game() {
     )
 
     function manualCookieClick() {
+        // Play the 'click' sound effect.
         const clickAudio = new Audio();
         clickAudio.src = "../audio/click.mp3";
         clickAudio.load();
         clickAudio.play();
+
+        // Update their total cookie amount by 1 and render this updated value on the UI.
         cookieTotalAmount += 1;
         renderUpdatedCookieValues(cookieTotalAmount, cookiesPerSecond);
     }
@@ -337,8 +326,7 @@ export default function game() {
                     cookieTotalAmount -= cursor.buyCost;
                     cursor.amountOwned++;
                     cursor.buyCost = calculateStoreBuildingCost(id);
-                    document.getElementById('cursor-buy-cost').innerHTML = cursor.buyCost + '';
-                    document.getElementById('cursor-amount-owned').innerHTML = cursor.amountOwned + '';
+                    renderUpdatedStoreValues(id);
                 }
                 break
             case 1:
@@ -346,8 +334,7 @@ export default function game() {
                     cookieTotalAmount -= grandma.buyCost;
                     grandma.amountOwned++;
                     grandma.buyCost = calculateStoreBuildingCost(id);
-                    document.getElementById('grandma-buy-cost').innerHTML = grandma.buyCost + '';
-                    document.getElementById('grandma-amount-owned').innerHTML = grandma.amountOwned + '';
+                    renderUpdatedStoreValues(id);
                 }
                 break
             case 2:
@@ -355,8 +342,7 @@ export default function game() {
                     cookieTotalAmount -= farm.buyCost;
                     farm.amountOwned++;
                     farm.buyCost = calculateStoreBuildingCost(id);
-                    document.getElementById('farm-buy-cost').innerHTML = farm.buyCost + '';
-                    document.getElementById('farm-amount-owned').innerHTML = farm.amountOwned + '';
+                    renderUpdatedStoreValues(id);
                 }
                 break
             case 3:
@@ -364,8 +350,7 @@ export default function game() {
                     cookieTotalAmount -= mine.buyCost;
                     mine.amountOwned++;
                     mine.buyCost = calculateStoreBuildingCost(id);
-                    document.getElementById('mine-buy-cost').innerHTML = mine.buyCost + '';
-                    document.getElementById('mine-amount-owned').innerHTML = mine.amountOwned + '';
+                    renderUpdatedStoreValues(id);
                 }
                 break
             case 4:
@@ -373,8 +358,7 @@ export default function game() {
                     cookieTotalAmount -= factory.buyCost;
                     factory.amountOwned++;
                     factory.buyCost = calculateStoreBuildingCost(id);
-                    document.getElementById('factory-buy-cost').innerHTML = factory.buyCost + '';
-                    document.getElementById('factory-amount-owned').innerHTML = factory.amountOwned + '';
+                    renderUpdatedStoreValues(id);
                 }
                 break
             case 5:
@@ -382,8 +366,7 @@ export default function game() {
                     cookieTotalAmount -= bank.buyCost;
                     bank.amountOwned++;
                     bank.buyCost = calculateStoreBuildingCost(id);
-                    document.getElementById('bank-buy-cost').innerHTML = bank.buyCost + '';
-                    document.getElementById('bank-amount-owned').innerHTML = bank.amountOwned + '';
+                    renderUpdatedStoreValues(id);
                 }
                 break
         }
@@ -488,27 +471,72 @@ export default function game() {
 
                 // Display the 'game progress has been saved' message and hide it again after 5 seconds.
                 if (gameSavedMessageElement) {
-                    document.getElementById("game-saved-message").style.opacity = '100%';
-                    document.getElementById("game-saved-message").style.height = 'auto';
+                    gameSavedMessageElement.style.opacity = '100%';
+                    gameSavedMessageElement.style.height = 'auto';
                     setTimeout(() => {
-                        document.getElementById("game-saved-message").style.opacity = '0';
-                        document.getElementById("game-saved-message").style.height = '0';
+                        gameSavedMessageElement.style.opacity = '0';
+                        gameSavedMessageElement.style.height = '0';
                     }, 5000)
                 }
             }, 60000)
         )
     }
 
-    async function renderUpdatedCookieValues(cookieTotalAmount: number, cookiesPerSecond: number) {
+    function renderUpdatedCookieValues(cookieTotalAmount: number, cookiesPerSecond: number) {
         const cookieTotalAmountElement: HTMLElement = document.getElementById('cookie-total-amount');
         const titleElement: HTMLTitleElement = document.querySelector('title');
+        const formattedCookieTotalAmount = formatLargerNumber(cookieTotalAmount);
+        const formattedCookiesPerSecond = formatLargerNumber(cookiesPerSecond);
 
         if (cookieTotalAmountElement) {
-            cookieTotalAmountElement.innerHTML = cookieTotalAmount + "<br>cookies<br>per second : " + cookiesPerSecond;
+            cookieTotalAmountElement.innerHTML = formattedCookieTotalAmount + "<br>cookies<br>per second : " + formattedCookiesPerSecond;
         }
 
         if (titleElement) {
-            titleElement.innerHTML = cookieTotalAmount + ' cookies - Cookie Cloner';
+            titleElement.innerHTML = formattedCookieTotalAmount + ' cookies - Cookie Cloner';
+        }
+    }
+
+    function renderUpdatedStoreValues(id: number) {
+        let formattedBuyCost;
+        let formattedAmountOwned;
+        switch (id) {
+            case 0:
+                formattedBuyCost = formatLargerNumber(cursor.buyCost);
+                formattedAmountOwned = formatLargerNumber(cursor.amountOwned);
+                document.getElementById('cursor-buy-cost').innerHTML = formattedBuyCost + '';
+                document.getElementById('cursor-amount-owned').innerHTML = formattedAmountOwned + '';
+                break
+            case 1:
+                formattedBuyCost = formatLargerNumber(grandma.buyCost);
+                formattedAmountOwned = formatLargerNumber(grandma.amountOwned);
+                document.getElementById('grandma-buy-cost').innerHTML = formattedBuyCost + '';
+                document.getElementById('grandma-amount-owned').innerHTML = formattedAmountOwned + '';
+                break
+            case 2:
+                formattedBuyCost = formatLargerNumber(farm.buyCost);
+                formattedAmountOwned = formatLargerNumber(farm.amountOwned);
+                document.getElementById('farm-buy-cost').innerHTML = formattedBuyCost + '';
+                document.getElementById('farm-amount-owned').innerHTML = formattedAmountOwned + '';
+                break
+            case 3:
+                formattedBuyCost = formatLargerNumber(mine.buyCost);
+                formattedAmountOwned = formatLargerNumber(mine.amountOwned);
+                document.getElementById('mine-buy-cost').innerHTML = formattedBuyCost + '';
+                document.getElementById('mine-amount-owned').innerHTML = formattedAmountOwned + '';
+                break
+            case 4:
+                formattedBuyCost = formatLargerNumber(factory.buyCost);
+                formattedAmountOwned = formatLargerNumber(factory.amountOwned);
+                document.getElementById('factory-buy-cost').innerHTML = formattedBuyCost + '';
+                document.getElementById('factory-amount-owned').innerHTML = formattedAmountOwned + '';
+                break
+            case 5:
+                formattedBuyCost = formatLargerNumber(bank.buyCost);
+                formattedAmountOwned = formatLargerNumber(bank.amountOwned);
+                document.getElementById('bank-buy-cost').innerHTML = formattedBuyCost + '';
+                document.getElementById('bank-amount-owned').innerHTML = formattedAmountOwned + '';
+                break
         }
     }
 
@@ -525,6 +553,10 @@ export default function game() {
             }
         }
         return gameProgress;
+    }
+
+    function formatLargerNumber(numberToFormat: number): string {
+        return numberToFormat?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
 }
 
