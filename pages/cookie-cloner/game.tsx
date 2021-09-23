@@ -1,8 +1,9 @@
-import Head from 'next/head'
-import Navbar from '../../components/nav/nav';
-import FontAdjust from '../../components/head/head'
+import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+
+import Navbar from '../../components/nav/nav';
+import FontAdjust from '../../components/head/head'
 import { GameProgress } from '../../models/GameProgress';
 import { Cursor } from '../../models/store/Cursor';
 import { Grandma } from '../../models/store/Grandma';
@@ -16,6 +17,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 var WINDOW;
 
 export default function game() {
+
+    // Maintain an array of interval IDs in order to stop these when the user navigates off this page.
+    const router = useRouter();
+    let runningIntervalProcesses = [];
 
     let cookieTotalAmount;
     let cookiesPerSecond;
@@ -61,6 +66,20 @@ export default function game() {
         renderUpdatedCookieValues(cookieTotalAmount, cookiesPerSecond);
         beginCookieGeneratingEngine();
         beginGameProgressSavingEngine();
+
+        // When the user navigates off the Game page, we will end each setInterval process.
+        //      beforePopState accounts for user hitting the 'back' button on their browser.
+        //      beforeUnload accounts for user navigating off the page user by typing a different URL.
+        router.beforePopState(() => {
+            runningIntervalProcesses.forEach(intervalId => clearInterval(intervalId));
+            runningIntervalProcesses = [];
+            return true;
+        })
+
+        window.addEventListener('beforeunload', () => {
+            runningIntervalProcesses.forEach(intervalId => clearInterval(intervalId));
+            runningIntervalProcesses = [];
+        })
     })
 
     return (
@@ -73,7 +92,7 @@ export default function game() {
                     <img
                         className="the-cookie"
                         src="../images/CookieClonerLogo_Smaller.png"
-                        onClick={() => manualCookeClick()}
+                        onClick={() => manualCookieClick()}
                     />
                 </div>
                 <p><strong>Game progress will automatically save every 60 seconds!</strong></p>
@@ -261,7 +280,7 @@ export default function game() {
         </div>
     )
 
-    function manualCookeClick() {
+    function manualCookieClick() {
         const clickAudio = new Audio();
         clickAudio.src = "../audio/click.mp3";
         clickAudio.load();
@@ -424,18 +443,20 @@ export default function game() {
         cookieTotalAmount += cookiesPerSecond;
         renderUpdatedCookieValues(cookieTotalAmount, cookiesPerSecond);
 
-        setInterval(() => {
-            cookiesPerSecond =
-                (cursor.amountOwned * cursor.cookiesPerSecond) +
-                (grandma.amountOwned * grandma.cookiesPerSecond) +
-                (farm.amountOwned * farm.cookiesPerSecond) +
-                (mine.amountOwned * mine.cookiesPerSecond) +
-                (factory.amountOwned * factory.cookiesPerSecond) +
-                (bank.amountOwned * bank.cookiesPerSecond)
+        runningIntervalProcesses.push( 
+            setInterval(() => {
+                cookiesPerSecond =
+                    (cursor.amountOwned * cursor.cookiesPerSecond) +
+                    (grandma.amountOwned * grandma.cookiesPerSecond) +
+                    (farm.amountOwned * farm.cookiesPerSecond) +
+                    (mine.amountOwned * mine.cookiesPerSecond) +
+                    (factory.amountOwned * factory.cookiesPerSecond) +
+                    (bank.amountOwned * bank.cookiesPerSecond)
 
-            cookieTotalAmount += cookiesPerSecond;
-            renderUpdatedCookieValues(cookieTotalAmount, cookiesPerSecond);
-        }, 1000)
+                cookieTotalAmount += cookiesPerSecond;
+                renderUpdatedCookieValues(cookieTotalAmount, cookiesPerSecond);
+            }, 1000)
+        );
     }
 
 
@@ -450,32 +471,44 @@ export default function game() {
             upgrades, etc.
         */
 
-        setInterval(() => {
-            const gameProgress = getCurrentGameProgress()
-            const serializedGameProgress = btoa(
-                gameProgress.cookieTotalAmount + ';' +
-                gameProgress.store.cursor.gameProgressToString() + ';' +
-                gameProgress.store.grandma.gameProgressToString() + ';' +
-                gameProgress.store.farm.gameProgressToString() + ';' +
-                gameProgress.store.mine.gameProgressToString() + ';' +
-                gameProgress.store.factory.gameProgressToString() + ';' +
-                gameProgress.store.bank.gameProgressToString() + ';'
-            );
-            WINDOW.localStorage.setItem('CookieClonerGameProgress', serializedGameProgress);
-            document.getElementById("game-saved-message").style.opacity = '100%';
-            document.getElementById("game-saved-message").style.height = 'auto';
-            setTimeout(() => {
-                document.getElementById("game-saved-message").style.opacity = '0';
-                document.getElementById("game-saved-message").style.height = '0';
-            }, 5000)
-        }, 60000)
+        runningIntervalProcesses.push( 
+            setInterval(() => {
+                const gameSavedMessageElement: HTMLElement = document.getElementById("game-saved-message");
+                const gameProgress = getCurrentGameProgress()
+                const serializedGameProgress = btoa(
+                    gameProgress.cookieTotalAmount + ';' +
+                    gameProgress.store.cursor.gameProgressToString() + ';' +
+                    gameProgress.store.grandma.gameProgressToString() + ';' +
+                    gameProgress.store.farm.gameProgressToString() + ';' +
+                    gameProgress.store.mine.gameProgressToString() + ';' +
+                    gameProgress.store.factory.gameProgressToString() + ';' +
+                    gameProgress.store.bank.gameProgressToString() + ';'
+                );
+                WINDOW.localStorage.setItem('CookieClonerGameProgress', serializedGameProgress);
+
+                // Display the 'game progress has been saved' message and hide it again after 5 seconds.
+                if (gameSavedMessageElement) {
+                    document.getElementById("game-saved-message").style.opacity = '100%';
+                    document.getElementById("game-saved-message").style.height = 'auto';
+                    setTimeout(() => {
+                        document.getElementById("game-saved-message").style.opacity = '0';
+                        document.getElementById("game-saved-message").style.height = '0';
+                    }, 5000)
+                }
+            }, 60000)
+        )
     }
 
     async function renderUpdatedCookieValues(cookieTotalAmount: number, cookiesPerSecond: number) {
-        document.getElementById('cookie-total-amount').innerHTML = cookieTotalAmount + "<br>cookies<br>per second : " + cookiesPerSecond;
+        const cookieTotalAmountElement: HTMLElement = document.getElementById('cookie-total-amount');
+        const titleElement: HTMLTitleElement = document.querySelector('title');
 
-        if (document.querySelector('title')) {
-            document.querySelector('title').innerHTML = cookieTotalAmount + ' cookies - Cookie Cloner';
+        if (cookieTotalAmountElement) {
+            cookieTotalAmountElement.innerHTML = cookieTotalAmount + "<br>cookies<br>per second : " + cookiesPerSecond;
+        }
+
+        if (titleElement) {
+            titleElement.innerHTML = cookieTotalAmount + ' cookies - Cookie Cloner';
         }
     }
 
