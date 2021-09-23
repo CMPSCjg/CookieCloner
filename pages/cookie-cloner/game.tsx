@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import Navbar from '../../components/nav/nav';
 import { useEffect } from 'react';
-import { Col, Container, Row, Badge } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 import { GameProgress } from '../../models/GameProgress';
 import { Cursor } from '../../models/store/Cursor';
 import { Grandma } from '../../models/store/Grandma';
@@ -69,7 +69,6 @@ export default function game() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar></Navbar>
-            <Badge bg="warning" text="dark">cookies</Badge>
             <main>
                 <div className="game">
                     <h3 id="cookie-total-amount">{cookieTotalAmount}cookies</h3>
