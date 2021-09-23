@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import Link from 'next/link'
 
+import { Container, Row, Col } from 'react-bootstrap';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Home() {
@@ -8,7 +10,7 @@ export default function Home() {
   const test: String = 'hello';
 
   return (
-    <div className="container">
+    <Container>
       <Head>
         <title>Cookie Cloner</title>
         <link rel="icon" href="/favicon.ico" />
@@ -17,35 +19,41 @@ export default function Home() {
       <main>
         <img src="/images/CookieClonerLogo_Smaller.png" />
 
-        <div className="grid">
-          <Link href="/cookie-cloner/game">
-            <a className="card">
-              <h3>Game &rarr;</h3>
-              <p>Click here to begin your cookie clicking journey!</p>
-            </a>
-          </Link>
+        <Col>
+          <Row>
+            <Link href="/cookie-cloner/game">
+              <a className="card">
+                <h3>Game &rarr;</h3>
+                <p>Click here to begin your cookie clicking journey!</p>
+              </a>
+            </Link>
+            <Link href="/cookie-cloner/about">
+              <a className="card">
+                <h3>About &rarr;</h3>
+                <p>Learn more about this project and its creators!</p>
+              </a>
+            </Link>
+          </Row>
+        </Col>
 
-          <Link href="/cookie-cloner/about">
-            <a className="card">
-              <h3>About &rarr;</h3>
-              <p>Learn more about this project and its creators!</p>
-            </a>
-          </Link>
+        <Col>
+          <Row>
+            <Link href="/cookie-cloner/recipes">
+              <a className="card">
+                <h3>Recipes &rarr;</h3>
+                <p>Discover new types of cookies and how to make them!</p>
+              </a>
+            </Link>
 
-          <Link href="/cookie-cloner/recipes">
-            <a className="card">
-              <h3>Recipes &rarr;</h3>
-              <p>Discover new types of cookies and how to make them!</p>
-            </a>
-          </Link>
-
-          <Link href="/cookie-cloner/support-us">
-            <a className="card">
-              <h3>Support Us &rarr;</h3>
-              <p>Learn more about how you can help to support this project!</p>
-            </a>
-          </Link>
-        </div>
+            <Link href="/cookie-cloner/support-us">
+              <a className="card">
+                <h3>Support Us &rarr;</h3>
+                <p>Learn more about how you can help to support this project!</p>
+              </a>
+            </Link>
+          </Row>
+        </Col>
+        
       </main>
 
       <footer>
@@ -187,6 +195,6 @@ export default function Home() {
           box-sizing: border-box;
         }
       `}</style>
-    </div>
+    </Container>
   )
 }

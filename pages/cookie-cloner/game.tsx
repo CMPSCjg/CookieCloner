@@ -63,7 +63,7 @@ export default function game() {
     })
 
     return (
-        <div className="container">
+        <Container>
             <Head>
                 <title>Cookie Cloner</title>
                 <link rel="icon" href="/favicon.ico" />
@@ -255,7 +255,7 @@ export default function game() {
                 }
             `}
             </style>
-        </div>
+        </Container>
     )
 
     function manualCookeClick() {

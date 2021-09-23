@@ -1,25 +1,27 @@
-import { Nav } from 'react-bootstrap';
+import { Navbar, Container, Nav } from 'react-bootstrap';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function Navbar() {
+export default function Navigation() {
     return (
-        <Nav style={{justifyContent: 'center'}}>
-            <Nav.Item>
-                <Nav.Link href="/">Home</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-                <Nav.Link href="/cookie-cloner/about">About</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-                <Nav.Link href="/cookie-cloner/game">Game</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-                <Nav.Link href="/cookie-cloner/recipes">Recipes</Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-                <Nav.Link href="/cookie-cloner/support-us">Support Us</Nav.Link>
-            </Nav.Item>
-        </Nav>
+        <Navbar bg="light" variant="light" fixed="top">
+            <Container>
+                <Navbar.Brand href="/">
+                    <img
+                    alt=""
+                    src="/images/CookieClonerLogo_Smaller.png"
+                    width="50"
+                    height="50"
+                    className="d-inline-block align-top"
+                />{' '}</Navbar.Brand>
+                <Nav className="me-auto">
+                    <Nav.Link href="/">Home</Nav.Link>
+                    <Nav.Link href="/cookie-cloner/about">About</Nav.Link>
+                    <Nav.Link href="/cookie-cloner/game">Game</Nav.Link>
+                    <Nav.Link href="/cookie-cloner/recipes">Recipes</Nav.Link>
+                    <Nav.Link href="/cookie-cloner/support-us">Support Us</Nav.Link>
+                </Nav>
+            </Container>
+        </Navbar>
     )
 }

@@ -60,6 +60,7 @@ export default function about() {
 
             <style jsx>{`
                 .title {
+                    margin-top: 120px;
                     font-size: 4rem;
                     font-weight: 800;
                     text-align: center;
