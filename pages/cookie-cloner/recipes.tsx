@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Navbar from '../../components/nav/nav';
+import FontAdjust from '../../components/head/head'
 
 export default function recipes() {
 
@@ -34,10 +35,7 @@ export default function recipes() {
 
     return (
         <div className="container">
-            <Head>
-            <title>Cookie Cloner</title>
-            <link rel="icon" href="/favicon.ico" />
-            </Head>
+            <FontAdjust></FontAdjust>
             <Navbar></Navbar>
             <main>
                 <h1 className="title">
@@ -57,6 +55,11 @@ export default function recipes() {
             </footer>
 
             <style jsx>{`
+            
+                * {
+                    font-family: gluten;
+                }
+
                 .container {
                 min-height: 100vh;
                 padding: 0 0.5rem;
@@ -127,8 +130,6 @@ export default function recipes() {
                 border-radius: 5px;
                 padding: 0.75rem;
                 font-size: 1.1rem;
-                font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-                    DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
                 }
 
                 .grid {

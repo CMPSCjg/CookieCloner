@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Navbar from '../../components/nav/nav';
+import FontAdjust from '../../components/head/head'
 import { useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { GameProgress } from '../../models/GameProgress';
@@ -64,10 +65,7 @@ export default function game() {
 
     return (
         <div className="container">
-            <Head>
-                <title>Cookie Cloner</title>
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
+            <FontAdjust></FontAdjust>
             <Navbar></Navbar>
             <main>
                 <div className="game">
@@ -153,6 +151,11 @@ export default function game() {
             </footer>
 
             <style jsx>{`
+            
+                * {
+                    font-family: gluten;
+                }
+
                 .container {
                 min-height: 100vh;
                 padding: 0 0.5rem;
@@ -209,6 +212,7 @@ export default function game() {
 
                 .building-amount-owned {
                     font-size: 1.5rem;
+                    font-family: gluten;
                     float: right;
                 }
 
@@ -246,8 +250,7 @@ export default function game() {
                 border-radius: 5px;
                 padding: 0.75rem;
                 font-size: 1.1rem;
-                font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-                    DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+                font-family: gluten;-
                 }
 
                 .logo {

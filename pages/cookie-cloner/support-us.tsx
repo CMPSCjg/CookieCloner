@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Navbar from '../../components/nav/nav';
+import FontAdjust from '../../components/head/head'
 import { Row, Col, Container } from 'react-bootstrap'
 import * as kanyeQuotes from '../../public/mocks/kanye-quotes.json';
 
@@ -11,10 +12,7 @@ export default function supportUs() {
 
     return (
         <Container>
-            <Head>
-            <title>Cookie Cloner</title>
-            <link rel="icon" href="/favicon.ico" />
-            </Head>
+            <FontAdjust></FontAdjust>   
             <Navbar></Navbar>
             <Row>
                 <Col></Col>
@@ -66,6 +64,11 @@ export default function supportUs() {
             </Row>
 
             <style jsx>{`
+            
+                * {
+                    font-family: gluten;
+                }
+
                 .title {
                     font-size: 4rem;
                     font-weight: 800;

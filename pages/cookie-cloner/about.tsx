@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Navbar from '../../components/nav/nav';
+import FontAdjust from '../../components/head/head'
 import { Row, Col, Container } from 'react-bootstrap';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -8,10 +9,7 @@ export default function about() {
 
     return (
         <Container>
-            <Head>
-            <title>Cookie Cloner</title>
-            <link rel="icon" href="/favicon.ico" />
-            </Head>
+            <FontAdjust></FontAdjust>
             <Navbar></Navbar>
             <Row>
                 <Col></Col>
@@ -59,6 +57,10 @@ export default function about() {
             </Row>
 
             <style jsx>{`
+            
+                * {
+                    font-family: gluten;
+                }
                 .title {
                     font-size: 4rem;
                     font-weight: 800;
@@ -82,7 +84,7 @@ export default function about() {
                 .donda-square-text {
                     text-align: center;
                     line-height: 100px;
-                    font-weight: 600;
+                    font-weight: 600;                    
                 }
 
                 .card {
