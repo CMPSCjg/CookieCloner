@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import Navbar from '../../components/nav/nav';
 import FontAdjust from '../../components/head/head'
 
