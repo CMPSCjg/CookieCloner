@@ -5,7 +5,6 @@ import * as kanyeQuotes from '../../public/mocks/kanye-quotes.json';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 export default function supportUs() {
 
     const randomKanyeQuoteIndex = Math.floor(Math.random() * kanyeQuotes.length);
@@ -52,7 +51,7 @@ export default function supportUs() {
                             <div className="card">
                                 <h3 className="card-title">Become a contributor</h3>
                                 <p className="card-description">Check out the repo on GitHub.</p>
-                                <img className="card-image" src="/images/git-logo.png" onClick={() => openLink('github')}  tabIndex={0} />
+                                <img className="card-image clickable" src="/images/git-logo.png" onClick={() => openLink('github')}  tabIndex={0} />
                             </div>
                         </Col>
                     </Row>
