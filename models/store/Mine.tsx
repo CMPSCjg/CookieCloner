@@ -5,7 +5,6 @@ export class Mine {
     amountOwned: number = 0;
     buyCost: number = 12000;
     cookiesPerSecond: number = 47;
-    sellPrice: number = 4000;
 
     constructor(amountOwned: number, buyCost: number) {
         this.amountOwned = amountOwned;
