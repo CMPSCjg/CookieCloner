@@ -5,7 +5,6 @@ export class Factory {
     amountOwned: number = 0;
     buyCost: number = 130000;
     cookiesPerSecond: number = 260;
-    sellPrice: number = 4500;
 
     constructor(amountOwned: number, buyCost: number) {
         this.amountOwned = amountOwned;

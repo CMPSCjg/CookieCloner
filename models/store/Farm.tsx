@@ -5,7 +5,6 @@ export class Farm {
     amountOwned: number = 0;
     buyCost: number = 1100;
     cookiesPerSecond: number = 8;
-    sellPrice: number = 366;
 
     constructor(amountOwned: number, buyCost: number) {
         this.amountOwned = amountOwned;
