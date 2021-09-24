@@ -740,7 +740,7 @@ export default function game() {
     }
 
     function formatLargerNumber(numberToFormat: number): string {
-        return numberToFormat?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return numberToFormat?.toLocaleString();
     }
 }
 
