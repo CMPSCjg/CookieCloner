@@ -342,10 +342,10 @@ export default function game() {
                             <h3 className="building-name">{wizardTower.name}</h3>
                             <Row>
                                 <Col>
-                                    <h4 className="building-buy-cost" id="wizardTower-buy-cost">{wizardTower.buyCost}</h4>
+                                    <h4 className="building-buy-cost" id="wizardtower-buy-cost">{wizardTower.buyCost}</h4>
                                 </Col>
                                 <Col>
-                                    <h4 className="building-amount-owned" id="wizardTower-amount-owned">{wizardTower.amountOwned}</h4>
+                                    <h4 className="building-amount-owned" id="wizardtower-amount-owned">{wizardTower.amountOwned}</h4>
                                 </Col>
                             </Row>
                             <Row>
@@ -380,10 +380,10 @@ export default function game() {
                             <h3 className="building-name">{alchemyLab.name}</h3>
                             <Row>
                                 <Col>
-                                    <h4 className="building-buy-cost" id="alchemyLab-buy-cost">{alchemyLab.buyCost}</h4>
+                                    <h4 className="building-buy-cost" id="alchemylab-buy-cost">{alchemyLab.buyCost}</h4>
                                 </Col>
                                 <Col>
-                                    <h4 className="building-amount-owned" id="alchemyLab-amount-owned">{alchemyLab.amountOwned}</h4>
+                                    <h4 className="building-amount-owned" id="alchemylab-amount-owned">{alchemyLab.amountOwned}</h4>
                                 </Col>
                             </Row>
                             <Row>
@@ -418,10 +418,10 @@ export default function game() {
                             <h3 className="building-name">{timeMachine.name}</h3>
                             <Row>
                                 <Col>
-                                    <h4 className="building-buy-cost" id="timeMachine-buy-cost">{timeMachine.buyCost}</h4>
+                                    <h4 className="building-buy-cost" id="timemachine-buy-cost">{timeMachine.buyCost}</h4>
                                 </Col>
                                 <Col>
-                                    <h4 className="building-amount-owned" id="timeMachine-amount-owned">{timeMachine.amountOwned}</h4>
+                                    <h4 className="building-amount-owned" id="timemachine-amount-owned">{timeMachine.amountOwned}</h4>
                                 </Col>
                             </Row>
                             <Row>
@@ -438,10 +438,10 @@ export default function game() {
                             <h3 className="building-name">{antimatterCondenser.name}</h3>
                             <Row>
                                 <Col>
-                                    <h4 className="building-buy-cost" id="antimatterCondenser-buy-cost">{antimatterCondenser.buyCost}</h4>
+                                    <h4 className="building-buy-cost" id="antimattercondenser-buy-cost">{antimatterCondenser.buyCost}</h4>
                                 </Col>
                                 <Col>
-                                    <h4 className="building-amount-owned" id="antimatterCondenser-amount-owned">{antimatterCondenser.amountOwned}</h4>
+                                    <h4 className="building-amount-owned" id="antimattercondenser-amount-owned">{antimatterCondenser.amountOwned}</h4>
                                 </Col>
                             </Row>
                             <Row>
@@ -494,10 +494,10 @@ export default function game() {
                             <h3 className="building-name">{fractalEngine.name}</h3>
                             <Row>
                                 <Col>
-                                    <h4 className="building-buy-cost" id="fractalEngine-buy-cost">{fractalEngine.buyCost}</h4>
+                                    <h4 className="building-buy-cost" id="fractalengine-buy-cost">{fractalEngine.buyCost}</h4>
                                 </Col>
                                 <Col>
-                                    <h4 className="building-amount-owned" id="fractalEngine-amount-owned">{fractalEngine.amountOwned}</h4>
+                                    <h4 className="building-amount-owned" id="fractalengine-amount-owned">{fractalEngine.amountOwned}</h4>
                                 </Col>
                             </Row>
                             <Row>
@@ -514,10 +514,10 @@ export default function game() {
                             <h3 className="building-name">{javascriptConsole.name}</h3>
                             <Row>
                                 <Col>
-                                    <h4 className="building-buy-cost" id="javascriptConsole-buy-cost">{javascriptConsole.buyCost}</h4>
+                                    <h4 className="building-buy-cost" id="javascriptconsole-buy-cost">{javascriptConsole.buyCost}</h4>
                                 </Col>
                                 <Col>
-                                    <h4 className="building-amount-owned" id="javascriptConsole-amount-owned">{javascriptConsole.amountOwned}</h4>
+                                    <h4 className="building-amount-owned" id="javascriptconsole-amount-owned">{javascriptConsole.amountOwned}</h4>
                                 </Col>
                             </Row>
                             <Row>
