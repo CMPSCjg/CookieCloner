@@ -1,6 +1,6 @@
 export class AlchemyLab {
     id: number = 9;
-    name: string = 'AlchemyLab';
+    name: string = 'Alchemy Lab';
     icon: string = '../images/alchemy-lab.png'
     amountOwned: number = 0;
     buyCost: number = 75000000000;

@@ -1,6 +1,6 @@
 export class FractalEngine {
     id: number = 15;
-    name: string = 'FractalEngine';
+    name: string = 'Fractal Engine';
     icon: string = '../images/fractal-engine.png'
     amountOwned: number = 0;
     buyCost: number = 310000000000000000;

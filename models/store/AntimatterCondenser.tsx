@@ -1,6 +1,6 @@
 export class AntimatterCondenser {
     id: number = 12;
-    name: string = 'AntimatterCondenser';
+    name: string = 'Antimatter Condenser';
     icon: string = '../images/antimatter-condenser.png'
     amountOwned: number = 0;
     buyCost: number = 170000000000000;

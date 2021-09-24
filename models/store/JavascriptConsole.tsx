@@ -1,6 +1,6 @@
 export class JavascriptConsole {
     id: number = 16;
-    name: string = 'JavascriptConsole';
+    name: string = 'Javascript Console';
     icon: string = '../images/javascript-console.png'
     amountOwned: number = 0;
     buyCost: number = 71000000000000000000;
