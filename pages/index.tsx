@@ -7,8 +7,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Home() {
 
-  const test: String = 'hello';
-
   return (
     <Container>
       <Head>
@@ -17,9 +15,10 @@ export default function Home() {
       </Head>
 
       <main>
-        <img src="/images/CookieClonerLogo_Smaller.png" />
-
-        <Col>
+        <img src="/images/cookie-logo.png" />
+        <h1>Cookie Cloner <span className="cc">℠</span></h1> 
+        <br /><br /><br /><br />
+        <Col lg={6}>
           <Row>
             <Link href="/cookie-cloner/game">
               <a className="card">
@@ -27,6 +26,7 @@ export default function Home() {
                 <p>Click here to begin your cookie clicking journey!</p>
               </a>
             </Link>
+
             <Link href="/cookie-cloner/about">
               <a className="card">
                 <h3>About &rarr;</h3>
@@ -36,7 +36,7 @@ export default function Home() {
           </Row>
         </Col>
 
-        <Col>
+        <Col lg={6}>
           <Row>
             <Link href="/cookie-cloner/recipes">
               <a className="card">
@@ -73,6 +73,10 @@ export default function Home() {
           align-items: center;
         }
 
+        .cc {
+          font-size: 20px;
+        }
+
         main {
           padding: 5rem 0;
           flex: 1;
@@ -83,7 +87,7 @@ export default function Home() {
         }
 
         footer {
-          width: 150%;
+          width: 100%;
           height: 100px;
           border-top: 1px solid #eaeaea;
           display: flex;

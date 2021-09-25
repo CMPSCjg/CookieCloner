@@ -9,9 +9,9 @@ export default function Navigation() {
                 <Navbar.Brand href="/">
                     <img
                     alt=""
-                    src="/images/CookieClonerLogo_Smaller.png"
-                    width="50"
-                    height="50"
+                    src="/images/cookie-logo.png"
+                    width="40"
+                    height="40"
                     className="d-inline-block align-top"
                 />{' '}</Navbar.Brand>
                 <Nav className="me-auto">
