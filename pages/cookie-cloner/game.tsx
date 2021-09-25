@@ -208,19 +208,37 @@ export default function game() {
                         <Col style={{ cursor: 'pointer', border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(cursor.id)}>
                             <img className="building-icon" src={cursor.icon} />
                             <h3 className="building-name">{cursor.name}</h3>
-                            <div>
-                                <h4 className="building-buy-cost" id="cursor-buy-cost">{cursor.buyCost}</h4>
-                                <h4 className="building-amount-owned" id="cursor-amount-owned">{cursor.amountOwned}</h4>
-                            </div>
+                            <Row>
+                                <Col>
+                                    <h4 className="building-buy-cost" id="cursor-buy-cost">{cursor.buyCost}</h4>
+                                </Col>
+                                <Col>
+                                    <h4 className="building-amount-owned" id="cursor-amount-owned">{cursor.amountOwned}</h4>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col>
+                                    <p className="building-cookies-per-second">Cookies per second: {formatLargerNumber(cursor.cookiesPerSecond)}</p>
+                                </Col>
+                            </Row>
                         </Col>
 
                         <Col style={{ cursor: 'pointer', border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(grandma.id)}>
                             <img className="building-icon" src={grandma.icon} />
                             <h3 className="building-name">{grandma.name}</h3>
-                            <div>
-                                <h4 className="building-buy-cost" id="grandma-buy-cost">{grandma.buyCost}</h4>
-                                <h4 className="building-amount-owned" id="grandma-amount-owned">{grandma.amountOwned}</h4>
-                            </div>
+                            <Row>
+                                <Col>
+                                    <h4 className="building-buy-cost" id="grandma-buy-cost">{grandma.buyCost}</h4>
+                                </Col>
+                                <Col>
+                                    <h4 className="building-amount-owned" id="grandma-amount-owned">{grandma.amountOwned}</h4>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col>
+                                    <p className="building-cookies-per-second">Cookies per second: {formatLargerNumber(grandma.cookiesPerSecond)}</p>
+                                </Col>
+                            </Row>
                         </Col>
                     </Row>
 
@@ -228,19 +246,37 @@ export default function game() {
                         <Col style={{ cursor: 'pointer', border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(farm.id)}>
                             <img className="building-icon" src={farm.icon} />
                             <h3 className="building-name">{farm.name}</h3>
-                            <div>
-                                <h4 className="building-buy-cost" id="farm-buy-cost">{farm.buyCost}</h4>
-                                <h4 className="building-amount-owned" id="farm-amount-owned">{farm.amountOwned}</h4>
-                            </div>
+                            <Row>
+                                <Col>
+                                    <h4 className="building-buy-cost" id="farm-buy-cost">{farm.buyCost}</h4>
+                                </Col>
+                                <Col>
+                                    <h4 className="building-amount-owned" id="farm-amount-owned">{farm.amountOwned}</h4>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col>
+                                    <p className="building-cookies-per-second">Cookies per second: {formatLargerNumber(farm.cookiesPerSecond)}</p>
+                                </Col>
+                            </Row>
                         </Col>
 
                         <Col style={{ cursor: 'pointer', border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(mine.id)}>
                             <img className="building-icon" src={mine.icon} />
                             <h3 className="building-name">{mine.name}</h3>
-                            <div>
-                                <h4 className="building-buy-cost" id="mine-buy-cost">{mine.buyCost}</h4>
-                                <h4 className="building-amount-owned" id="mine-amount-owned">{mine.amountOwned}</h4>
-                            </div>
+                            <Row>
+                                <Col>
+                                    <h4 className="building-buy-cost" id="mine-buy-cost">{mine.buyCost}</h4>
+                                </Col>
+                                <Col>
+                                    <h4 className="building-amount-owned" id="mine-amount-owned">{mine.amountOwned}</h4>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col>
+                                    <p className="building-cookies-per-second">Cookies per second: {formatLargerNumber(mine.cookiesPerSecond)}</p>
+                                </Col>
+                            </Row>
                         </Col>
                     </Row>
 
@@ -248,19 +284,37 @@ export default function game() {
                         <Col style={{ cursor: 'pointer', border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(factory.id)}>
                             <img className="building-icon" src={factory.icon} />
                             <h3 className="building-name">{factory.name}</h3>
-                            <div>
-                                <h4 className="building-buy-cost" id="factory-buy-cost">{factory.buyCost}</h4>
-                                <h4 className="building-amount-owned" id="factory-amount-owned">{factory.amountOwned}</h4>
-                            </div>
+                            <Row>
+                                <Col>
+                                    <h4 className="building-buy-cost" id="factory-buy-cost">{factory.buyCost}</h4>
+                                </Col>
+                                <Col>
+                                    <h4 className="building-amount-owned" id="factory-amount-owned">{factory.amountOwned}</h4>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col>
+                                    <p className="building-cookies-per-second">Cookies per second: {formatLargerNumber(factory.cookiesPerSecond)}</p>
+                                </Col>
+                            </Row>
                         </Col>
 
                         <Col style={{ cursor: 'pointer', border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(bank.id)}>
                             <img className="building-icon" src={bank.icon} />
                             <h3 className="building-name">{bank.name}</h3>
-                            <div>
-                                <h4 className="building-buy-cost" id="bank-buy-cost">{bank.buyCost}</h4>
-                                <h4 className="building-amount-owned" id="bank-amount-owned">{bank.amountOwned}</h4>
-                            </div>
+                            <Row>
+                                <Col>
+                                    <h4 className="building-buy-cost" id="bank-buy-cost">{bank.buyCost}</h4>
+                                </Col>
+                                <Col>
+                                    <h4 className="building-amount-owned" id="bank-amount-owned">{bank.amountOwned}</h4>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col>
+                                    <p className="building-cookies-per-second">Cookies per second: {formatLargerNumber(bank.cookiesPerSecond)}</p>
+                                </Col>
+                            </Row>
                         </Col>
                     </Row>
 
@@ -268,19 +322,37 @@ export default function game() {
                         <Col style={{ cursor: 'pointer', border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(temple.id)}>
                             <img className="building-icon" src={temple.icon} />
                             <h3 className="building-name">{temple.name}</h3>
-                            <div>
-                                <h4 className="building-buy-cost" id="temple-buy-cost">{temple.buyCost}</h4>
-                                <h4 className="building-amount-owned" id="temple-amount-owned">{temple.amountOwned}</h4>
-                            </div>
+                            <Row>
+                                <Col>
+                                    <h4 className="building-buy-cost" id="temple-buy-cost">{temple.buyCost}</h4>
+                                </Col>
+                                <Col>
+                                    <h4 className="building-amount-owned" id="temple-amount-owned">{temple.amountOwned}</h4>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col>
+                                    <p className="building-cookies-per-second">Cookies per second: {formatLargerNumber(temple.cookiesPerSecond)}</p>
+                                </Col>
+                            </Row>
                         </Col>
 
                         <Col style={{ cursor: 'pointer', border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(wizardTower.id)}>
                             <img className="building-icon" src={wizardTower.icon} />
                             <h3 className="building-name">{wizardTower.name}</h3>
-                            <div>
-                                <h4 className="building-buy-cost" id="wizardtower-buy-cost">{wizardTower.buyCost}</h4>
-                                <h4 className="building-amount-owned" id="wizardtower-amount-owned">{wizardTower.amountOwned}</h4>
-                            </div>
+                            <Row>
+                                <Col>
+                                    <h4 className="building-buy-cost" id="wizardtower-buy-cost">{wizardTower.buyCost}</h4>
+                                </Col>
+                                <Col>
+                                    <h4 className="building-amount-owned" id="wizardtower-amount-owned">{wizardTower.amountOwned}</h4>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col>
+                                    <p className="building-cookies-per-second">Cookies per second: {formatLargerNumber(wizardTower.cookiesPerSecond)}</p>
+                                </Col>
+                            </Row>
                         </Col>
                     </Row>
 
@@ -288,19 +360,37 @@ export default function game() {
                         <Col style={{ cursor: 'pointer', border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(shipment.id)}>
                             <img className="building-icon" src={shipment.icon} />
                             <h3 className="building-name">{shipment.name}</h3>
-                            <div>
-                                <h4 className="building-buy-cost" id="shipment-buy-cost">{shipment.buyCost}</h4>
-                                <h4 className="building-amount-owned" id="shipment-amount-owned">{shipment.amountOwned}</h4>
-                            </div>
+                            <Row>
+                                <Col>
+                                    <h4 className="building-buy-cost" id="shipment-buy-cost">{shipment.buyCost}</h4>
+                                </Col>
+                                <Col>
+                                    <h4 className="building-amount-owned" id="shipment-amount-owned">{shipment.amountOwned}</h4>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col>
+                                    <p className="building-cookies-per-second">Cookies per second: {formatLargerNumber(shipment.cookiesPerSecond)}</p>
+                                </Col>
+                            </Row>
                         </Col>
 
                         <Col style={{ cursor: 'pointer', border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(alchemyLab.id)}>
                             <img className="building-icon" src={alchemyLab.icon} />
                             <h3 className="building-name">{alchemyLab.name}</h3>
-                            <div>
-                                <h4 className="building-buy-cost" id="alchemylab-buy-cost">{alchemyLab.buyCost}</h4>
-                                <h4 className="building-amount-owned" id="alchemylab-amount-owned">{alchemyLab.amountOwned}</h4>
-                            </div>
+                            <Row>
+                                <Col>
+                                    <h4 className="building-buy-cost" id="alchemylab-buy-cost">{alchemyLab.buyCost}</h4>
+                                </Col>
+                                <Col>
+                                    <h4 className="building-amount-owned" id="alchemylab-amount-owned">{alchemyLab.amountOwned}</h4>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col>
+                                    <p className="building-cookies-per-second">Cookies per second: {formatLargerNumber(alchemyLab.cookiesPerSecond)}</p>
+                                </Col>
+                            </Row>
                         </Col>
                     </Row>
 
@@ -308,19 +398,37 @@ export default function game() {
                         <Col style={{ cursor: 'pointer', border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(portal.id)}>
                             <img className="building-icon" src={portal.icon} />
                             <h3 className="building-name">{portal.name}</h3>
-                            <div>
-                                <h4 className="building-buy-cost" id="portal-buy-cost">{portal.buyCost}</h4>
-                                <h4 className="building-amount-owned" id="portal-amount-owned">{portal.amountOwned}</h4>
-                            </div>
+                            <Row>
+                                <Col>
+                                    <h4 className="building-buy-cost" id="portal-buy-cost">{portal.buyCost}</h4>
+                                </Col>
+                                <Col>
+                                    <h4 className="building-amount-owned" id="portal-amount-owned">{portal.amountOwned}</h4>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col>
+                                    <p className="building-cookies-per-second">Cookies per second: {formatLargerNumber(portal.cookiesPerSecond)}</p>
+                                </Col>
+                            </Row>
                         </Col>
 
                         <Col style={{ cursor: 'pointer', border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(timeMachine.id)}>
                             <img className="building-icon" src={timeMachine.icon} />
                             <h3 className="building-name">{timeMachine.name}</h3>
-                            <div>
-                                <h4 className="building-buy-cost" id="timemachine-buy-cost">{timeMachine.buyCost}</h4>
-                                <h4 className="building-amount-owned" id="timemachine-amount-owned">{timeMachine.amountOwned}</h4>
-                            </div>
+                            <Row>
+                                <Col>
+                                    <h4 className="building-buy-cost" id="timemachine-buy-cost">{timeMachine.buyCost}</h4>
+                                </Col>
+                                <Col>
+                                    <h4 className="building-amount-owned" id="timemachine-amount-owned">{timeMachine.amountOwned}</h4>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col>
+                                    <p className="building-cookies-per-second">Cookies per second: {formatLargerNumber(timeMachine.cookiesPerSecond)}</p>
+                                </Col>
+                            </Row>
                         </Col>
                     </Row>
 
@@ -328,19 +436,37 @@ export default function game() {
                         <Col style={{ cursor: 'pointer', border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(antimatterCondenser.id)}>
                             <img className="building-icon" src={antimatterCondenser.icon} />
                             <h3 className="building-name">{antimatterCondenser.name}</h3>
-                            <div>
-                                <h4 className="building-buy-cost" id="antimattercondenser-buy-cost">{antimatterCondenser.buyCost}</h4>
-                                <h4 className="building-amount-owned" id="antimattercondenser-amount-owned">{antimatterCondenser.amountOwned}</h4>
-                            </div>
+                            <Row>
+                                <Col>
+                                    <h4 className="building-buy-cost" id="antimattercondenser-buy-cost">{antimatterCondenser.buyCost}</h4>
+                                </Col>
+                                <Col>
+                                    <h4 className="building-amount-owned" id="antimattercondenser-amount-owned">{antimatterCondenser.amountOwned}</h4>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col>
+                                    <p className="building-cookies-per-second">Cookies per second: {formatLargerNumber(antimatterCondenser.cookiesPerSecond)}</p>
+                                </Col>
+                            </Row>
                         </Col>
 
                         <Col style={{ cursor: 'pointer', border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(prism.id)}>
                             <img className="building-icon" src={prism.icon} />
                             <h3 className="building-name">{prism.name}</h3>
-                            <div>
-                                <h4 className="building-buy-cost" id="prism-buy-cost">{prism.buyCost}</h4>
-                                <h4 className="building-amount-owned" id="prism-amount-owned">{prism.amountOwned}</h4>
-                            </div>
+                            <Row>
+                                <Col>
+                                    <h4 className="building-buy-cost" id="prism-buy-cost">{prism.buyCost}</h4>
+                                </Col>
+                                <Col>
+                                    <h4 className="building-amount-owned" id="prism-amount-owned">{prism.amountOwned}</h4>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col>
+                                    <p className="building-cookies-per-second">Cookies per second: {formatLargerNumber(prism.cookiesPerSecond)}</p>
+                                </Col>
+                            </Row>
                         </Col>
                     </Row>
 
@@ -348,19 +474,37 @@ export default function game() {
                         <Col style={{ cursor: 'pointer', border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(chancemaker.id)}>
                             <img className="building-icon" src={chancemaker.icon} />
                             <h3 className="building-name">{chancemaker.name}</h3>
-                            <div>
-                                <h4 className="building-buy-cost" id="chancemaker-buy-cost">{chancemaker.buyCost}</h4>
-                                <h4 className="building-amount-owned" id="chancemaker-amount-owned">{chancemaker.amountOwned}</h4>
-                            </div>
+                            <Row>
+                                <Col>
+                                    <h4 className="building-buy-cost" id="chancemaker-buy-cost">{chancemaker.buyCost}</h4>
+                                </Col>
+                                <Col>
+                                    <h4 className="building-amount-owned" id="chancemaker-amount-owned">{chancemaker.amountOwned}</h4>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col>
+                                    <p className="building-cookies-per-second">Cookies per second: {formatLargerNumber(chancemaker.cookiesPerSecond)}</p>
+                                </Col>
+                            </Row>
                         </Col>
 
                         <Col style={{ cursor: 'pointer', border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(fractalEngine.id)}>
                             <img className="building-icon" src={fractalEngine.icon} />
                             <h3 className="building-name">{fractalEngine.name}</h3>
-                            <div>
-                                <h4 className="building-buy-cost" id="fractalengine-buy-cost">{fractalEngine.buyCost}</h4>
-                                <h4 className="building-amount-owned" id="fractalengine-amount-owned">{fractalEngine.amountOwned}</h4>
-                            </div>
+                            <Row>
+                                <Col>
+                                    <h4 className="building-buy-cost" id="fractalengine-buy-cost">{fractalEngine.buyCost}</h4>
+                                </Col>
+                                <Col>
+                                    <h4 className="building-amount-owned" id="fractalengine-amount-owned">{fractalEngine.amountOwned}</h4>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col>
+                                    <p className="building-cookies-per-second">Cookies per second: {formatLargerNumber(fractalEngine.cookiesPerSecond)}</p>
+                                </Col>
+                            </Row>
                         </Col>
                     </Row>
 
@@ -368,19 +512,37 @@ export default function game() {
                         <Col style={{ cursor: 'pointer', border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(javascriptConsole.id)}>
                             <img className="building-icon" src={javascriptConsole.icon} />
                             <h3 className="building-name">{javascriptConsole.name}</h3>
-                            <div>
-                                <h4 className="building-buy-cost" id="javascriptconsole-buy-cost">{javascriptConsole.buyCost}</h4>
-                                <h4 className="building-amount-owned" id="javascriptconsole-amount-owned">{javascriptConsole.amountOwned}</h4>
-                            </div>
+                            <Row>
+                                <Col>
+                                    <h4 className="building-buy-cost" id="javascriptconsole-buy-cost">{javascriptConsole.buyCost}</h4>
+                                </Col>
+                                <Col>
+                                    <h4 className="building-amount-owned" id="javascriptconsole-amount-owned">{javascriptConsole.amountOwned}</h4>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col>
+                                    <p className="building-cookies-per-second">Cookies per second: {formatLargerNumber(javascriptConsole.cookiesPerSecond)}</p>
+                                </Col>
+                            </Row>
                         </Col>
 
                         <Col style={{ cursor: 'pointer', border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(idleverse.id)}>
                             <img className="building-icon" src={idleverse.icon} />
                             <h3 className="building-name">{idleverse.name}</h3>
-                            <div>
-                                <h4 className="building-buy-cost" id="idleverse-buy-cost">{idleverse.buyCost}</h4>
-                                <h4 className="building-amount-owned" id="idleverse-amount-owned">{idleverse.amountOwned}</h4>
-                            </div>
+                            <Row>
+                                <Col>
+                                    <h4 className="building-buy-cost" id="idleverse-buy-cost">{idleverse.buyCost}</h4>
+                                </Col>
+                                <Col>
+                                    <h4 className="building-amount-owned" id="idleverse-amount-owned">{idleverse.amountOwned}</h4>
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col>
+                                    <p className="building-cookies-per-second">Cookies per second: {formatLargerNumber(idleverse.cookiesPerSecond)}</p>
+                                </Col>
+                            </Row>
                         </Col>
                     </Row>
                 </Container>
@@ -454,8 +616,15 @@ export default function game() {
                 }
 
                 .building-amount-owned {
-                    font-size: 1.5rem;
+                    font-size: 3.5rem;
                     float: right;
+                }
+
+                .building-cookies-per-second {
+                    color: white;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
                 }
 
                 main {
