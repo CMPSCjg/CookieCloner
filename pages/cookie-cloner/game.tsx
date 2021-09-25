@@ -103,6 +103,7 @@ export default function game() {
                         </Col>
                     </Row>
 
+                    {/* Testing out new styles - In development */}
                     <Col lg={6}>
                         <Row>
                             <a className="card" onClick={() => purchaseStoreBuilding(cursor.id)}>
@@ -124,7 +125,8 @@ export default function game() {
                             </a>
                         </Row>
                     </Col>
-
+                    {/* End style testing */}
+                    
                     <Row>
                         <Col style={{ cursor: 'pointer', border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(farm.id)}>
                             <img className="building-icon" src={farm.icon} />
