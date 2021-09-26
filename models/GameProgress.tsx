@@ -16,6 +16,7 @@ import { Shipment } from "./store/Shipment";
 import { Temple } from "./store/Temple";
 import { TimeMachine } from "./store/TimeMachine";
 import { WizardTower } from "./store/WizardTower";
+import { CursorUpgrades } from "./upgrades/CursorUpgrades";
 
 export interface GameProgress {
     cookieTotalAmount: number
@@ -38,5 +39,8 @@ export interface GameProgress {
         fractalEngine: Partial<FractalEngine>
         javascriptConsole: Partial<JavascriptConsole>
         idleverse: Partial<Idleverse>
+    },
+    upgrades: {
+        cursorUpgrades: Partial<CursorUpgrades>
     }
 }

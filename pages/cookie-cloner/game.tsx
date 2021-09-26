@@ -24,6 +24,8 @@ import { FractalEngine } from '../../models/store/FractalEngine';
 import { JavascriptConsole } from '../../models/store/JavascriptConsole';
 import { Idleverse } from '../../models/store/Idleverse';
 
+import { CursorUpgrades } from '../../models/upgrades/CursorUpgrades';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 var WINDOW;
@@ -58,6 +60,9 @@ export default function game() {
     let javascriptConsole = new JavascriptConsole(0, 71000000000000000000);
     let idleverse = new Idleverse(0, 12000000000000000000000);
 
+    // Define upgrades as classes that can be used across the scope of the game.
+    let cursorUpgrades = new CursorUpgrades(0);
+
     // Store these buildings in an array that can be looped over and reduce redundant code.
     let buildings: 
         Array<Cursor|Grandma|Farm|Mine|Factory|Bank|Temple|WizardTower|Shipment|AlchemyLab|
@@ -81,6 +86,10 @@ export default function game() {
     buildings.push(javascriptConsole);
     buildings.push(idleverse)
 
+    let upgrades: 
+        Array<CursorUpgrades> = [];
+    upgrades.push(cursorUpgrades);
+
     useEffect(() => {
         
         // Retrieve the current game progress from their browser's local storage.
@@ -95,6 +104,7 @@ export default function game() {
         // Update the Cursor class with their total amount owned and the price for their next purchase.
         cursor.amountOwned = gameProgressFromBrowser.store.cursor.amountOwned
         cursor.buyCost = gameProgressFromBrowser.store.cursor.buyCost
+        cursorUpgrades.level = gameProgressFromBrowser.upgrades.cursorUpgrades.level
 
         // Update the Grandma class with their total amount owned and the price for their next purchase.
         grandma.amountOwned = gameProgressFromBrowser.store.grandma.amountOwned
@@ -163,9 +173,11 @@ export default function game() {
         // Update the Idleverse class with their total amount owned and the price for their next purchase.
         idleverse.amountOwned = gameProgressFromBrowser.store.idleverse.amountOwned
         idleverse.buyCost = gameProgressFromBrowser.store.idleverse.buyCost
+        
 
         // Update the UI to reflect these values.
         renderUpdatedStoreValues(buildings)
+        renderUpdatedUpgradeValues(upgrades)
 
         // Kick off the repeated, setInterval code to have the player gain cookies every second and save their progress to Local Storage every 60 seconds.
         beginCookieGeneratingEngine();
@@ -190,6 +202,19 @@ export default function game() {
         <div className="container">
             <FontAdjust></FontAdjust>
             <Navbar></Navbar>
+            <Container>
+                <Row>
+                    <Col>
+                        <div onClick={() => purchaseBuildingUpgrade(cursor.id)}>
+                            <img className="building-icon" src={cursor.icon} />
+                            Cursor Upgrade
+                            <p>Cursors are <strong>twice</strong> as effective.</p>
+                            <p id="cursor-upgrade-owned-requirement">Amount Owned Requirement: {upgrades[0].unlockAmount[upgrades[0].level + 1]}</p>
+                            <p id="cursor-upgrade-cost">Cost: {upgrades[0].buyCost[upgrades[0].level + 1]}</p>
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
             <main>
                 <p id="game-saved-message" className="game-saved" style={{ opacity: '0' }}>Your game progress has been saved!</p>
                 <div className="game">
@@ -786,6 +811,11 @@ export default function game() {
                         amountOwned: separatedGameProgress[35] ?? 0,
                         buyCost: separatedGameProgress[36] ?? 12000000000000000000000
                     }
+                },
+                upgrades: {
+                    cursorUpgrades: {
+                        level: separatedGameProgress[37] ?? 0
+                    }
                 }
             }
             return gameProgress;
@@ -803,7 +833,22 @@ export default function game() {
             renderUpdatedStoreValues(buildings);
         }
 
-        cookiesPerSecond = calculateCookiesPerSecond(buildings);
+        cookiesPerSecond = calculateCookiesPerSecond(buildings, upgrades);
+        renderUpdatedCookieValues(cookieTotalAmount, cookiesPerSecond);
+    }
+
+    function purchaseBuildingUpgrade(id: number) {
+        const nextUpgradeLevel = upgrades[id]?.level + 1;
+        const currentAmountOwned = buildings[id].amountOwned;
+        if (cookieTotalAmount >= upgrades[id].buyCost[nextUpgradeLevel] && currentAmountOwned >= upgrades[id].unlockAmount[nextUpgradeLevel]) {
+            cookieTotalAmount -= upgrades[id].buyCost[nextUpgradeLevel];
+            upgrades[id].level = nextUpgradeLevel;
+            console.log('Purchase made: ' + upgrades[id].level)
+            // renderUpdatedStoreValues(buildings);
+            renderUpdatedUpgradeValues(upgrades);
+        }
+
+        cookiesPerSecond = calculateCookiesPerSecond(buildings, upgrades);
         renderUpdatedCookieValues(cookieTotalAmount, cookiesPerSecond);
     }
 
@@ -814,14 +859,14 @@ export default function game() {
     function beginCookieGeneratingEngine() {
 
         // When user first hits the page, render these values rather than waiting 1 second.
-        cookiesPerSecond = calculateCookiesPerSecond(buildings)
+        cookiesPerSecond = calculateCookiesPerSecond(buildings, upgrades);
         cookieTotalAmount += cookiesPerSecond;
         renderUpdatedCookieValues(cookieTotalAmount, cookiesPerSecond);
 
         // Every second, execute this code to add to their cookie total amount.
         runningIntervalProcesses.push( 
             setInterval(() => {
-                cookiesPerSecond = calculateCookiesPerSecond(buildings)
+                cookiesPerSecond = calculateCookiesPerSecond(buildings, upgrades);
                 cookieTotalAmount += cookiesPerSecond;
                 renderUpdatedCookieValues(cookieTotalAmount, cookiesPerSecond);
             }, 1000)
@@ -882,7 +927,8 @@ export default function game() {
             gameProgress.store.chancemaker.gameProgressToString() + ';' +
             gameProgress.store.fractalEngine.gameProgressToString() + ';' +
             gameProgress.store.javascriptConsole.gameProgressToString() + ';' +
-            gameProgress.store.idleverse.gameProgressToString() + ';'
+            gameProgress.store.idleverse.gameProgressToString() + ';' +
+            gameProgress.upgrades.cursorUpgrades.gameProgressToString()
         );
         WINDOW.localStorage.setItem('CookieClonerGameProgress', serializedGameProgress);
 
@@ -944,6 +990,23 @@ export default function game() {
         })
     }
 
+    function renderUpdatedUpgradeValues(upgrades: Array<CursorUpgrades>) {
+        upgrades.forEach(upgrade => {
+            const currentLevel = upgrade.level;
+            const formattedBuyCost = formatLargerNumber(upgrade.buyCost[currentLevel + 1]);
+            const formattedAmountOwnedRequirement = formatLargerNumber(upgrade.unlockAmount[currentLevel + 1]);
+            const buildingName = upgrade.name.toLowerCase().replace(/ /g, '');
+            const amountOwnedRequirementElement: HTMLElement = document.getElementById(buildingName + '-upgrade-owned-requirement');
+            const buyCostElement: HTMLElement = document.getElementById(buildingName + '-upgrade-cost');
+
+            if (amountOwnedRequirementElement)
+                amountOwnedRequirementElement.innerHTML = 'Amount Owned Requirement: ' + formattedAmountOwnedRequirement;
+
+            if (buyCostElement)
+                buyCostElement.innerHTML = 'Cost: ' + formattedBuyCost;
+        })
+    }
+
     function getCurrentGameProgress(): GameProgress {
         const gameProgress: GameProgress = {
             cookieTotalAmount,
@@ -966,15 +1029,22 @@ export default function game() {
                 fractalEngine,
                 javascriptConsole,
                 idleverse
+            },
+            upgrades: {
+                cursorUpgrades
             }
         }
         return gameProgress;
     }
 
     function calculateCookiesPerSecond(buildings: Array<Cursor|Grandma|Farm|Mine|Factory|Bank|Temple|WizardTower|Shipment|AlchemyLab|
-        Portal|TimeMachine|AntimatterCondenser|Prism|Chancemaker|FractalEngine|JavascriptConsole|Idleverse>) {
+        Portal|TimeMachine|AntimatterCondenser|Prism|Chancemaker|FractalEngine|JavascriptConsole|Idleverse>, upgrades: Array<CursorUpgrades>) {
             let cookiesPerSecond = 0;
-            buildings.forEach(building => cookiesPerSecond += (building.amountOwned * building.cookiesPerSecond));
+            buildings.forEach((building, index) =>
+                cookiesPerSecond += (
+                    (Math.pow(2, upgrades[index] ? upgrades[index].level : 0)) * (building.amountOwned * building.cookiesPerSecond)
+                )
+            )
 
             return cookiesPerSecond;
     }
