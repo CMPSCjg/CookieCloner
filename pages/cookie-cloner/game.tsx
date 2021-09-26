@@ -201,6 +201,13 @@ export default function game() {
                     />
                 </div>
                 <p><strong>Game progress will automatically save every 60 seconds!</strong></p>
+                <Row>
+                    <Col></Col>
+                    <Col>
+                        <button className="game-save-button" onClick={() => saveGameProgress()}>SAVE</button>
+                    </Col>
+                    <Col></Col>
+                </Row>
 
                 <Container>
                     <Row>
@@ -610,6 +617,21 @@ export default function game() {
                     75% { opacity: 1; }
                 }
 
+                .game-save-button {
+                    whitespace: no-wrap;
+                    background: white;
+                    border: 2px green solid;
+                    margin-bottom: 16px;
+                    color: green;
+                    transition: 0.5s ease;
+                }
+
+                .game-save-button:hover {
+                    background: green;
+                    color: white;
+                    border: 2px black solid;    
+                }
+
                 .building-icon {
                     float: left;
                     width: 33%;
@@ -813,42 +835,49 @@ export default function game() {
 
         runningIntervalProcesses.push( 
             setInterval(() => {
-                const gameSavedMessageElement: HTMLElement = document.getElementById("game-saved-message");
-                const gameProgress = getCurrentGameProgress()
-                const serializedGameProgress = btoa(
-                    gameProgress.cookieTotalAmount + ';' +
-                    gameProgress.store.cursor.gameProgressToString() + ';' +
-                    gameProgress.store.grandma.gameProgressToString() + ';' +
-                    gameProgress.store.farm.gameProgressToString() + ';' +
-                    gameProgress.store.mine.gameProgressToString() + ';' +
-                    gameProgress.store.factory.gameProgressToString() + ';' +
-                    gameProgress.store.bank.gameProgressToString() + ';' +
-                    gameProgress.store.temple.gameProgressToString() + ';' +
-                    gameProgress.store.wizardTower.gameProgressToString() + ';' +
-                    gameProgress.store.shipment.gameProgressToString() + ';' +
-                    gameProgress.store.alchemyLab.gameProgressToString() + ';' +
-                    gameProgress.store.portal.gameProgressToString() + ';' +
-                    gameProgress.store.timeMachine.gameProgressToString() + ';' +
-                    gameProgress.store.antimatterCondenser.gameProgressToString() + ';' +
-                    gameProgress.store.prism.gameProgressToString() + ';' +
-                    gameProgress.store.chancemaker.gameProgressToString() + ';' +
-                    gameProgress.store.fractalEngine.gameProgressToString() + ';' +
-                    gameProgress.store.javascriptConsole.gameProgressToString() + ';' +
-                    gameProgress.store.idleverse.gameProgressToString() + ';'
-                );
-                WINDOW.localStorage.setItem('CookieClonerGameProgress', serializedGameProgress);
 
-                // Display the 'game progress has been saved' message and hide it again after 5 seconds.
-                if (gameSavedMessageElement) {
-                    gameSavedMessageElement.style.opacity = '100%';
-                    gameSavedMessageElement.classList.add('game-saved-animation')
-                    setTimeout(() => {
-                        gameSavedMessageElement.style.opacity = '0';
-                        gameSavedMessageElement.classList.remove('game-saved-animation')
-                    }, 5000)
-                }
+                // Save the player's progress to their browser Local Storage.
+                saveGameProgress();
+
             }, 60000)
         )
+    }
+
+    function saveGameProgress() {
+        const gameSavedMessageElement: HTMLElement = document.getElementById("game-saved-message");
+        const gameProgress = getCurrentGameProgress()
+        const serializedGameProgress = btoa(
+            gameProgress.cookieTotalAmount + ';' +
+            gameProgress.store.cursor.gameProgressToString() + ';' +
+            gameProgress.store.grandma.gameProgressToString() + ';' +
+            gameProgress.store.farm.gameProgressToString() + ';' +
+            gameProgress.store.mine.gameProgressToString() + ';' +
+            gameProgress.store.factory.gameProgressToString() + ';' +
+            gameProgress.store.bank.gameProgressToString() + ';' +
+            gameProgress.store.temple.gameProgressToString() + ';' +
+            gameProgress.store.wizardTower.gameProgressToString() + ';' +
+            gameProgress.store.shipment.gameProgressToString() + ';' +
+            gameProgress.store.alchemyLab.gameProgressToString() + ';' +
+            gameProgress.store.portal.gameProgressToString() + ';' +
+            gameProgress.store.timeMachine.gameProgressToString() + ';' +
+            gameProgress.store.antimatterCondenser.gameProgressToString() + ';' +
+            gameProgress.store.prism.gameProgressToString() + ';' +
+            gameProgress.store.chancemaker.gameProgressToString() + ';' +
+            gameProgress.store.fractalEngine.gameProgressToString() + ';' +
+            gameProgress.store.javascriptConsole.gameProgressToString() + ';' +
+            gameProgress.store.idleverse.gameProgressToString() + ';'
+        );
+        WINDOW.localStorage.setItem('CookieClonerGameProgress', serializedGameProgress);
+
+        // Display the 'game progress has been saved' message and hide it again after 5 seconds.
+        if (gameSavedMessageElement) {
+            gameSavedMessageElement.style.opacity = '100%';
+            gameSavedMessageElement.classList.add('game-saved-animation')
+            setTimeout(() => {
+                gameSavedMessageElement.style.opacity = '0';
+                gameSavedMessageElement.classList.remove('game-saved-animation')
+            }, 5000)
+        }
     }
 
     function renderUpdatedCookieValues(cookieTotalAmount: number, cookiesPerSecond: number) {
