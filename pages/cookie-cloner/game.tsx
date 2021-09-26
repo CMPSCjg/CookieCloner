@@ -202,6 +202,12 @@ export default function game() {
                 </div>
                 <p><strong>Game progress will automatically save every 60 seconds!</strong></p>
                 <Row>
+                    <Col>                        
+                        <label style={ { height: '30px', paddingTop: '1px', paddingLeft: '6px', paddingRight: '6px' }} className="game-save-button">
+                            <input type="file" style={ { display: 'none' } } onChange={(event) => importSavedGameProgress(WINDOW, event)} />
+                            IMPORT SAVE
+                        </label>
+                    </Col>
                     <Col>
                         <button className="game-save-button" onClick={() => saveGameProgress()}>SAVE</button>
                     </Col>
@@ -842,6 +848,16 @@ export default function game() {
 
             }, 60000)
         )
+    }
+
+    async function importSavedGameProgress(window, event) {
+        // Retrieve the data from the text file uploaded by the player.
+        const incomingFile = event?.target?.files?.item(0);
+        const incomingFileText = await incomingFile?.text();
+        window.localStorage.setItem('CookieClonerGameProgress', incomingFileText);
+
+        // Refresh the page to pull in the updated game progress from their browser Local Storage.
+        window.location.reload();
     }
 
     function saveGameProgress() {
