@@ -202,11 +202,12 @@ export default function game() {
                 </div>
                 <p><strong>Game progress will automatically save every 60 seconds!</strong></p>
                 <Row>
-                    <Col></Col>
                     <Col>
                         <button className="game-save-button" onClick={() => saveGameProgress()}>SAVE</button>
                     </Col>
-                    <Col></Col>
+                    <Col>
+                        <button className="game-save-button" onClick={() => exportSavedGameProgress(WINDOW)}>EXPORT SAVE</button>
+                    </Col>
                 </Row>
 
                 <Container>
@@ -618,7 +619,7 @@ export default function game() {
                 }
 
                 .game-save-button {
-                    whitespace: no-wrap;
+                    white-space: nowrap;
                     background: white;
                     border: 2px green solid;
                     margin-bottom: 16px;
@@ -877,6 +878,20 @@ export default function game() {
                 gameSavedMessageElement.style.opacity = '0';
                 gameSavedMessageElement.classList.remove('game-saved-animation')
             }, 5000)
+        }
+    }
+
+    function exportSavedGameProgress(window) {
+        const gameProgress = window.localStorage.getItem('CookieClonerGameProgress');
+        if (gameProgress) {
+            const savedGameProgressFile = new Blob([gameProgress], { type: 'text/plain' });
+            const downloadUrl = URL.createObjectURL(savedGameProgressFile);
+            const anchor = document.createElement('a')
+
+            anchor.href = downloadUrl
+            anchor.download = 'cookie-cloner-game-save.txt'
+            anchor.click()
+            URL.revokeObjectURL(downloadUrl);
         }
     }
 
