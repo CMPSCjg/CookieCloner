@@ -256,7 +256,7 @@ export default function game() {
                     </Row>
 
                     {/* Testing out new styles - In development */}
-                    <Col lg={6}>
+                    {/* <Col lg={6}>
                         <Row>
                             <a className="card" onClick={() => purchaseStoreBuilding(cursor.id)}>
                                 <img className="building-icon" src={cursor.icon} />
@@ -276,7 +276,7 @@ export default function game() {
                                 </div>
                             </a>
                         </Row>
-                    </Col>
+                    </Col> */}
                     {/* End style testing */}
                     
                     <Row>
