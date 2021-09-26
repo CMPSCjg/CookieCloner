@@ -191,6 +191,7 @@ export default function game() {
             <FontAdjust></FontAdjust>
             <Navbar></Navbar>
             <main>
+                <p id="game-saved-message" className="game-saved" style={{ opacity: '0' }}>Your game progress has been saved!</p>
                 <div className="game">
                     <h3 id="cookie-total-amount">{cookieTotalAmount}cookies</h3>
                     <img
@@ -200,8 +201,6 @@ export default function game() {
                     />
                 </div>
                 <p><strong>Game progress will automatically save every 60 seconds!</strong></p>
-
-                <p id="game-saved-message" className="game-saved" style={{ opacity: '0', height: '0' }}>Your game progress has been saved!</p>
 
                 <Container>
                     <Row>
@@ -597,6 +596,18 @@ export default function game() {
                     color: white;
                     font-weight: 600;
                     background: green;
+                    cursor: default;
+                }
+
+                .game-saved-animation {
+                    animation: fadeinout 5s linear forwards;
+                }
+
+                @keyframes fadeinout {
+                    0%,100% { opacity: 0; }
+                    25% { opacity: 1; }
+                    50% { opacity: 1; }
+                    75% { opacity: 1; }
                 }
 
                 .building-icon {
@@ -830,10 +841,10 @@ export default function game() {
                 // Display the 'game progress has been saved' message and hide it again after 5 seconds.
                 if (gameSavedMessageElement) {
                     gameSavedMessageElement.style.opacity = '100%';
-                    gameSavedMessageElement.style.height = 'auto';
+                    gameSavedMessageElement.classList.add('game-saved-animation')
                     setTimeout(() => {
                         gameSavedMessageElement.style.opacity = '0';
-                        gameSavedMessageElement.style.height = '0';
+                        gameSavedMessageElement.classList.remove('game-saved-animation')
                     }, 5000)
                 }
             }, 60000)
