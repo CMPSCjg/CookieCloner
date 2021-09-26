@@ -1,10 +1,10 @@
-export class Cursor {
-    id: number = 0;
-    name: string = 'Cursor';
-    icon: string = '../images/cursor.png'
+export class Shipment {
+    id: number = 8;
+    name: string = 'Shipment';
+    icon: string = '../images/shipment.png'
     amountOwned: number = 0;
-    buyCost: number = 15;
-    cookiesPerSecond: number = 1;
+    buyCost: number = 5100000000;
+    cookiesPerSecond: number = 260000;
 
     constructor(amountOwned: number, buyCost: number) {
         this.amountOwned = amountOwned;

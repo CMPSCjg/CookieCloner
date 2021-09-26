@@ -5,7 +5,6 @@ export class Grandma {
     amountOwned: number = 0;
     buyCost: number = 100;
     cookiesPerSecond: number = 3;
-    sellPrice: number = 33;
 
     constructor(amountOwned: number, buyCost: number) {
         this.amountOwned = amountOwned;

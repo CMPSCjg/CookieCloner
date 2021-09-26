@@ -1,5 +1,5 @@
-import Head from 'next/head';
 import Navbar from '../../components/nav/nav';
+import FontAdjust from '../../components/head/head'
 
 import { Row, Col, Container } from 'react-bootstrap';
 
@@ -38,10 +38,7 @@ export default function recipes() {
         <>
             <Navbar></Navbar>
             <Container>
-                <Head>
-                    <title>Cookie Cloner</title>
-                    <link rel="icon" href="/favicon.ico" />
-                </Head>
+                <FontAdjust />
                 <Row>
                     <Col></Col>
                     <Col xs={12}>

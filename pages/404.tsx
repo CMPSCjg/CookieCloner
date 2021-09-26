@@ -1,13 +1,10 @@
-import Head from "next/head";
 import Link from "next/link";
+import FontAdjust from '../components/head/head'
 
 export default function PageNotFound() {
     return (
         <div className="container">
-            <Head>
-                <title>Cookie Cloner</title>
-                <link rel="icon" href="/favicon.ico" />
-            </Head>
+            <FontAdjust></FontAdjust>
 
             <main>
                 <img style={{width: '40%'}} src="images/404.jpg" />
@@ -32,6 +29,11 @@ export default function PageNotFound() {
             </footer>
 
             <style jsx>{`
+            
+                * {
+                    font-family: gluten;
+                }
+
                 .container {
                 min-height: 100vh;
                 padding: 0 0.5rem;

@@ -1,5 +1,5 @@
-import Head from 'next/head'
 import Link from 'next/link'
+import FontAdjust from '../components/head/head'
 
 import { Container, Row, Col } from 'react-bootstrap';
 
@@ -9,10 +9,7 @@ export default function Home() {
 
   return (
     <Container>
-      <Head>
-        <title>Cookie Cloner</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      <FontAdjust />
 
       <main>
         <img src="/images/cookie-logo.png" />
@@ -64,6 +61,11 @@ export default function Home() {
       </footer>
 
       <style jsx>{`
+
+        * {
+          font-family: gluten;
+        }
+        
         .container {
           min-height: 100vh;
           padding: 0 0.5rem;
