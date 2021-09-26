@@ -10,58 +10,59 @@ export default function supportUs() {
     const randomKanyeQuoteIndex = Math.floor(Math.random() * kanyeQuotes.length);
 
     return (
-        <Container>
-            <FontAdjust></FontAdjust>   
+        <>
             <Navbar></Navbar>
-            <Row>
-                <Col></Col>
-                <Col xs={12}>
-                    <h1 className="title">Support Us</h1>
+            <Container>
+                <FontAdjust />
+                <Row>
+                    <Col></Col>
+                    <Col xs={12}>
+                        <h1 className="title">Support Us</h1>
 
-                    <p className="description">There are 3 options available for how you can help support Cookie Cloner!</p>
+                        <p className="description">There are 3 options available for how you can help support Cookie Cloner!</p>
 
-                    <div className="donda-square" onClick={() => playDondaSound()} tabIndex={0}>
-                        <p className="donda-square-text">DONDA</p>
+                        <div className="donda-square" onClick={() => playDondaSound()} tabIndex={0}>
+                            <p className="donda-square-text">DONDA</p>
+                        </div>
+
+                        <Row>
+                            <Col>
+                                <div className="card">
+                                    <h3 className="card-title">Stream DONDA</h3>
+                                    <p className="card-description">Listen to DONDA on any streaming platform on repeat.</p>
+                                    <Row>
+                                        <Col><img className="card-image clickable" src="/images/spotify.png" onClick={() => openLink('spotify')} tabIndex={0} /></Col>
+                                        <Col><img className="card-image clickable" src="/images/apple.png" onClick={() => openLink('apple')} tabIndex={0} /></Col>
+                                        <Col><img className="card-image clickable" src="/images/tidal.png" onClick={() => openLink('tidal')} tabIndex={0} /></Col>
+                                    </Row>
+
+                                </div>
+                            </Col>
+                            <Col>
+                                <div className="card">
+                                    <h3 className="card-title">Send us merch from Kanye's DONDA release</h3>
+                                    <p className="card-description">Looking specifically for these two long-sleeve shirts that were a limited release.</p>
+                                    <img className="card-image" src="/images/donda-merch-main.png" />
+                                </div>
+                            </Col>
+                            <Col>
+                                <div className="card">
+                                    <h3 className="card-title">Become a contributor</h3>
+                                    <p className="card-description">Check out the repo on GitHub.</p>
+                                    <img className="card-image clickable" src="/images/git-logo.png" onClick={() => openLink('github')} tabIndex={0} />
+                                </div>
+                            </Col>
+                        </Row>
+                    </Col>
+                    <Col></Col>
+                </Row>
+
+                <Row>
+                    <div className="kanye-quote">
+                        {`"`}{kanyeQuotes[randomKanyeQuoteIndex]}{`"`}{`\t\t`}{' -- Kanye West'}
                     </div>
-
-                    <Row>
-                        <Col>
-                            <div className="card">
-                                <h3 className="card-title">Stream DONDA</h3>
-                                <p className="card-description">Listen to DONDA on any streaming platform on repeat.</p>
-                                <Row>
-                                    <Col><img className="card-image clickable" src="/images/spotify.png" onClick={() => openLink('spotify')}  tabIndex={0}/></Col>
-                                    <Col><img className="card-image clickable" src="/images/apple.png" onClick={() => openLink('apple')}  tabIndex={0}/></Col>
-                                    <Col><img className="card-image clickable" src="/images/tidal.png" onClick={() => openLink('tidal')}  tabIndex={0}/></Col>
-                                </Row>
-
-                            </div>
-                        </Col>
-                        <Col>
-                            <div className="card">
-                                <h3 className="card-title">Send us merch from Kanye's DONDA release</h3>
-                                <p className="card-description">Looking specifically for these two long-sleeve shirts that were a limited release.</p>
-                                <img className="card-image" src="/images/donda-merch-main.png" />
-                            </div>
-                        </Col>
-                        <Col>
-                            <div className="card">
-                                <h3 className="card-title">Become a contributor</h3>
-                                <p className="card-description">Check out the repo on GitHub.</p>
-                                <img className="card-image clickable" src="/images/git-logo.png" onClick={() => openLink('github')}  tabIndex={0} />
-                            </div>
-                        </Col>
-                    </Row>
-                </Col>
-                <Col></Col>
-            </Row>
-
-            <Row>
-                <div className="kanye-quote">
-                    {`"`}{kanyeQuotes[randomKanyeQuoteIndex]}{`"`}{`\t\t`}{' -- Kanye West'}
-                </div>
-            </Row>
-
+                </Row>
+            </Container>
             <style jsx>{`
             
                 * {
@@ -69,6 +70,7 @@ export default function supportUs() {
                 }
 
                 .title {
+                    margin-top: 120px;
                     font-size: 4rem;
                     font-weight: 800;
                     text-align: center;
@@ -134,7 +136,7 @@ export default function supportUs() {
                     width: 50%
                 }
             `}</style>
-        </Container>
+        </>
     )
 
     function playDondaSound() {

@@ -1,47 +1,56 @@
 import Link from 'next/link'
 import FontAdjust from '../components/head/head'
 
+import { Container, Row, Col } from 'react-bootstrap';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Home() {
 
-  const test: String = 'hello';
-
   return (
-    <div className="container">
-      <FontAdjust></FontAdjust>
+    <Container>
+      <FontAdjust />
+
       <main>
-        <img src="/images/CookieClonerLogo_Smaller.png" />
+        <img src="/images/cookie-logo.png" />
+        <h1>Cookie Cloner <span className="cc">℠</span></h1> 
+        <br /><br /><br /><br />
+        <Col lg={6}>
+          <Row>
+            <Link href="/cookie-cloner/game">
+              <a className="card">
+                <h3>Game &rarr;</h3>
+                <p>Click here to begin your cookie clicking journey!</p>
+              </a>
+            </Link>
 
-        <div className="grid">
-          <Link href="/cookie-cloner/game">
-            <a className="card">
-              <h3>Game &rarr;</h3>
-              <p>Click here to begin your cookie clicking journey!</p>
-            </a>
-          </Link>
+            <Link href="/cookie-cloner/about">
+              <a className="card">
+                <h3>About &rarr;</h3>
+                <p>Learn more about this project and its creators!</p>
+              </a>
+            </Link>
+          </Row>
+        </Col>
 
-          <Link href="/cookie-cloner/about">
-            <a className="card">
-              <h3>About &rarr;</h3>
-              <p>Learn more about this project and its creators!</p>
-            </a>
-          </Link>
+        <Col lg={6}>
+          <Row>
+            <Link href="/cookie-cloner/recipes">
+              <a className="card">
+                <h3>Recipes &rarr;</h3>
+                <p>Discover new types of cookies and how to make them!</p>
+              </a>
+            </Link>
 
-          <Link href="/cookie-cloner/recipes">
-            <a className="card">
-              <h3>Recipes &rarr;</h3>
-              <p>Discover new types of cookies and how to make them!</p>
-            </a>
-          </Link>
-
-          <Link href="/cookie-cloner/support-us">
-            <a className="card">
-              <h3>Support Us &rarr;</h3>
-              <p>Learn more about how you can help to support this project!</p>
-            </a>
-          </Link>
-        </div>
+            <Link href="/cookie-cloner/support-us">
+              <a className="card">
+                <h3>Support Us &rarr;</h3>
+                <p>Learn more about how you can help to support this project!</p>
+              </a>
+            </Link>
+          </Row>
+        </Col>
+        
       </main>
 
       <footer>
@@ -66,6 +75,10 @@ export default function Home() {
           align-items: center;
         }
 
+        .cc {
+          font-size: 20px;
+        }
+
         main {
           padding: 5rem 0;
           flex: 1;
@@ -76,7 +89,7 @@ export default function Home() {
         }
 
         footer {
-          width: 150%;
+          width: 100%;
           height: 100px;
           border-top: 1px solid #eaeaea;
           display: flex;
@@ -188,6 +201,6 @@ export default function Home() {
           box-sizing: border-box;
         }
       `}</style>
-    </div>
+    </Container>
   )
 }

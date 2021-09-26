@@ -1,6 +1,8 @@
 import Navbar from '../../components/nav/nav';
 import FontAdjust from '../../components/head/head'
 
+import { Row, Col, Container } from 'react-bootstrap';
+
 export default function recipes() {
 
     // let recipesData = MOCK_COOKIE_RECIPES_RESPONSE;
@@ -33,157 +35,89 @@ export default function recipes() {
 
 
     return (
-        <div className="container">
-            <FontAdjust></FontAdjust>
+        <>
             <Navbar></Navbar>
-            <main>
-                <h1 className="title">
-                    Recipes
-                </h1>
+            <Container>
+                <FontAdjust />
+                <Row>
+                    <Col></Col>
+                    <Col xs={12}>
+                        <h1 className="title">Recipes</h1>
 
-                <p className="description">
-                    This is a blank description.
-                </p>
-            </main>
-
-            <footer>
-                <span>Powered by{' '}
-                <img src="/favicon.ico" alt="Vercel" className="logo" />
-                s and users like you.
-                </span>
-            </footer>
-
+                        <p className="description">I am a demon. I live and breathe hot fire like Bill Clinton.</p>
+                    </Col>
+                    <Col></Col>
+                </Row>
+            </Container>
             <style jsx>{`
-            
-                * {
-                    font-family: gluten;
-                }
-
-                .container {
-                min-height: 100vh;
-                padding: 0 0.5rem;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                }
-
-                main {
-                padding: 5rem 0;
-                flex: 1;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                }
-
-                footer {
-                width: 150%;
-                height: 100px;
-                border-top: 1px solid #eaeaea;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                }
-
-                footer a {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                }
-
-                a {
-                color: inherit;
-                text-decoration: none;
-                }
-
-                .title a {
-                color: #0070f3;
-                text-decoration: none;
-                }
-
-                .title a:hover,
-                .title a:focus,
-                .title a:active {
-                text-decoration: underline;
-                }
-
                 .title {
-                margin: 0;
-                line-height: 1.15;
-                font-size: 4rem;
-                }
-
-                .title,
-                .description {
-                text-align: center;
+                    margin-top: 120px;
+                    font-size: 4rem;
+                    font-weight: 800;
+                    text-align: center;
                 }
 
                 .description {
-                line-height: 1.5;
-                font-size: 1.5rem;
+                    font-size: 1.5rem;
+                    text-align: center;
                 }
 
-                code {
-                background: #fafafa;
-                border-radius: 5px;
-                padding: 0.75rem;
-                font-size: 1.1rem;
+                .donda-square {
+                    color: white;
+                    width: 100px;
+                    height: 100px;
+                    background-color: black;
+                    margin: auto auto 16px auto;
+                    cursor: pointer;
                 }
 
-                .grid {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                flex-wrap: wrap;
-
-                max-width: 800px;
-                margin-top: 3rem;
+                .donda-square-text {
+                    text-align: center;
+                    line-height: 100px;
+                    font-weight: 600;
                 }
 
                 .card {
-                margin: 1rem;
-                flex-basis: 45%;
-                padding: 1.5rem;
-                text-align: left;
-                color: inherit;
-                text-decoration: none;
-                border: 1px solid #eaeaea;
-                border-radius: 10px;
-                transition: color 0.15s ease, border-color 0.15s ease;
+                    padding: 1.5rem;
+                    border: 2px #eaeaea solid;
+                    height: 480px;
+                    border-radius: 10px;
                 }
 
-                .card:hover,
-                .card:focus,
-                .card:active {
-                color: #0070f3;
-                border-color: #0070f3;
+                .card-title {
+                    margin: 0 0 1rem 0;
+                    font-size: 1.5rem;
                 }
 
-                .card h3 {
-                margin: 0 0 1rem 0;
-                font-size: 1.5rem;
+                .card-description {
+                    margin: 0;
+                    font-size: 1rem;
+                    line-height: 1.5;
                 }
 
-                .card p {
-                margin: 0;
-                font-size: 1.25rem;
-                line-height: 1.5;
+                .card-image {
+                    width: 95%;
+                    margin: auto;
                 }
 
-                .logo {
-                height: 1em;
+                .card-image:hover {
+                    transform: scale(1.1);
                 }
 
-                @media (max-width: 600px) {
-                .grid {
-                    width: 100%;
-                    flex-direction: column;
+                .clickable {
+                    cursor: pointer;
                 }
+
+                .kanye-quote {
+                    text-align: center;
+                    margin: auto;
+                    margin-top: 4rem;
+                    font-weight: 600;
+                    font-size: 1rem;
+                    width: 50%
                 }
-            `}
-            </style>
-        </div>
+            `}</style>
+        </>
     )
 }
 

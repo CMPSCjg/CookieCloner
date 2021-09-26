@@ -187,16 +187,16 @@ export default function game() {
     })
 
     return (
-        <div className="container">
-            <FontAdjust></FontAdjust>
+        <Container>
+            <FontAdjust />
             <Navbar></Navbar>
             <main>
                 <p id="game-saved-message" className="game-saved" style={{ opacity: '0' }}>Your game progress has been saved!</p>
                 <div className="game">
-                    <h3 id="cookie-total-amount">{cookieTotalAmount}cookies</h3>
+                    <h3 id="cookie-total-amount">{cookieTotalAmount}</h3>
                     <img
                         className="the-cookie"
-                        src="../images/CookieClonerLogo_Smaller.png"
+                        src="../images/cookie-logo.png"
                         onClick={() => manualCookieClick()}
                     />
                 </div>
@@ -255,6 +255,30 @@ export default function game() {
                         </Col>
                     </Row>
 
+                    {/* Testing out new styles - In development */}
+                    {/* <Col lg={6}>
+                        <Row>
+                            <a className="card" onClick={() => purchaseStoreBuilding(cursor.id)}>
+                                <img className="building-icon" src={cursor.icon} />
+                                <h3 className="building-name">{cursor.name}</h3>
+                                <div>
+                                    <h4 className="building-buy-cost" id="cursor-buy-cost">{cursor.buyCost}</h4>
+                                    <h4 className="building-amount-owned" id="cursor-amount-owned">{cursor.amountOwned}</h4>
+                                </div>
+                            </a>
+
+                            <a className="card">
+                                <img className="building-icon" src={cursor.icon} />
+                                <h3 className="building-name">{cursor.name}</h3>
+                                <div>
+                                    <h4 className="building-buy-cost" id="cursor-buy-cost">{cursor.buyCost}</h4>
+                                    <h4 className="building-amount-owned" id="cursor-amount-owned">{cursor.amountOwned}</h4>
+                                </div>
+                            </a>
+                        </Row>
+                    </Col> */}
+                    {/* End style testing */}
+                    
                     <Row>
                         <Col style={{ cursor: 'pointer', border: '2px black solid', background: '#9c8354', margin: '1px' }} onClick={() => purchaseStoreBuilding(farm.id)}>
                             <img className="building-icon" src={farm.icon} />
@@ -583,6 +607,9 @@ export default function game() {
                     align-items: center;
                 }
 
+                .odometer {
+                }
+
                 .the-cookie {
                     margin-bottom: 8px;
                     cursor: pointer;
@@ -659,12 +686,35 @@ export default function game() {
                     font-size: 3.5rem;
                     float: right;
                 }
-
-                .building-cookies-per-second {
-                    color: white;
-                    font-size: 1rem;
-                    font-weight: 600;
-                    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+                
+                .card {
+                    margin: 0.5rem;
+                    flex-basis: 45%;
+                    padding: 1.5rem;
+                    text-align: left;
+                    color: inherit;
+                    text-decoration: none;
+                    border: 4px solid #eaeaea;
+                    border-radius: 10px;
+                    transition: color 0.2s ease, border-color 0.2s ease;
+                  }
+          
+                .card:hover,
+                .card:focus,
+                .card:active {
+                    background-color: #E6CEA0;
+                    border-color: #9c8354;
+                }
+        
+                .card h3 {
+                margin: 0 0 1rem 0;
+                font-size: 1.5rem;
+                }
+        
+                .card p {
+                    margin: 0;
+                    font-size: 1.25rem;
+                    line-height: 1.5;
                 }
 
                 main {
@@ -677,7 +727,7 @@ export default function game() {
                 }
 
                 footer {
-                    width: 150%;
+                    width: 100%;
                     height: 100px;
                     border-top: 1px solid #eaeaea;
                     display: flex;
@@ -685,12 +735,19 @@ export default function game() {
                     align-items: center;
                 }
 
+                .building-cookies-per-second {
+                    color: white;
+                    font-size: 1rem;
+                    font-weight: 600;
+                    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+                }
+
                 .logo {
                     height: 1em;
                 }
             `}
             </style>
-        </div>
+        </Container>
     )
 
     function manualCookieClick() {

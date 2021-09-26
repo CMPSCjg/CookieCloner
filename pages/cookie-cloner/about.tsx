@@ -61,6 +61,7 @@ export default function about() {
                     font-family: gluten;
                 }
                 .title {
+                    margin-top: 120px;
                     font-size: 4rem;
                     font-weight: 800;
                     text-align: center;

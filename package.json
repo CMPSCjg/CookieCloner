@@ -10,6 +10,7 @@
   "dependencies": {
     "@types/react": "^17.0.21",
     "bootstrap": "^5.1.1",
+    "counterup2": "^2.0.2",
     "next": "^11.0.0",
     "node-fetch": "^3.0.0",
     "react": "17.0.2",
