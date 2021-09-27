@@ -2,8 +2,8 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 
-import Navbar from '../../components/nav/nav';
-import FontAdjust from '../../components/head/head'
+import NavbarComp from '../../components/nav/nav';
+import HeaderComp from '../../components/head/head'
 import FooterComp from '../../components/footer/footer';
 
 import { GameProgress } from '../../models/GameProgress';
@@ -190,8 +190,8 @@ export default function game() {
 
     return (
         <Container>
-            <FontAdjust />
-            <Navbar></Navbar>
+            <HeaderComp />
+            <NavbarComp />
             <main>
                 <p id="game-saved-message" className="game-saved" style={{ opacity: '0' }}>Your game progress has been saved!</p>
                 <div className="game">
@@ -587,7 +587,7 @@ export default function game() {
                 </Container>
             </main>
 
-            <FooterComp></FooterComp>
+            <FooterComp />
 
             <style jsx>{`
             

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import FontAdjust from '../components/head/head'
+import HeaderComp from '../components/head/head'
 import FooterComp from '../components/footer/footer';
 
 import { Container, Row, Col } from 'react-bootstrap';
@@ -10,7 +10,7 @@ export default function Home() {
 
   return (
     <Container>
-      <FontAdjust />
+      <HeaderComp />
       <main>
         <img src="/images/cookie-logo.png" />
         <h1>Cookie Cloner <span className="cc">℠</span></h1> 
@@ -53,7 +53,7 @@ export default function Home() {
         
       </main>
 
-      <FooterComp></FooterComp>
+      <FooterComp />
 
       <style jsx>{`
 

@@ -1,5 +1,5 @@
-import Navbar from '../../components/nav/nav';
-import FontAdjust from '../../components/head/head'
+import NavbarComp from '../../components/nav/nav';
+import HeaderComp from '../../components/head/head'
 import FooterComp from '../../components/footer/footer';
 
 import { Row, Col, Container } from 'react-bootstrap'
@@ -13,9 +13,9 @@ export default function supportUs() {
 
     return (
         <>
-            <Navbar></Navbar>
+            <NavbarComp />
             <Container>
-                <FontAdjust />
+                <HeaderComp />
                 <Row>
                     <Col></Col>
                     <Col xs={12}>
@@ -65,7 +65,7 @@ export default function supportUs() {
                     </div>
                 </Row>
             </Container>
-            <FooterComp></FooterComp>
+            <FooterComp />
             <style jsx>{`
             
                 * {
