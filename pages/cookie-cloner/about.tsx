@@ -25,8 +25,8 @@ export default function about() {
                                     <img className="card-image" src="/images/oknic.jfif" />
                                     <img className="card-image" src="/images/cmpscjg.PNG" />
                                     This project was created as a side project by {' '}
-                                    <a href="https://github.com/CMPSCjg" target="_blank">CMPSCjg</a> and {' '}
-                                    <a href="https://github.com/okni-c" target="_blank">okni-c</a>.
+                                    <a href="https://github.com/CMPSCjg" target="_blank" rel="noreferrer">CMPSCjg</a> and {' '}
+                                    <a href="https://github.com/okni-c" target="_blank" rel="noreferrer">okni-c</a>.
                                     
                                     <br />
                                     <br />
