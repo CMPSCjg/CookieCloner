@@ -1,5 +1,7 @@
 import Navbar from '../../components/nav/nav';
 import FontAdjust from '../../components/head/head'
+import FooterComp from '../../components/footer/footer';
+
 import { Row, Col, Container } from 'react-bootstrap';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -54,6 +56,8 @@ export default function about() {
                 </Col>
                 <Col></Col>
             </Row>
+
+            <FooterComp></FooterComp>
 
             <style jsx>{`
             

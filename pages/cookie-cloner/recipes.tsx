@@ -2,6 +2,7 @@ import { Row, Col, Container } from 'react-bootstrap';
 
 import Navbar from '../../components/nav/nav';
 import FontAdjust from '../../components/head/head';
+import FooterComp from '../../components/footer/footer';
 
 export default function recipes() {
 
@@ -53,6 +54,7 @@ export default function recipes() {
                     <Col></Col>
                 </Row>
             </Container>
+            <FooterComp></FooterComp>
             <style jsx>{`
 
                 * {

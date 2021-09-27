@@ -1,5 +1,7 @@
 import Navbar from '../../components/nav/nav';
 import FontAdjust from '../../components/head/head'
+import FooterComp from '../../components/footer/footer';
+
 import { Row, Col, Container } from 'react-bootstrap'
 import * as kanyeQuotes from '../../public/mocks/kanye-quotes.json';
 
@@ -63,6 +65,7 @@ export default function supportUs() {
                     </div>
                 </Row>
             </Container>
+            <FooterComp></FooterComp>
             <style jsx>{`
             
                 * {

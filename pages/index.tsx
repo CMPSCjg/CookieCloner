@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import FontAdjust from '../components/head/head'
+import FooterComp from '../components/footer/footer';
 
 import { Container, Row, Col } from 'react-bootstrap';
 
@@ -52,12 +53,7 @@ export default function Home() {
         
       </main>
 
-      <footer>
-        <span>Powered by{' '}
-          <img src="/favicon.ico" alt="Vercel" className="logo" />
-          s and users like you.
-        </span>
-      </footer>
+      <FooterComp></FooterComp>
 
       <style jsx>{`
 
@@ -83,21 +79,6 @@ export default function Home() {
           flex: 1;
           display: flex;
           flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer a {
-          display: flex;
           justify-content: center;
           align-items: center;
         }
