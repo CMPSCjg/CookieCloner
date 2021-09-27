@@ -54,6 +54,11 @@ export default function recipes() {
                 </Row>
             </Container>
             <style jsx>{`
+
+                * {
+                    font-family: gluten;
+                }
+
                 .title {
                     margin-top: 120px;
                     font-size: 4rem;
@@ -79,6 +84,7 @@ export default function recipes() {
                     margin-right: 8px;
                     margin-bottom: 8px;
                     padding-left: 16px;
+                    appearance: none;
                 }
 
                 .search-bar-input:hover {
@@ -88,6 +94,7 @@ export default function recipes() {
                 .search-bar-button {
                     border: none;
                     padding: 8px;
+                    background-color: rgb(239, 239, 239);
                 }
 
                 .search-bar-button:hover {
