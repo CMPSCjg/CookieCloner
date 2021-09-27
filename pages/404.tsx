@@ -1,5 +1,6 @@
 import Link from "next/link";
 import FontAdjust from '../components/head/head'
+import FooterComp from '../components/footer/footer';
 
 export default function PageNotFound() {
     return (
@@ -21,12 +22,7 @@ export default function PageNotFound() {
                 </Link>
             </main>
 
-            <footer>
-                <span>Powered by{' '}
-                <img src="/favicon.ico" alt="cookie" className="logo" />
-                s and users like you.
-                </span>
-            </footer>
+            <FooterComp></FooterComp>
 
             <style jsx>{`
             
