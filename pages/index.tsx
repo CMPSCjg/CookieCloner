@@ -10,7 +10,6 @@ export default function Home() {
   return (
     <Container>
       <FontAdjust />
-
       <main>
         <img src="/images/cookie-logo.png" />
         <h1>Cookie Cloner <span className="cc">℠</span></h1> 
@@ -19,14 +18,14 @@ export default function Home() {
           <Row>
             <Link href="/cookie-cloner/game">
               <a className="card">
-                <h3>Game &rarr;</h3>
+                <h3>Game 🎮</h3>
                 <p>Click here to begin your cookie clicking journey!</p>
               </a>
             </Link>
 
             <Link href="/cookie-cloner/about">
               <a className="card">
-                <h3>About &rarr;</h3>
+                <h3>About 🛈</h3>
                 <p>Learn more about this project and its creators!</p>
               </a>
             </Link>
@@ -37,14 +36,14 @@ export default function Home() {
           <Row>
             <Link href="/cookie-cloner/recipes">
               <a className="card">
-                <h3>Recipes &rarr;</h3>
+                <h3>Recipes 🍪</h3>
                 <p>Discover new types of cookies and how to make them!</p>
               </a>
             </Link>
 
             <Link href="/cookie-cloner/support-us">
               <a className="card">
-                <h3>Support Us &rarr;</h3>
+                <h3>Support Us ❤️</h3>
                 <p>Learn more about how you can help to support this project!</p>
               </a>
             </Link>
@@ -167,6 +166,7 @@ export default function Home() {
         .card h3 {
           margin: 0 0 1rem 0;
           font-size: 1.5rem;
+          font-weight: 600;
         }
 
         .card p {
