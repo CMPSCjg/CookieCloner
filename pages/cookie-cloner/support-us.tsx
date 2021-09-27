@@ -59,7 +59,7 @@ export default function supportUs() {
 
                 <Row>
                     <div className="kanye-quote">
-                        {`"`}{kanyeQuotes[randomKanyeQuoteIndex]}{`"`}{`\t\t`}{' -- Kanye West'}
+                        {`"`}{kanyeQuotes[randomKanyeQuoteIndex]}{`"`}<br />{' -- Kanye West'}
                     </div>
                 </Row>
             </Container>
@@ -130,7 +130,7 @@ export default function supportUs() {
                 .kanye-quote {
                     text-align: center;
                     margin: auto;
-                    margin-top: 4rem;
+                    margin-top: 2.5rem;
                     font-weight: 600;
                     font-size: 1rem;
                     width: 50%
