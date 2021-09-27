@@ -23,16 +23,6 @@ export default function recipes() {
     //     }
     // ]
 
-    // useEffect(() => {
-    //      fetch('http://localhost:3000/api/recipes').then(data => recipesData = data);
-    //     console.log('Recipes data: ' + JSON.stringify(recipesData))
-    // })
-
-    // fetch('http://localhost:3000/api/recipes').then(data => {
-    //     recipesData = data.body
-    //     console.log('data: ' + JSON.stringify(data))
-    // });
-
     return (
         <>
             <Navbar></Navbar>
@@ -49,6 +39,11 @@ export default function recipes() {
                             <button className="search-bar-button" type="submit">Search</button>
                         </form>
                         <p className="description">I am a demon. I live and breathe hot fire like Bill Clinton.</p>
+
+                        <br />
+                        <p className="description">TODO: REMOVE THIS WITH RECIPE CARDS.</p>
+                        <br />
+                        <p id="response-data"></p>
                     </Col>
                     <Col></Col>
                 </Row>
@@ -104,7 +99,7 @@ export default function recipes() {
         </>
     )
 
-    function searchForRecipe(event) {
+    async function searchForRecipe(event) {
         // Cancel the submit request from the browser side.
         if (event) event.preventDefault();
 
@@ -112,6 +107,15 @@ export default function recipes() {
         const recipeToSearchFor = event?.target?.children[0]?.value;
 
         // TODO: Construct API request with recipeToSearchFor as query parameter.
+        const response = await fetch('/api/recipes', {
+            method: 'POST',
+            body: JSON.stringify({ recipeToSearchFor }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        const responseData = await response.json();
+        document.getElementById('response-data').innerHTML = JSON.stringify(responseData);
     }
 }
 
