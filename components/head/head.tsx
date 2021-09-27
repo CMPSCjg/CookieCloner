@@ -2,7 +2,7 @@ import Head from 'next/head'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-export default function FontAdjust() {
+export default function HeaderComp() {
     return (
         <Head>
             <title>Cookie Cloner</title>

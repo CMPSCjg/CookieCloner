@@ -1,7 +1,7 @@
 import { Row, Col, Container } from 'react-bootstrap';
 
-import Navbar from '../../components/nav/nav';
-import FontAdjust from '../../components/head/head';
+import NavbarComp from '../../components/nav/nav';
+import HeaderComp from '../../components/head/head';
 import FooterComp from '../../components/footer/footer';
 
 export default function recipes() {
@@ -36,9 +36,9 @@ export default function recipes() {
 
     return (
         <>
-            <Navbar></Navbar>
+            <NavbarComp />
             <Container>
-                <FontAdjust />
+                <HeaderComp />
                 <Row>
                     <Col></Col>
                     <Col xs={12}>
@@ -54,7 +54,7 @@ export default function recipes() {
                     <Col></Col>
                 </Row>
             </Container>
-            <FooterComp></FooterComp>
+            <FooterComp />
             <style jsx>{`
 
                 * {
