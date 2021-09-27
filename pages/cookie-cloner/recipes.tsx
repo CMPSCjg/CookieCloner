@@ -1,7 +1,7 @@
-import Navbar from '../../components/nav/nav';
-import FontAdjust from '../../components/head/head'
-
 import { Row, Col, Container } from 'react-bootstrap';
+
+import Navbar from '../../components/nav/nav';
+import FontAdjust from '../../components/head/head';
 
 export default function recipes() {
 
@@ -33,7 +33,6 @@ export default function recipes() {
     //     console.log('data: ' + JSON.stringify(data))
     // });
 
-
     return (
         <>
             <Navbar></Navbar>
@@ -43,7 +42,12 @@ export default function recipes() {
                     <Col></Col>
                     <Col xs={12}>
                         <h1 className="title">Recipes</h1>
+                        <p className="description">You can enter your search below to find new recipes!</p>
 
+                        <form className="search-bar" onSubmit={(event) => searchForRecipe(event)}>
+                            <input className="search-bar-input" placeholder="Enter your search here. . ." />
+                            <button className="search-bar-button" type="submit">Search</button>
+                        </form>
                         <p className="description">I am a demon. I live and breathe hot fire like Bill Clinton.</p>
                     </Col>
                     <Col></Col>
@@ -62,62 +66,45 @@ export default function recipes() {
                     text-align: center;
                 }
 
-                .donda-square {
-                    color: white;
-                    width: 100px;
-                    height: 100px;
-                    background-color: black;
-                    margin: auto auto 16px auto;
-                    cursor: pointer;
-                }
-
-                .donda-square-text {
+                .search-bar {
                     text-align: center;
-                    line-height: 100px;
-                    font-weight: 600;
+                    margin: 16px;
                 }
 
-                .card {
-                    padding: 1.5rem;
+                .search-bar-input {
+                    width: 75%;
+                    height: 45px;
+                    border-radius: 32px;
                     border: 2px #eaeaea solid;
-                    height: 480px;
-                    border-radius: 10px;
+                    margin-right: 8px;
+                    margin-bottom: 8px;
+                    padding-left: 16px;
                 }
 
-                .card-title {
-                    margin: 0 0 1rem 0;
-                    font-size: 1.5rem;
+                .search-bar-input:hover {
+                    box-shadow: 0 1px 6px rgb(32 33 36 / 28%);
                 }
 
-                .card-description {
-                    margin: 0;
-                    font-size: 1rem;
-                    line-height: 1.5;
+                .search-bar-button {
+                    border: none;
+                    padding: 8px;
                 }
 
-                .card-image {
-                    width: 95%;
-                    margin: auto;
-                }
-
-                .card-image:hover {
-                    transform: scale(1.1);
-                }
-
-                .clickable {
-                    cursor: pointer;
-                }
-
-                .kanye-quote {
-                    text-align: center;
-                    margin: auto;
-                    margin-top: 4rem;
-                    font-weight: 600;
-                    font-size: 1rem;
-                    width: 50%
+                .search-bar-button:hover {
+                    border: 2px #c7c5c5 solid;
                 }
             `}</style>
         </>
     )
+
+    function searchForRecipe(event) {
+        // Cancel the submit request from the browser side.
+        if (event) event.preventDefault();
+
+        // Parse the entered recipe name from the search bar input field.
+        const recipeToSearchFor = event?.target?.children[0]?.value;
+
+        // TODO: Construct API request with recipeToSearchFor as query parameter.
+    }
 }
 
