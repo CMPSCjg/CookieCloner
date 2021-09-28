@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Navigation() {
     return (
-            <Navbar collapseOnSelect expand="lg" bg="light" variant="light" fixed="top">
+            <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
                 <Container>
                     <Navbar.Brand className="nav-logo" href="/">
                         <img
@@ -17,7 +17,6 @@ export default function Navigation() {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto">
-                            {/* <Nav.Link href="/">Home</Nav.Link> */}
                             <Nav.Link className="nav-link-cc" href="/cookie-cloner/about">About</Nav.Link>
                             <Nav.Link className="nav-link-cc" href="/cookie-cloner/game">Game</Nav.Link>
                             <Nav.Link className="nav-link-cc" href="/cookie-cloner/recipes">Recipes</Nav.Link>

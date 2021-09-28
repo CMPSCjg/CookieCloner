@@ -17,7 +17,7 @@ export default function Home() {
           <h1 className="cc-hero">Cookie Cloner <span className="cc">℠</span></h1>
         </div>
 
-        <br/><br/><br/>
+        <br/><br/>
 
         <Row>
           <Col lg={6}>
