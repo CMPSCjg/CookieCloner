@@ -3,6 +3,7 @@ import { Row, Col, Container } from 'react-bootstrap';
 import NavbarComp from '../../components/nav/nav';
 import HeaderComp from '../../components/head/head';
 import FooterComp from '../../components/footer/footer';
+import { RecipesApiResponse } from '../../models/recipes/RecipesApiResponse';
 
 export default function recipes() {
 
@@ -26,7 +27,7 @@ export default function recipes() {
                         <br />
                         <p className="description">TODO: REMOVE THIS WITH RECIPE CARDS.</p>
                         <br />
-                        <p id="response-data"></p>
+                        <p style={{ overflowWrap: 'break-word'}} id="response-data"></p>
                     </Col>
                     <Col></Col>
                 </Row>
@@ -103,7 +104,7 @@ export default function recipes() {
                 'Content-Type': 'application/json'
             }
         })
-        const responseData = await response.json();
+        const responseData: RecipesApiResponse = await response.json();
         document.getElementById('response-data').innerHTML = JSON.stringify(responseData);
     }
 }
