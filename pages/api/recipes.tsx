@@ -1,23 +1,30 @@
 export const MOCK_COOKIE_RECIPES_RESPONSE = JSON.parse(`
 {
-    "qt": "cookies",
-    "from": 0,
-    "to": 10,
-    "more": true,
-    "count": 7000,
+    "from": 1,
+    "to": 20,
+    "count": 10000,
+    "_links": {
+      "next": {
+        "href": "https://api.edamam.com/api/recipes/v2?q=sugar%20cookies&app_key=9e0e776f76b893572427067592520f82&_cont=CHcVQBtNNQphDmgVQntAEX4BYldzGgYEQWVFC2ARZFBwDQMAUXlSC2cRZANxAFZTQWxDUjETZFMhUgtSSjQUBGZCNQcnAAAVLnlSVSBMPkd5BgMbUSYRVTdgMgksRlpSAAcRXTVGcV84SU4%3D&type=public&app_id=75e7a254",
+        "title": "Next page"
+      }
+    },
     "hits": [
       {
         "recipe": {
-          "uri": "http://www.edamam.com/ontologies/edamam.owl#recipe_12c5f107ea0c997d567da017371b7ea5",
-          "label": "Lemon Cookies",
-          "image": "https://www.edamam.com/web-img/274/274460e085d9cb15a1bc70f0fcdb8065.jpg",
-          "source": "Epicurious",
-          "url": "https://www.epicurious.com/recipes/food/views/lemon-cookies-108920",
-          "shareAs": "http://www.edamam.com/recipe/lemon-cookies-12c5f107ea0c997d567da017371b7ea5/cookies",
-          "yield": 48,
-          "dietLabels": [],
+          "uri": "http://www.edamam.com/ontologies/edamam.owl#recipe_89a2e1e2a359325b78cb2a332ad92c90",
+          "label": "Brown Sugar Cookies",
+          "image": "https://www.edamam.com/web-img/564/5642ed9fc505e2afcff5cb006f8bfa33.JPG",
+          "source": "Serious Eats",
+          "url": "http://www.seriouseats.com/recipes/2011/11/gingery-brown-sugar-cookies-recipe.html",
+          "shareAs": "http://www.edamam.com/recipe/brown-sugar-cookies-89a2e1e2a359325b78cb2a332ad92c90/sugar+cookies",
+          "yield": 30,
+          "dietLabels": [
+            "Low-Sodium"
+          ],
           "healthLabels": [
-            "Sugar-Conscious",
+            "Low Potassium",
+            "Kidney-Friendly",
             "Vegetarian",
             "Pescatarian",
             "Peanut-Free",
@@ -34,63 +41,104 @@ export const MOCK_COOKIE_RECIPES_RESPONSE = JSON.parse(`
             "Lupine-Free",
             "Mollusk-Free",
             "Alcohol-Free",
-            "Sulfite-Free",
-            "Kosher",
-            "Immuno-Supportive"
+            "Kosher"
           ],
-          "cautions": [
-            "Sulfites"
-          ],
+          "cautions": [],
           "ingredientLines": [
-            "Ingredients for basic butter cookies",
-            "2 tablespoons fresh lemon juice",
-            "1 tablespoon finely grated fresh lemon zest"
+            "2 cups flour",
+            "2 teaspoons baking soda",
+            "1/2 teaspoon ground cinnamon",
+            "1/2 teaspoon salt",
+            "1/2 teaspoon ground ginger",
+            "12 tablespoons unsalted butter, at room temperature",
+            "1 1/4 cups packed dark brown sugar",
+            "1 large egg"
           ],
           "ingredients": [
             {
-              "text": "Ingredients for basic butter cookies",
-              "quantity": 0,
-              "measure": null,
-              "food": "butter cookies",
-              "weight": 0,
-              "foodCategory": "quick breads and pastries",
-              "foodId": "food_bnode3xa412j8lbm65rwga8e1ytn",
-              "image": "https://www.edamam.com/food-img/bbd/bbd48b17ad02618fb9b06f578415e266.jpg"
-            },
-            {
-              "text": "Ingredients for basic butter cookies",
-              "quantity": 0,
-              "measure": null,
-              "food": "cookies",
-              "weight": 0,
-              "foodCategory": "quick breads and pastries",
-              "foodId": "food_awe80f5alx59k4an6ebyeb9a8m2h",
-              "image": "https://www.edamam.com/food-img/c49/c49cbd80f3156ae1b2a7d0a5f23a4a00.jpg"
-            },
-            {
-              "text": "2 tablespoons fresh lemon juice",
+              "text": "2 cups flour",
               "quantity": 2,
-              "measure": "tablespoon",
-              "food": "lemon juice",
-              "weight": 30.4999999994844,
-              "foodCategory": "100% juice",
-              "foodId": "food_bglm6vxahuauteb0n6ynfbg9eryu",
-              "image": "https://www.edamam.com/food-img/e31/e310952d214e78a4cb8b73f30ceeaaf2.jpg"
+              "measure": "cup",
+              "food": "flour",
+              "weight": 250,
+              "foodCategory": "grains",
+              "foodId": "food_ahebfs0a985an4aubqaebbipra58",
+              "image": "https://www.edamam.com/food-img/b4c/b4c739e76a6f2172b7ad49d0aa41d5aa.jpg"
             },
             {
-              "text": "1 tablespoon finely grated fresh lemon zest",
-              "quantity": 1,
+              "text": "2 teaspoons baking soda",
+              "quantity": 2,
+              "measure": "teaspoon",
+              "food": "baking soda",
+              "weight": 9.2,
+              "foodCategory": "condiments and sauces",
+              "foodId": "food_asa4cjoa3lmt8ibwdg0cpblheo69",
+              "image": "https://www.edamam.com/food-img/7e5/7e55e4482cc2fde91f427fc568e6f5b8.jpeg"
+            },
+            {
+              "text": "1/2 teaspoon ground cinnamon",
+              "quantity": 0.5,
+              "measure": "teaspoon",
+              "food": "ground cinnamon",
+              "weight": 1.3,
+              "foodCategory": "Condiments and sauces",
+              "foodId": "food_atjxtznauw5zabaixm24xa787onz",
+              "image": "https://www.edamam.com/food-img/d4d/d4daa18b92c596a1c99c08537c38e65b.jpg"
+            },
+            {
+              "text": "1/2 teaspoon salt",
+              "quantity": 0.5,
+              "measure": "teaspoon",
+              "food": "salt",
+              "weight": 3,
+              "foodCategory": "Condiments and sauces",
+              "foodId": "food_btxz81db72hwbra2pncvebzzzum9",
+              "image": "https://www.edamam.com/food-img/694/6943ea510918c6025795e8dc6e6eaaeb.jpg"
+            },
+            {
+              "text": "1/2 teaspoon ground ginger",
+              "quantity": 0.5,
+              "measure": "teaspoon",
+              "food": "ground ginger",
+              "weight": 0.9,
+              "foodCategory": "Condiments and sauces",
+              "foodId": "food_a8l1yfna3fgp3ha4a5b5labyetgz",
+              "image": "https://www.edamam.com/food-img/ee0/ee08c937de5c45a36bd0ad1eafc67496.jpg"
+            },
+            {
+              "text": "12 tablespoons unsalted butter, at room temperature",
+              "quantity": 12,
               "measure": "tablespoon",
-              "food": "lemon zest",
-              "weight": 6,
-              "foodCategory": "fruit",
-              "foodId": "food_bpg66j3a5vjuuga36uiiyaqeazpd",
-              "image": "https://www.edamam.com/food-img/540/5405605c8e9b284243f06c0b1587ab6f.jpg"
+              "food": "unsalted butter",
+              "weight": 170.39999999999998,
+              "foodCategory": "Dairy",
+              "foodId": "food_awz3iefajbk1fwahq9logahmgltj",
+              "image": "https://www.edamam.com/food-img/713/71397239b670d88c04faa8d05035cab4.jpg"
+            },
+            {
+              "text": "1 1/4 cups packed dark brown sugar",
+              "quantity": 1.25,
+              "measure": "cup",
+              "food": "dark brown sugar",
+              "weight": 275,
+              "foodCategory": "sugars",
+              "foodId": "food_aodgtqwbmeu5f6bxeffn0art3bga",
+              "image": "https://www.edamam.com/food-img/8c6/8c6662bd73900645c6385b51a95d9b03.jpg"
+            },
+            {
+              "text": "1 large egg",
+              "quantity": 1,
+              "measure": "<unit>",
+              "food": "egg",
+              "weight": 50,
+              "foodCategory": "Eggs",
+              "foodId": "food_bhpradua77pk16aipcvzeayg732r",
+              "image": "https://www.edamam.com/food-img/a7e/a7ec7c337cb47c6550b3b118e357f077.jpg"
             }
           ],
-          "calories": 9.529999999886568,
-          "totalWeight": 36.4999999994844,
-          "totalTime": 0,
+          "calories": 3254.4939999999997,
+          "totalWeight": 756.8,
+          "totalTime": 25,
           "cuisineType": [
             "american"
           ],
@@ -103,132 +151,137 @@ export const MOCK_COOKIE_RECIPES_RESPONSE = JSON.parse(`
           "totalNutrients": {
             "ENERC_KCAL": {
               "label": "Energy",
-              "quantity": 9.529999999886568,
+              "quantity": 3254.4939999999997,
               "unit": "kcal"
             },
             "FAT": {
               "label": "Fat",
-              "quantity": 0.09119999999876256,
+              "quantity": 145.47071999999997,
               "unit": "g"
             },
             "FASAT": {
               "label": "Saturated",
-              "quantity": 0.014539999999793761,
+              "quantity": 89.50944799999999,
               "unit": "g"
             },
             "FATRN": {
               "label": "Trans",
-              "quantity": 0,
+              "quantity": 5.604711999999999,
               "unit": "g"
             },
             "FAMS": {
               "label": "Monounsaturated",
-              "quantity": 0.002489999999969064,
+              "quantity": 37.873793,
               "unit": "g"
             },
             "FAPU": {
               "label": "Polyunsaturated",
-              "quantity": 0.011744999999891724,
+              "quantity": 7.182517,
               "unit": "g"
             },
             "CHOCDF": {
               "label": "Carbs",
-              "quantity": 3.064499999964424,
+              "quantity": 462.67699000000005,
               "unit": "g"
             },
             "FIBTG": {
               "label": "Fiber",
-              "quantity": 0.7274999999984532,
+              "quantity": 7.5672,
               "unit": "g"
             },
             "SUGAR": {
               "label": "Sugars",
-              "quantity": 1.018799999987007,
+              "quantity": 267.82596,
+              "unit": "g"
+            },
+            "SUGAR.added": {
+              "label": "Sugars, added",
+              "quantity": 266.805,
               "unit": "g"
             },
             "PROCNT": {
               "label": "Protein",
-              "quantity": 0.1967499999981954,
+              "quantity": 34.01609,
               "unit": "g"
             },
             "CHOLE": {
               "label": "Cholesterol",
-              "quantity": 0,
+              "quantity": 552.3599999999999,
               "unit": "mg"
             },
             "NA": {
               "label": "Sodium",
-              "quantity": 0.6649999999948439,
+              "quantity": 2689.237,
               "unit": "mg"
             },
             "CA": {
               "label": "Calcium",
-              "quantity": 9.869999999969064,
+              "quantity": 348.698,
               "unit": "mg"
             },
             "MG": {
               "label": "Magnesium",
-              "quantity": 2.729999999969064,
+              "quantity": 91.864,
               "unit": "mg"
             },
             "K": {
               "label": "Potassium",
-              "quantity": 41.014999999468934,
+              "quantity": 760.629,
               "unit": "mg"
             },
             "FE": {
               "label": "Iron",
-              "quantity": 0.07239999999958752,
+              "quantity": 6.072939999999999,
               "unit": "mg"
             },
             "ZN": {
               "label": "Zinc",
-              "quantity": 0.0302499999997422,
+              "quantity": 2.68741,
               "unit": "mg"
             },
             "P": {
               "label": "Phosphorus",
-              "quantity": 3.1599999999587522,
+              "quantity": 423.24,
               "unit": "mg"
             },
             "VITA_RAE": {
               "label": "Vitamin A",
-              "quantity": 0.18,
+              "quantity": 1245.7489999999998,
               "unit": "µg"
             },
             "VITC": {
               "label": "Vitamin C",
-              "quantity": 19.543499999800463,
+              "quantity": 0.0557,
               "unit": "mg"
             },
             "THIA": {
               "label": "Thiamin (B1)",
-              "quantity": 0.010919999999876256,
+              "quantity": 0.32922,
               "unit": "mg"
             },
             "RIBF": {
               "label": "Riboflavin (B2)",
-              "quantity": 0.00937499999992266,
+              "quantity": 0.38849900000000004,
               "unit": "mg"
             },
             "NIA": {
               "label": "Niacin (B3)",
-              "quantity": 0.0517549999995308,
+              "quantity": 3.640464,
               "unit": "mg"
             },
             "VITB6A": {
               "label": "Vitamin B6",
-              "quantity": 0.024349999999762825,
+              "quantity": 0.32055,
               "unit": "mg"
             },
             "FOLDFE": {
               "label": "Folate equivalent (total)",
-              "quantity": 6.879999999896881,
+              "quantity": 96.557,
               "unit": "µg"
             },
             "FOLFD": {
               "label": "Folate (food)",
-              "quantity": 6.879999999896881,
+              "quantity": 96.557,
               "unit": "µg"
             },
             "FOLAC": {
@@ -238,154 +291,154 @@ export const MOCK_COOKIE_RECIPES_RESPONSE = JSON.parse(`
             },
             "VITB12": {
               "label": "Vitamin B12",
-              "quantity": 0,
+              "quantity": 0.73468,
               "unit": "µg"
             },
             "VITD": {
               "label": "Vitamin D",
-              "quantity": 0,
+              "quantity": 3.5559999999999996,
               "unit": "µg"
             },
             "TOCPHA": {
               "label": "Vitamin E",
-              "quantity": 0.060749999999226596,
+              "quantity": 4.65844,
               "unit": "mg"
             },
             "VITK1": {
               "label": "Vitamin K",
-              "quantity": 0,
+              "quantity": 13.240799999999998,
               "unit": "µg"
             },
             "WATER": {
               "label": "Water",
-              "quantity": 33.05054999952405,
+              "quantity": 102.37516000000001,
               "unit": "g"
             }
           },
           "totalDaily": {
             "ENERC_KCAL": {
               "label": "Energy",
-              "quantity": 0.4764999999943284,
+              "quantity": 162.72469999999998,
               "unit": "%"
             },
             "FAT": {
               "label": "Fat",
-              "quantity": 0.14030769230578857,
+              "quantity": 223.80110769230762,
               "unit": "%"
             },
             "FASAT": {
               "label": "Saturated",
-              "quantity": 0.07269999999896881,
+              "quantity": 447.54724,
               "unit": "%"
             },
             "CHOCDF": {
               "label": "Carbs",
-              "quantity": 1.0214999999881413,
+              "quantity": 154.22566333333336,
               "unit": "%"
             },
             "FIBTG": {
               "label": "Fiber",
-              "quantity": 2.9099999999938126,
+              "quantity": 30.268800000000002,
               "unit": "%"
             },
             "PROCNT": {
               "label": "Protein",
-              "quantity": 0.3934999999963908,
+              "quantity": 68.03218,
               "unit": "%"
             },
             "CHOLE": {
               "label": "Cholesterol",
-              "quantity": 0,
+              "quantity": 184.11999999999998,
               "unit": "%"
             },
             "NA": {
               "label": "Sodium",
-              "quantity": 0.027708333333118496,
+              "quantity": 112.05154166666667,
               "unit": "%"
             },
             "CA": {
               "label": "Calcium",
-              "quantity": 0.9869999999969064,
+              "quantity": 34.8698,
               "unit": "%"
             },
             "MG": {
               "label": "Magnesium",
-              "quantity": 0.6499999999926344,
+              "quantity": 21.87238095238095,
               "unit": "%"
             },
             "K": {
               "label": "Potassium",
-              "quantity": 0.8726595744567859,
+              "quantity": 16.183595744680854,
               "unit": "%"
             },
             "FE": {
               "label": "Iron",
-              "quantity": 0.40222222221993065,
+              "quantity": 33.73855555555555,
               "unit": "%"
             },
             "ZN": {
               "label": "Zinc",
-              "quantity": 0.27499999999765634,
+              "quantity": 24.430999999999997,
               "unit": "%"
             },
             "P": {
               "label": "Phosphorus",
-              "quantity": 0.4514285714226789,
+              "quantity": 60.462857142857146,
               "unit": "%"
             },
             "VITA_RAE": {
               "label": "Vitamin A",
-              "quantity": 0.02,
+              "quantity": 138.41655555555553,
               "unit": "%"
             },
             "VITC": {
               "label": "Vitamin C",
-              "quantity": 21.714999999778293,
+              "quantity": 0.06188888888888889,
               "unit": "%"
             },
             "THIA": {
               "label": "Thiamin (B1)",
-              "quantity": 0.909999999989688,
+              "quantity": 27.435000000000006,
               "unit": "%"
             },
             "RIBF": {
               "label": "Riboflavin (B2)",
-              "quantity": 0.7211538461478969,
+              "quantity": 29.884538461538465,
               "unit": "%"
             },
             "NIA": {
               "label": "Niacin (B3)",
-              "quantity": 0.3234687499970675,
+              "quantity": 22.7529,
               "unit": "%"
             },
             "VITB6A": {
               "label": "Vitamin B6",
-              "quantity": 1.8730769230586788,
+              "quantity": 24.657692307692308,
               "unit": "%"
             },
             "FOLDFE": {
               "label": "Folate equivalent (total)",
-              "quantity": 1.7199999999742202,
+              "quantity": 24.13925,
               "unit": "%"
             },
             "VITB12": {
               "label": "Vitamin B12",
-              "quantity": 0,
+              "quantity": 30.611666666666668,
               "unit": "%"
             },
             "VITD": {
               "label": "Vitamin D",
-              "quantity": 0,
+              "quantity": 23.706666666666663,
               "unit": "%"
             },
             "TOCPHA": {
               "label": "Vitamin E",
-              "quantity": 0.404999999994844,
+              "quantity": 31.056266666666666,
               "unit": "%"
             },
             "VITK1": {
               "label": "Vitamin K",
-              "quantity": 0,
+              "quantity": 11.033999999999999,
               "unit": "%"
             }
           },
@@ -394,25 +447,25 @@ export const MOCK_COOKIE_RECIPES_RESPONSE = JSON.parse(`
               "label": "Fat",
               "tag": "FAT",
               "schemaOrgTag": "fatContent",
-              "total": 0.09119999999876256,
+              "total": 145.47071999999997,
               "hasRDI": true,
-              "daily": 0.14030769230578857,
+              "daily": 223.80110769230762,
               "unit": "g",
               "sub": [
                 {
                   "label": "Saturated",
                   "tag": "FASAT",
                   "schemaOrgTag": "saturatedFatContent",
-                  "total": 0.014539999999793761,
+                  "total": 89.50944799999999,
                   "hasRDI": true,
-                  "daily": 0.07269999999896881,
+                  "daily": 447.54724,
                   "unit": "g"
                 },
                 {
                   "label": "Trans",
                   "tag": "FATRN",
                   "schemaOrgTag": "transFatContent",
-                  "total": 0,
+                  "total": 5.604711999999999,
                   "hasRDI": false,
                   "daily": 0,
                   "unit": "g"
@@ -421,7 +474,7 @@ export const MOCK_COOKIE_RECIPES_RESPONSE = JSON.parse(`
                   "label": "Monounsaturated",
                   "tag": "FAMS",
                   "schemaOrgTag": null,
-                  "total": 0.002489999999969064,
+                  "total": 37.873793,
                   "hasRDI": false,
                   "daily": 0,
                   "unit": "g"
@@ -430,7 +483,7 @@ export const MOCK_COOKIE_RECIPES_RESPONSE = JSON.parse(`
                   "label": "Polyunsaturated",
                   "tag": "FAPU",
                   "schemaOrgTag": null,
-                  "total": 0.011744999999891724,
+                  "total": 7.182517,
                   "hasRDI": false,
                   "daily": 0,
                   "unit": "g"
@@ -441,9 +494,9 @@ export const MOCK_COOKIE_RECIPES_RESPONSE = JSON.parse(`
               "label": "Carbs",
               "tag": "CHOCDF",
               "schemaOrgTag": "carbohydrateContent",
-              "total": 3.064499999964424,
+              "total": 462.67699000000005,
               "hasRDI": true,
-              "daily": 1.0214999999881413,
+              "daily": 154.22566333333336,
               "unit": "g",
               "sub": [
                 {
@@ -459,16 +512,16 @@ export const MOCK_COOKIE_RECIPES_RESPONSE = JSON.parse(`
                   "label": "Fiber",
                   "tag": "FIBTG",
                   "schemaOrgTag": "fiberContent",
-                  "total": 0.7274999999984532,
+                  "total": 7.5672,
                   "hasRDI": true,
-                  "daily": 2.9099999999938126,
+                  "daily": 30.268800000000002,
                   "unit": "g"
                 },
                 {
                   "label": "Sugars",
                   "tag": "SUGAR",
                   "schemaOrgTag": "sugarContent",
-                  "total": 1.018799999987007,
+                  "total": 267.82596,
                   "hasRDI": false,
                   "daily": 0,
                   "unit": "g"
@@ -477,7 +530,7 @@ export const MOCK_COOKIE_RECIPES_RESPONSE = JSON.parse(`
                   "label": "Sugars, added",
                   "tag": "SUGAR.added",
                   "schemaOrgTag": null,
-                  "total": 0,
+                  "total": 266.805,
                   "hasRDI": false,
                   "daily": 0,
                   "unit": "g"
@@ -488,151 +541,151 @@ export const MOCK_COOKIE_RECIPES_RESPONSE = JSON.parse(`
               "label": "Protein",
               "tag": "PROCNT",
               "schemaOrgTag": "proteinContent",
-              "total": 0.1967499999981954,
+              "total": 34.01609,
               "hasRDI": true,
-              "daily": 0.3934999999963908,
+              "daily": 68.03218,
               "unit": "g"
             },
             {
               "label": "Cholesterol",
               "tag": "CHOLE",
               "schemaOrgTag": "cholesterolContent",
-              "total": 0,
+              "total": 552.3599999999999,
               "hasRDI": true,
-              "daily": 0,
+              "daily": 184.11999999999998,
               "unit": "mg"
             },
             {
               "label": "Sodium",
               "tag": "NA",
               "schemaOrgTag": "sodiumContent",
-              "total": 0.6649999999948439,
+              "total": 2689.237,
               "hasRDI": true,
-              "daily": 0.027708333333118496,
+              "daily": 112.05154166666667,
               "unit": "mg"
             },
             {
               "label": "Calcium",
               "tag": "CA",
               "schemaOrgTag": null,
-              "total": 9.869999999969064,
+              "total": 348.698,
               "hasRDI": true,
-              "daily": 0.9869999999969064,
+              "daily": 34.8698,
               "unit": "mg"
             },
             {
               "label": "Magnesium",
               "tag": "MG",
               "schemaOrgTag": null,
-              "total": 2.729999999969064,
+              "total": 91.864,
               "hasRDI": true,
-              "daily": 0.6499999999926344,
+              "daily": 21.87238095238095,
               "unit": "mg"
             },
             {
               "label": "Potassium",
               "tag": "K",
               "schemaOrgTag": null,
-              "total": 41.014999999468934,
+              "total": 760.629,
               "hasRDI": true,
-              "daily": 0.8726595744567859,
+              "daily": 16.183595744680854,
               "unit": "mg"
             },
             {
               "label": "Iron",
               "tag": "FE",
               "schemaOrgTag": null,
-              "total": 0.07239999999958752,
+              "total": 6.072939999999999,
               "hasRDI": true,
-              "daily": 0.40222222221993065,
+              "daily": 33.73855555555555,
               "unit": "mg"
             },
             {
               "label": "Zinc",
               "tag": "ZN",
               "schemaOrgTag": null,
-              "total": 0.0302499999997422,
+              "total": 2.68741,
               "hasRDI": true,
-              "daily": 0.27499999999765634,
+              "daily": 24.430999999999997,
               "unit": "mg"
             },
             {
               "label": "Phosphorus",
               "tag": "P",
               "schemaOrgTag": null,
-              "total": 3.1599999999587522,
+              "total": 423.24,
               "hasRDI": true,
-              "daily": 0.4514285714226789,
+              "daily": 60.462857142857146,
               "unit": "mg"
             },
             {
               "label": "Vitamin A",
               "tag": "VITA_RAE",
               "schemaOrgTag": null,
-              "total": 0.18,
+              "total": 1245.7489999999998,
               "hasRDI": true,
-              "daily": 0.02,
+              "daily": 138.41655555555553,
               "unit": "µg"
             },
             {
               "label": "Vitamin C",
               "tag": "VITC",
               "schemaOrgTag": null,
-              "total": 19.543499999800463,
+              "total": 0.0557,
               "hasRDI": true,
-              "daily": 21.714999999778293,
+              "daily": 0.06188888888888889,
               "unit": "mg"
             },
             {
               "label": "Thiamin (B1)",
               "tag": "THIA",
               "schemaOrgTag": null,
-              "total": 0.010919999999876256,
+              "total": 0.32922,
               "hasRDI": true,
-              "daily": 0.909999999989688,
+              "daily": 27.435000000000006,
               "unit": "mg"
             },
             {
               "label": "Riboflavin (B2)",
               "tag": "RIBF",
               "schemaOrgTag": null,
-              "total": 0.00937499999992266,
+              "total": 0.38849900000000004,
               "hasRDI": true,
-              "daily": 0.7211538461478969,
+              "daily": 29.884538461538465,
               "unit": "mg"
             },
             {
               "label": "Niacin (B3)",
               "tag": "NIA",
               "schemaOrgTag": null,
-              "total": 0.0517549999995308,
+              "total": 3.640464,
               "hasRDI": true,
-              "daily": 0.3234687499970675,
+              "daily": 22.7529,
               "unit": "mg"
             },
             {
               "label": "Vitamin B6",
               "tag": "VITB6A",
               "schemaOrgTag": null,
-              "total": 0.024349999999762825,
+              "total": 0.32055,
               "hasRDI": true,
-              "daily": 1.8730769230586788,
+              "daily": 24.657692307692308,
               "unit": "mg"
             },
             {
               "label": "Folate equivalent (total)",
               "tag": "FOLDFE",
               "schemaOrgTag": null,
-              "total": 6.879999999896881,
+              "total": 96.557,
               "hasRDI": true,
-              "daily": 1.7199999999742202,
+              "daily": 24.13925,
               "unit": "µg"
             },
             {
               "label": "Folate (food)",
               "tag": "FOLFD",
               "schemaOrgTag": null,
-              "total": 6.879999999896881,
+              "total": 96.557,
               "hasRDI": false,
               "daily": 0,
               "unit": "µg"
@@ -650,36 +703,36 @@ export const MOCK_COOKIE_RECIPES_RESPONSE = JSON.parse(`
               "label": "Vitamin B12",
               "tag": "VITB12",
               "schemaOrgTag": null,
-              "total": 0,
+              "total": 0.73468,
               "hasRDI": true,
-              "daily": 0,
+              "daily": 30.611666666666668,
               "unit": "µg"
             },
             {
               "label": "Vitamin D",
               "tag": "VITD",
               "schemaOrgTag": null,
-              "total": 0,
+              "total": 3.5559999999999996,
               "hasRDI": true,
-              "daily": 0,
+              "daily": 23.706666666666663,
               "unit": "µg"
             },
             {
               "label": "Vitamin E",
               "tag": "TOCPHA",
               "schemaOrgTag": null,
-              "total": 0.060749999999226596,
+              "total": 4.65844,
               "hasRDI": true,
-              "daily": 0.404999999994844,
+              "daily": 31.056266666666666,
               "unit": "mg"
             },
             {
               "label": "Vitamin K",
               "tag": "VITK1",
               "schemaOrgTag": null,
-              "total": 0,
+              "total": 13.240799999999998,
               "hasRDI": true,
-              "daily": 0,
+              "daily": 11.033999999999999,
               "unit": "µg"
             },
             {
@@ -695,12 +748,18 @@ export const MOCK_COOKIE_RECIPES_RESPONSE = JSON.parse(`
               "label": "Water",
               "tag": "WATER",
               "schemaOrgTag": null,
-              "total": 33.05054999952405,
+              "total": 102.37516000000001,
               "hasRDI": false,
               "daily": 0,
               "unit": "g"
             }
           ]
+        },
+        "_links": {
+          "self": {
+            "href": "https://api.edamam.com/api/recipes/v2/89a2e1e2a359325b78cb2a332ad92c90?type=public&app_id=75e7a254&app_key=9e0e776f76b893572427067592520f82",
+            "title": "Self"
+          }
         }
       }
     ]
@@ -712,7 +771,7 @@ export default async function RecipesService(req, res) {
     const isProduction = process.env.APP_ENVIRONMENT === 'production';
     if (isProduction) {
         const { recipeToSearchFor } = req.body
-        const url = 'https://api.edamam.com/search?app_id=75e7a254&app_key=9e0e776f76b893572427067592520f82&q=' + recipeToSearchFor;
+        const url = 'https://api.edamam.com/api/recipes/v2?app_id=75e7a254&app_key=9e0e776f76b893572427067592520f82&type=public&q=' + recipeToSearchFor;
         const recipesResponse = await fetch(url)
         const recipesData = await recipesResponse.json();
         res.status(200).json(recipesData)
