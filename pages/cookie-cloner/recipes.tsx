@@ -6,24 +6,6 @@ import FooterComp from '../../components/footer/footer';
 
 export default function recipes() {
 
-    // let recipesData = MOCK_COOKIE_RECIPES_RESPONSE;
-
-    // const nutritionalInformation: NutritionalInformation[] = [
-    //     {
-    //         servingSize: 12,
-    //         calories: 1000,
-    //         protein: 50,
-    //         fat: 40,
-    //         carb: 100,
-    //         cholestrol: 1,
-    //         sodium: 2,
-    //         calcium: 3,
-    //         magnesium: 4,
-    //         potassium: 5,
-    //         iron: 6
-    //     }
-    // ]
-
     return (
         <>
             <NavbarComp />
@@ -105,10 +87,15 @@ export default function recipes() {
         // Cancel the submit request from the browser side.
         if (event) event.preventDefault();
 
-        // Parse the entered recipe name from the search bar input field.
-        const recipeToSearchFor = event?.target?.children[0]?.value;
+        // Parse the entered recipe name from the search bar input field, making sure to remove any additional whitespace.
+        let recipeToSearchFor = event?.target?.children[0]?.value;
+        recipeToSearchFor = recipeToSearchFor.trim();
 
-        // TODO: Construct API request with recipeToSearchFor as query parameter.
+        // If the search bar input field is empty, do not execute the API request.
+        if (!recipeToSearchFor) 
+            return;
+
+        // Execute API request with recipeToSearchFor as query parameter.
         const response = await fetch('/api/recipes', {
             method: 'POST',
             body: JSON.stringify({ recipeToSearchFor }),
