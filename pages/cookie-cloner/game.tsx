@@ -427,6 +427,8 @@ export default function game() {
                     margin-bottom: 8px;
                     cursor: pointer;
                     transition: scale 1s ease;
+                    display: block;
+                    margin: auto;
                 }
 
                 .the-cookie:hover {
