@@ -15,11 +15,11 @@ export default function HeaderComp() {
             <link
             rel="preload"
             as="style"
-            href="https://fonts.googleapis.com/css2?family=Gluten:wght@300&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Gluten:wght@400&display=swap"
             />
             <link
             rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Gluten:wght@300&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Gluten:wght@400&display=swap"
             media="print"
             // @ts-ignore
             onLoad="this.media='all'"
@@ -27,7 +27,7 @@ export default function HeaderComp() {
             <noscript>
             <link
                 rel="stylesheet"
-                href="https://fonts.googleapis.com/css2?family=Gluten:wght@300&display=swap"
+                href="https://fonts.googleapis.com/css2?family=Gluten:wght@400&display=swap"
             />
             </noscript>
         </Head>

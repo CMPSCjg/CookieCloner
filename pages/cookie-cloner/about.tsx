@@ -9,57 +9,58 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 export default function about() {
 
     return (
-        <Container>
+        <>
             <HeaderComp />
             <NavbarComp />
-            <Row>
-                <Col></Col>
-                <Col xs={12}>
-                    <h1 className="title">About</h1>
+            <Container>
+                <Row>
+                    <Col xs={12}>
+                        <h1 className="title">About</h1>
 
-                    <Row>
-                        <Col>
-                            <div className="card">
-                                <h3 className="card-title">Summary</h3>
-                                <p className="card-description">
-                                    <img className="card-image" src="/images/oknic.jfif" />
-                                    <img className="card-image" src="/images/cmpscjg.PNG" />
-                                    This project was created as a side project by {' '}
-                                    <a href="https://github.com/CMPSCjg" target="_blank" rel="noreferrer">CMPSCjg</a> and {' '}
-                                    <a href="https://github.com/okni-c" target="_blank" rel="noreferrer">okni-c</a>.
-                                    
+                        <Row>
+                            <Col>
+                                <div className="card">
+                                    <h3 className="card-title">Summary</h3>
+                                    <p className="card-description">
+                                        <img className="card-image" src="/images/oknic.jfif" />
+                                        <img className="card-image" src="/images/cmpscjg.PNG" />
+                                        This project was created as a side project by {' '}
+                                        <a href="https://github.com/CMPSCjg" target="_blank">CMPSCjg</a> and {' '}
+                                        <a href="https://github.com/okni-c" target="_blank">okni-c</a>.
+
+                                        <br />
+                                        <br />
+                                        We had played Cookie Clicker previously and thought it would be an interesting challenge to re-create the popular
+                                        idle game. We will not by any means attempt to monetize this project in the future. This was only meant
+                                        as a website that we could use as a playground to practice our web development skills. But seriously, if you could send us one of the DONDA
+                                        long-sleeved shirts that would greatly appreciated.
+
+                                        <br />
+                                        <br />
+                                        All jokes aside, we hope you enjoy our Cookie Clicker clone. Please feel free to leave any feedback or report any and all bugs and/or issues
+                                        on our Github repository. Since this isn't a full-time thing for us, our response times may not be the fastest.
+                                    </p>
+
                                     <br />
                                     <br />
-                                    We had played Cookie Clicker previously and thought it would be an interesting challenge to re-create the popular 
-                                    idle game. We will not by any means attempt to monetize this project in the future. This was only meant
-                                    as a website that we could use as a playground to practice our web development skills. But seriously, if you could send us one of the DONDA
-                                    long-sleeved shirts that would greatly appreciated.
+                                    <hr />
 
-                                    <br />
-                                    <br />
-                                    All jokes aside, we hope you enjoy our Cookie Clicker clone. Please feel free to leave any feedback or report any and all bugs and/or issues
-                                    on our Github repository. Since this isn't a full-time thing for us, our response times may not be the fastest.
-                                </p>
+                                    <h3 className="card-title">Version History</h3>
+                                    <h4 className="card-sub-title">v0.1.0 - September 2021</h4>
+                                    <p className="card-description">
+                                        Cookie Cloner is born! Using NextJS and Vercel, we bring to you our Cookie Clicker inspired website.
+                                    </p>
+                                </div>
+                            </Col>
+                        </Row>
+                    </Col>
+                </Row>
 
-                                <br />
-                                <br />
-                                <hr />
+                <br/><br/><br/>
 
-                                <h3 className="card-title">Version History</h3>
-                                <h4 className="card-sub-title">v0.1.0 - September 2021</h4>
-                                <p className="card-description">
-                                    Cookie Cloner is born! Using NextJS and Vercel, we bring to you our Cookie Clicker inspired website.
-                                </p>
-                            </div>
-                        </Col>
-                    </Row>
-                </Col>
-                <Col></Col>
-            </Row>
+                <FooterComp />
 
-            <FooterComp />
-
-            <style jsx>{`
+                <style jsx>{`
             
                 * {
                     font-family: gluten;
@@ -139,7 +140,8 @@ export default function about() {
                     width: 50%
                 }
             `}</style>
-        </Container>
+            </Container>
+        </>
     )
 }
 

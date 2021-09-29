@@ -13,50 +13,43 @@ export default function supportUs() {
 
     return (
         <>
+            <HeaderComp />
             <NavbarComp />
             <Container>
-                <HeaderComp />
+                <h1 className="title">Support Us</h1>
+
+                <p className="description">There are 3 options available for how you can help support Cookie Cloner!</p>
+
+                <div className="donda-square" onClick={() => playDondaSound()} tabIndex={0}>
+                    <p className="donda-square-text">DONDA</p>
+                </div>
                 <Row>
-                    <Col></Col>
-                    <Col xs={12}>
-                        <h1 className="title">Support Us</h1>
+                    <Col lg={4}>
+                        <div className="card">
+                            <h3 className="card-title">Stream DONDA</h3>
+                            <p className="card-description">Listen to DONDA on any streaming platform on repeat.</p>
+                            <Row>
+                                <Col><img className="card-image clickable" src="/images/spotify.png" onClick={() => openLink('spotify')} tabIndex={0} /></Col>
+                                <Col><img className="card-image clickable" src="/images/apple.png" onClick={() => openLink('apple')} tabIndex={0} /></Col>
+                                <Col><img className="card-image clickable" src="/images/tidal.png" onClick={() => openLink('tidal')} tabIndex={0} /></Col>
+                            </Row>
 
-                        <p className="description">There are 3 options available for how you can help support Cookie Cloner!</p>
-
-                        <div className="donda-square" onClick={() => playDondaSound()} tabIndex={0}>
-                            <p className="donda-square-text">DONDA</p>
                         </div>
-
-                        <Row>
-                            <Col>
-                                <div className="card">
-                                    <h3 className="card-title">Stream DONDA</h3>
-                                    <p className="card-description">Listen to DONDA on any streaming platform on repeat.</p>
-                                    <Row>
-                                        <Col><img className="card-image clickable" src="/images/spotify.png" onClick={() => openLink('spotify')} tabIndex={0} /></Col>
-                                        <Col><img className="card-image clickable" src="/images/apple.png" onClick={() => openLink('apple')} tabIndex={0} /></Col>
-                                        <Col><img className="card-image clickable" src="/images/tidal.png" onClick={() => openLink('tidal')} tabIndex={0} /></Col>
-                                    </Row>
-
-                                </div>
-                            </Col>
-                            <Col>
-                                <div className="card">
-                                    <h3 className="card-title">Send us merch from Kanye's DONDA release</h3>
-                                    <p className="card-description">Looking specifically for these two long-sleeve shirts that were a limited release.</p>
-                                    <img className="card-image" src="/images/donda-merch-main.png" />
-                                </div>
-                            </Col>
-                            <Col>
-                                <div className="card">
-                                    <h3 className="card-title">Become a contributor</h3>
-                                    <p className="card-description">Check out the repo on GitHub.</p>
-                                    <img className="card-image clickable" src="/images/git-logo.png" onClick={() => openLink('github')} tabIndex={0} />
-                                </div>
-                            </Col>
-                        </Row>
                     </Col>
-                    <Col></Col>
+                    <Col lg={4}>
+                        <div className="card">
+                            <h3 className="card-title">Send us merch from Kanye's DONDA release</h3>
+                            <p className="card-description">Looking specifically for these two long-sleeve shirts that were a limited release.</p>
+                            <img className="card-image" src="/images/donda-merch-main.png" />
+                        </div>
+                    </Col>
+                    <Col lg={4}>
+                        <div className="card">
+                            <h3 className="card-title">Become a contributor</h3>
+                            <p className="card-description">Check out the repo on GitHub.</p>
+                            <img className="card-image clickable" src="/images/git-logo.png" onClick={() => openLink('github')} tabIndex={0} />
+                        </div>
+                    </Col>
                 </Row>
 
                 <Row>
@@ -100,6 +93,7 @@ export default function supportUs() {
                 }
 
                 .card {
+                    margin: 0.5rem;
                     padding: 1.5rem;
                     border: 2px #eaeaea solid;
                     height: 480px;
