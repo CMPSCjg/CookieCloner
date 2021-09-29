@@ -260,7 +260,7 @@ export default function game() {
 
                     {/* Testing out new styles - In development */}
                     <Row>
-                        <Col lg={4}>
+                        <Col lg={3} md={4} sm={6}>
                             <a className="card" onClick={() => purchaseStoreBuilding(cursor.id)}>
                                 <img className="building-icon" src={cursor.icon} />
                                 <h3 className="building-name">{cursor.name}</h3>
@@ -270,7 +270,7 @@ export default function game() {
                                 </div>
                             </a>
                         </Col>
-                        <Col lg={4}>
+                        <Col lg={3} md={4} sm={6}>
                             <a className="card" onClick={() => purchaseStoreBuilding(grandma.id)}>
                                 <img className="building-icon" src={grandma.icon} />
                                 <h3 className="building-name">{grandma.name}</h3>
@@ -280,7 +280,7 @@ export default function game() {
                                 </div>
                             </a>
                         </Col>
-                        <Col lg={4}>
+                        <Col lg={3} md={4} sm={6}>
                             <a className="card" onClick={() => purchaseStoreBuilding(farm.id)}>
                                 <img className="building-icon" src={farm.icon} />
                                 <h3 className="building-name">{farm.name}</h3>
@@ -290,10 +290,7 @@ export default function game() {
                                 </div>
                             </a>
                         </Col>
-                    </Row>
-
-                    <Row>
-                        <Col lg={4}>
+                        <Col lg={3} md={4} sm={6}>
                             <a className="card" onClick={() => purchaseStoreBuilding(mine.id)}>
                                 <img className="building-icon" src={mine.icon} />
                                 <h3 className="building-name">{mine.name}</h3>
@@ -303,7 +300,7 @@ export default function game() {
                                 </div>
                             </a>
                         </Col>
-                        <Col lg={4}>
+                        <Col lg={3} md={4} sm={6}>
                             <a className="card" onClick={() => purchaseStoreBuilding(factory.id)}>
                                 <img className="building-icon" src={factory.icon} />
                                 <h3 className="building-name">{factory.name}</h3>
@@ -313,20 +310,7 @@ export default function game() {
                                 </div>
                             </a>
                         </Col>
-                        <Col lg={4}>
-                            <a className="card" onClick={() => purchaseStoreBuilding(bank.id)}>
-                                <img className="building-icon" src={bank.icon} />
-                                <h3 className="building-name">{bank.name}</h3>
-                                <div>
-                                    <h4 className="building-buy-cost" id="bank-buy-cost">{bank.buyCost}</h4>
-                                    <h4 className="building-amount-owned" id="bank-amount-owned">{bank.amountOwned}</h4>
-                                </div>
-                            </a>
-                        </Col>
-                    </Row>
-
-                    <Row>
-                        <Col lg={4}>
+                        <Col lg={3} md={4} sm={6}>
                             <a className="card" onClick={() => purchaseStoreBuilding(temple.id)}>
                                 <img className="building-icon" src={temple.icon} />
                                 <h3 className="building-name">{temple.name}</h3>
@@ -336,60 +320,118 @@ export default function game() {
                                 </div>
                             </a>
                         </Col>
-                        <Col lg={4}>
+                        <Col lg={3} md={4} sm={6}>
                             <a className="card" onClick={() => purchaseStoreBuilding(wizardTower.id)}>
                                 <img className="building-icon" src={wizardTower.icon} />
                                 <h3 className="building-name">{wizardTower.name}</h3>
                                 <div>
-                                    <h4 className="building-buy-cost" id="wizardTower-buy-cost">{wizardTower.buyCost}</h4>
-                                    <h4 className="building-amount-owned" id="wizardTower-amount-owned">{wizardTower.amountOwned}</h4>
+                                    <h4 className="building-buy-cost" id="wizardtower-buy-cost">{wizardTower.buyCost}</h4>
+                                    <h4 className="building-amount-owned" id="wizardtower-amount-owned">{wizardTower.amountOwned}</h4>
                                 </div>
                             </a>
                         </Col>
-                        <Col lg={4}>
+                        <Col lg={3} md={4} sm={6}>
                             <a className="card" onClick={() => purchaseStoreBuilding(shipment.id)}>
                                 <img className="building-icon" src={shipment.icon} />
                                 <h3 className="building-name">{shipment.name}</h3>
                                 <div>
                                     <h4 className="building-buy-cost" id="shipment-buy-cost">{shipment.buyCost}</h4>
                                     <h4 className="building-amount-owned" id="shipment-amount-owned">{shipment.amountOwned}</h4>
+                                </div>
+                            </a>
+                        </Col>
+                        <Col lg={3} md={4} sm={6}>
+                            <a className="card" onClick={() => purchaseStoreBuilding(alchemyLab.id)}>
+                                <img className="building-icon" src={alchemyLab.icon} />
+                                <h3 className="building-name">{alchemyLab.name}</h3>
+                                <div>
+                                    <h4 className="building-buy-cost" id="alchemylab-buy-cost">{alchemyLab.buyCost}</h4>
+                                    <h4 className="building-amount-owned" id="alchemylab-amount-owned">{alchemyLab.amountOwned}</h4>
+                                </div>
+                            </a>
+                        </Col>
+                        <Col lg={3} md={4} sm={6}>
+                            <a className="card" onClick={() => purchaseStoreBuilding(portal.id)}>
+                                <img className="building-icon" src={portal.icon} />
+                                <h3 className="building-name">{portal.name}</h3>
+                                <div>
+                                    <h4 className="building-buy-cost" id="portal-buy-cost">{portal.buyCost}</h4>
+                                    <h4 className="building-amount-owned" id="portal-amount-owned">{portal.amountOwned}</h4>
+                                </div>
+                            </a>
+                        </Col>
+                        <Col lg={3} md={4} sm={6}>
+                            <a className="card" onClick={() => purchaseStoreBuilding(timeMachine.id)}>
+                                <img className="building-icon" src={timeMachine.icon} />
+                                <h3 className="building-name">{timeMachine.name}</h3>
+                                <div>
+                                    <h4 className="building-buy-cost" id="timemachine-buy-cost">{timeMachine.buyCost}</h4>
+                                    <h4 className="building-amount-owned" id="timemachine-amount-owned">{timeMachine.amountOwned}</h4>
+                                </div>
+                            </a>
+                        </Col>
+                        <Col lg={3} md={4} sm={6}>
+                            <a className="card" onClick={() => purchaseStoreBuilding(antimatterCondenser.id)}>
+                                <img className="building-icon" src={antimatterCondenser.icon} />
+                                <h3 className="building-name">{antimatterCondenser.name}</h3>
+                                <div>
+                                    <h4 className="building-buy-cost" id="antimattercondenser-buy-cost">{antimatterCondenser.buyCost}</h4>
+                                    <h4 className="building-amount-owned" id="antimattercondenser-amount-owned">{antimatterCondenser.amountOwned}</h4>
+                                </div>
+                            </a>
+                        </Col>
+                        <Col lg={3} md={4} sm={6}>
+                            <a className="card" onClick={() => purchaseStoreBuilding(prism.id)}>
+                                <img className="building-icon" src={prism.icon} />
+                                <h3 className="building-name">{prism.name}</h3>
+                                <div>
+                                    <h4 className="building-buy-cost" id="prism-buy-cost">{prism.buyCost}</h4>
+                                    <h4 className="building-amount-owned" id="prism-amount-owned">{prism.amountOwned}</h4>
+                                </div>
+                            </a>
+                        </Col>
+                        <Col lg={3} md={4} sm={6}>
+                            <a className="card" onClick={() => purchaseStoreBuilding(chancemaker.id)}>
+                                <img className="building-icon" src={chancemaker.icon} />
+                                <h3 className="building-name">{chancemaker.name}</h3>
+                                <div>
+                                    <h4 className="building-buy-cost" id="chancemaker-buy-cost">{chancemaker.buyCost}</h4>
+                                    <h4 className="building-amount-owned" id="chancemaker-amount-owned">{chancemaker.amountOwned}</h4>
+                                </div>
+                            </a>
+                        </Col>
+                        <Col lg={3} md={4} sm={6}>
+                            <a className="card" onClick={() => purchaseStoreBuilding(fractalEngine.id)}>
+                                <img className="building-icon" src={fractalEngine.icon} />
+                                <h3 className="building-name">{fractalEngine.name}</h3>
+                                <div>
+                                    <h4 className="building-buy-cost" id="fractalengine-buy-cost">{fractalEngine.buyCost}</h4>
+                                    <h4 className="building-amount-owned" id="fractalengine-amount-owned">{fractalEngine.amountOwned}</h4>
+                                </div>
+                            </a>
+                        </Col>
+                        <Col lg={3} md={4} sm={6}>
+                            <a className="card" onClick={() => purchaseStoreBuilding(javascriptConsole.id)}>
+                                <img className="building-icon" src={javascriptConsole.icon} />
+                                <h3 className="building-name">{javascriptConsole.name}</h3>
+                                <div>
+                                    <h4 className="building-buy-cost" id="javascriptconsole-buy-cost">{javascriptConsole.buyCost}</h4>
+                                    <h4 className="building-amount-owned" id="javascriptconsole-amount-owned">{javascriptConsole.amountOwned}</h4>
+                                </div>
+                            </a>
+                        </Col>
+                        <Col lg={3} md={4} sm={6}>
+                            <a className="card" onClick={() => purchaseStoreBuilding(idleverse.id)}>
+                                <img className="building-icon" src={idleverse.icon} />
+                                <h3 className="building-name">{idleverse.name}</h3>
+                                <div>
+                                    <h4 className="building-buy-cost" id="idleverse-buy-cost">{idleverse.buyCost}</h4>
+                                    <h4 className="building-amount-owned" id="idleverse-amount-owned">{idleverse.amountOwned}</h4>
                                 </div>
                             </a>
                         </Col>
                     </Row>
 
-                    <Row>
-                        <Col lg={4}>
-                            <a className="card" onClick={() => purchaseStoreBuilding(temple.id)}>
-                                <img className="building-icon" src={temple.icon} />
-                                <h3 className="building-name">{temple.name}</h3>
-                                <div>
-                                    <h4 className="building-buy-cost" id="temple-buy-cost">{temple.buyCost}</h4>
-                                    <h4 className="building-amount-owned" id="temple-amount-owned">{temple.amountOwned}</h4>
-                                </div>
-                            </a>
-                        </Col>
-                        <Col lg={4}>
-                            <a className="card" onClick={() => purchaseStoreBuilding(wizardTower.id)}>
-                                <img className="building-icon" src={wizardTower.icon} />
-                                <h3 className="building-name">{wizardTower.name}</h3>
-                                <div>
-                                    <h4 className="building-buy-cost" id="wizardTower-buy-cost">{wizardTower.buyCost}</h4>
-                                    <h4 className="building-amount-owned" id="wizardTower-amount-owned">{wizardTower.amountOwned}</h4>
-                                </div>
-                            </a>
-                        </Col>
-                        <Col lg={4}>
-                            <a className="card" onClick={() => purchaseStoreBuilding(shipment.id)}>
-                                <img className="building-icon" src={shipment.icon} />
-                                <h3 className="building-name">{shipment.name}</h3>
-                                <div>
-                                    <h4 className="building-buy-cost" id="shipment-buy-cost">{shipment.buyCost}</h4>
-                                    <h4 className="building-amount-owned" id="shipment-amount-owned">{shipment.amountOwned}</h4>
-                                </div>
-                            </a>
-                        </Col>
-                    </Row>
                     {/* End style testing */}
 
                     {/* <Row>
