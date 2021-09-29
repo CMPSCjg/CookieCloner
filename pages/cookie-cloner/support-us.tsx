@@ -93,6 +93,7 @@ export default function supportUs() {
                 }
 
                 .card {
+                    margin: 0.5rem;
                     padding: 1.5rem;
                     border: 2px #eaeaea solid;
                     height: 480px;
