@@ -35,6 +35,7 @@ export default function game() {
     // Maintain an array of interval IDs in order to stop these when the user navigates off this page.
     const router = useRouter();
     let runningIntervalProcesses = [];
+    let iOSDevice;
 
     // Define cookie amount variables that can be used across the scope of the game.
     let cookieTotalAmount;
@@ -89,6 +90,9 @@ export default function game() {
         // The method has fallback code for default values if they either don't have progress or haven't unlocked buildings yet.
         WINDOW = window;
         const gameProgressFromBrowser: GameProgress = getCurrentGameProgressFromBrowser(WINDOW);
+
+        // Determine whether or not the device hitting the application is a iOS device.
+        iOSDevice = iOSDeviceCheck();
 
         // Store their cookie total in memory and update the UI to reflect the value stored.
         cookieTotalAmount = gameProgressFromBrowser.cookieTotalAmount;
@@ -755,7 +759,7 @@ export default function game() {
         cookieClickElement.id = 'manual-cookie-click-amount'
         cookieClickElement.style.position = 'absolute'
         cookieClickElement.style.left = (clientX-25) + 'px'
-        cookieClickElement.style.top = (clientY-25) + 'px'
+        cookieClickElement.style.top = (clientY-50) + 'px'
         cookieClickElement.style.fontWeight = '800'
         cookieClickElement.style.fontSize = '2rem';
         cookieClickElement.style.color = 'white';
@@ -771,8 +775,8 @@ export default function game() {
         // Every 100ms, move the element towards the top of the page and decrease the opacity to give a fading out effect.
         const animationInterval = setInterval(() => {
             clientY--;
-            startingOpacity -= 5;
-            cookieClickElement.style.top = (clientY-25) + 'px'
+            startingOpacity -= 10;
+            cookieClickElement.style.top = (clientY-50) + 'px'
             cookieClickElement.style.opacity = startingOpacity + '%';
         }, 100);
 
@@ -780,13 +784,15 @@ export default function game() {
         setTimeout(() => {
             cookieClickElement.remove();
             clearInterval(animationInterval)
-        }, 2000)
+        }, 1000)
 
-        // Play the 'click' sound effect.
-        const clickAudio = new Audio();
-        clickAudio.src = "../audio/click.mp3";
-        clickAudio.load();
-        clickAudio.play();
+        // Play the 'click' sound effect if the device is not an iOS device.
+        if (!iOSDevice) {
+            const clickAudio = new Audio();
+            clickAudio.src = "../audio/click.mp3";
+            clickAudio.load();
+            clickAudio.play();
+        }
 
         // Update their total cookie amount by 1 and render this updated value on the UI.
         cookieTotalAmount += manualCookieClickAmount;
@@ -1069,6 +1075,20 @@ export default function game() {
 
     function formatLargerNumber(numberToFormat: number): string {
         return numberToFormat?.toLocaleString();
+    }
+
+    function iOSDeviceCheck() {
+        return [
+            'iPad Simulator',
+            'iPhone Simulator',
+            'iPod Simulator',
+            'iPad',
+            'iPhone',
+            'iPod'
+        ].includes(navigator.platform)
+
+          // iPad on iOS 13 detection
+          || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
     }
 }
 
