@@ -28,6 +28,7 @@ export default function supportUs() {
                         <div className="card">
                             <h3 className="card-title">Stream DONDA</h3>
                             <p className="card-description">Listen to DONDA on any streaming platform on repeat.</p>
+                            <br/><br/><br/><br/>
                             <Row>
                                 <Col><img className="card-image clickable" src="/images/spotify.png" onClick={() => openLink('spotify')} tabIndex={0} /></Col>
                                 <Col><img className="card-image clickable" src="/images/apple.png" onClick={() => openLink('apple')} tabIndex={0} /></Col>
@@ -58,6 +59,7 @@ export default function supportUs() {
                     </div>
                 </Row>
             </Container>
+            <br/><br/><br/>
             <FooterComp />
             <style jsx>{`
             

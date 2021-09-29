@@ -429,6 +429,7 @@ export default function game() {
                     transition: scale 1s ease;
                     display: block;
                     margin: auto;
+                    user-select: none;
                 }
 
                 .the-cookie:hover {
@@ -518,6 +519,7 @@ export default function game() {
                     border-radius: 10px;
                     transition: color 0.2s ease, border-color 0.2s ease;
                     cursor: pointer;
+                    user-select: none;
                   }
           
                 .card:hover,
@@ -579,7 +581,7 @@ export default function game() {
         cookieClickElement.id = 'manual-cookie-click-amount'
         cookieClickElement.style.position = 'absolute'
         cookieClickElement.style.left = (clientX - 25) + 'px'
-        cookieClickElement.style.top = (clientY - 50) + 'px'
+        cookieClickElement.style.top = (clientY - 25) + 'px'
         cookieClickElement.style.fontWeight = '800'
         cookieClickElement.style.fontSize = '2rem';
         cookieClickElement.style.color = 'white';
@@ -596,7 +598,7 @@ export default function game() {
         const animationInterval = setInterval(() => {
             clientY--;
             startingOpacity -= 10;
-            cookieClickElement.style.top = (clientY - 50) + 'px'
+            cookieClickElement.style.top = (clientY - 25) + 'px'
             cookieClickElement.style.opacity = startingOpacity + '%';
         }, 100);
 
