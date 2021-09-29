@@ -1,12 +1,11 @@
 import Link from "next/link";
-import FontAdjust from '../components/head/head'
+import HeaderComp from '../components/head/head'
 import FooterComp from '../components/footer/footer';
 
 export default function PageNotFound() {
     return (
         <div className="container">
-            <FontAdjust></FontAdjust>
-
+            <HeaderComp />
             <main>
                 <img style={{width: '40%'}} src="images/404.jpg" />
                 <h1 className="title">
@@ -21,8 +20,7 @@ export default function PageNotFound() {
                     <a>Click here to return to the homepage</a>
                 </Link>
             </main>
-
-            <FooterComp></FooterComp>
+            <FooterComp />
 
             <style jsx>{`
             

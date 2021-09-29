@@ -1,5 +1,5 @@
-import Navbar from '../../components/nav/nav';
-import FontAdjust from '../../components/head/head'
+import NavbarComp from '../../components/nav/nav';
+import HeaderComp from '../../components/head/head'
 import FooterComp from '../../components/footer/footer';
 
 import { Row, Col, Container } from 'react-bootstrap'
@@ -13,9 +13,9 @@ export default function supportUs() {
 
     return (
         <>
-            <Navbar></Navbar>
+            <HeaderComp />
+            <NavbarComp />
             <Container>
-                <FontAdjust />
                 <h1 className="title">Support Us</h1>
 
                 <p className="description">There are 3 options available for how you can help support Cookie Cloner!</p>
@@ -58,7 +58,7 @@ export default function supportUs() {
                     </div>
                 </Row>
             </Container>
-            <FooterComp></FooterComp>
+            <FooterComp />
             <style jsx>{`
             
                 * {

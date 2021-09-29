@@ -2,9 +2,11 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 
-import Navbar from '../../components/nav/nav';
-import FontAdjust from '../../components/head/head'
+import NavbarComp from '../../components/nav/nav';
+import HeaderComp from '../../components/head/head'
 import FooterComp from '../../components/footer/footer';
+
+import { iOSDeviceCheck } from '../../helpers/iOSDeviceCheck';
 
 import { GameProgress } from '../../models/GameProgress';
 import { Cursor } from '../../models/store/Cursor';
@@ -35,6 +37,7 @@ export default function game() {
     // Maintain an array of interval IDs in order to stop these when the user navigates off this page.
     const router = useRouter();
     let runningIntervalProcesses = [];
+    let iOSDevice;
 
     // Define cookie amount variables that can be used across the scope of the game.
     let cookieTotalAmount;
@@ -89,6 +92,9 @@ export default function game() {
         // The method has fallback code for default values if they either don't have progress or haven't unlocked buildings yet.
         WINDOW = window;
         const gameProgressFromBrowser: GameProgress = getCurrentGameProgressFromBrowser(WINDOW);
+
+        // Determine whether or not the device hitting the application is a iOS device.
+        iOSDevice = iOSDeviceCheck();
 
         // Store their cookie total in memory and update the UI to reflect the value stored.
         cookieTotalAmount = gameProgressFromBrowser.cookieTotalAmount;
@@ -190,20 +196,22 @@ export default function game() {
 
     return (
         <>
-            <FontAdjust />
-            <Navbar></Navbar>
+            <HeaderComp />
+            <NavbarComp />
             <Container>
                 <main>
                     <p id="game-saved-message" className="game-saved" style={{ opacity: '0' }}>Your game progress has been saved!</p>
                     <div className="game">
-                        <h3 id="cookie-total-amount"></h3>
+                        <h3 id="cookie-total-amount">{cookieTotalAmount}</h3>
                         <img
+                            draggable='false'
                             className="the-cookie"
                             src="../images/cookie-logo.png"
-                            onClick={() => manualCookieClick()}
+                            onClick={(event) => manualCookieClick(event)}
                         />
                     </div>
                     <p><strong>Game progress will automatically save every 60 seconds!</strong></p>
+
                     <Row>
                         <Col>
                             <label style={{ height: '30px', paddingTop: '1px', paddingLeft: '6px', paddingRight: '6px' }} className="game-save-button">
@@ -391,10 +399,8 @@ export default function game() {
                             </a>
                         </Col>
                     </Row>
-
                 </main>
-
-                <FooterComp></FooterComp>
+                <FooterComp />
 
                 <style jsx>{`
             
@@ -555,15 +561,59 @@ export default function game() {
         </>
     )
 
-    function manualCookieClick() {
-        // Play the 'click' sound effect.
-        const clickAudio = new Audio();
-        clickAudio.src = "../audio/click.mp3";
-        clickAudio.load();
-        clickAudio.play();
+    function manualCookieClick(event) {
+
+        // TODO: As we build out the 'upgrades' portion of the game, this manualCookieClickAmount should increase based off of what upgrades the player has purchased.
+        const manualCookieClickAmount = 1;
+
+        // Retrieve the cursor position where the user clicked the big cookie.
+        let { clientX, clientY } = event;
+        let startingOpacity = 100;
+
+        // Create manual cookie click amount element on the page.
+        // TODO: Would love to refactor this into a CSS class and not do inline styling here.
+        //       I tried to do a CSS class, but the styles did not apply.
+        const cookieClickElement: HTMLElement = document.createElement('p')
+        cookieClickElement.id = 'manual-cookie-click-amount'
+        cookieClickElement.style.position = 'absolute'
+        cookieClickElement.style.left = (clientX - 25) + 'px'
+        cookieClickElement.style.top = (clientY - 50) + 'px'
+        cookieClickElement.style.fontWeight = '800'
+        cookieClickElement.style.fontSize = '2rem';
+        cookieClickElement.style.color = 'white';
+        cookieClickElement.style.textShadow = '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000';
+        cookieClickElement.ariaDisabled = 'true'
+        cookieClickElement.style.pointerEvents = 'none'
+        cookieClickElement.style.opacity = startingOpacity + '%';
+        cookieClickElement.innerHTML = '+' + manualCookieClickAmount + (manualCookieClickAmount === 1 ? ' cookie' : ' cookies');
+
+        // Add the manual cookie click amount element to the page.
+        document.getElementsByTagName('main')[0].appendChild(cookieClickElement)
+
+        // Every 100ms, move the element towards the top of the page and decrease the opacity to give a fading out effect.
+        const animationInterval = setInterval(() => {
+            clientY--;
+            startingOpacity -= 10;
+            cookieClickElement.style.top = (clientY - 50) + 'px'
+            cookieClickElement.style.opacity = startingOpacity + '%';
+        }, 100);
+
+        // After 2 seconds, remove the element from the page and clean up the setInterval process.
+        setTimeout(() => {
+            cookieClickElement.remove();
+            clearInterval(animationInterval)
+        }, 1000)
+
+        // Play the 'click' sound effect if the device is not an iOS device.
+        if (!iOSDevice) {
+            const clickAudio = new Audio();
+            clickAudio.src = "../audio/click.mp3";
+            clickAudio.load();
+            clickAudio.play();
+        }
 
         // Update their total cookie amount by 1 and render this updated value on the UI.
-        cookieTotalAmount += 1;
+        cookieTotalAmount += manualCookieClickAmount;
         renderUpdatedCookieValues(cookieTotalAmount, cookiesPerSecond);
     }
 

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import FontAdjust from '../components/head/head'
+import HeaderComp from '../components/head/head'
 import FooterComp from '../components/footer/footer';
 
 import { Container, Row, Col } from 'react-bootstrap';
@@ -10,7 +10,7 @@ export default function Home() {
 
   return (
     <Container>
-      <FontAdjust />
+      <HeaderComp />
       <main>
         <div className="hero">
           <img src="/images/cookie-logo.png" />
@@ -59,7 +59,9 @@ export default function Home() {
           </Col>
         </Row>
         <br/><br/><br/>
-      </main><FooterComp></FooterComp><style jsx>{`
+      </main>
+      <FooterComp />
+      <style jsx>{`
 
         * {
           font-family: gluten;

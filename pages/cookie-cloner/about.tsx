@@ -1,5 +1,5 @@
-import Navbar from '../../components/nav/nav';
-import FontAdjust from '../../components/head/head'
+import NavbarComp from '../../components/nav/nav';
+import HeaderComp from '../../components/head/head'
 import FooterComp from '../../components/footer/footer';
 
 import { Row, Col, Container } from 'react-bootstrap';
@@ -10,9 +10,9 @@ export default function about() {
 
     return (
         <>
-            <Navbar></Navbar>
+            <HeaderComp />
+            <NavbarComp />
             <Container>
-                <FontAdjust></FontAdjust>
                 <Row>
                     <Col xs={12}>
                         <h1 className="title">About</h1>
@@ -58,7 +58,7 @@ export default function about() {
 
                 <br/><br/><br/>
 
-                <FooterComp></FooterComp>
+                <FooterComp />
 
                 <style jsx>{`
             

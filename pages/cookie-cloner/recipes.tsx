@@ -1,44 +1,17 @@
 import { Row, Col, Container } from 'react-bootstrap';
 
-import Navbar from '../../components/nav/nav';
-import FontAdjust from '../../components/head/head';
+import NavbarComp from '../../components/nav/nav';
+import HeaderComp from '../../components/head/head';
 import FooterComp from '../../components/footer/footer';
+import { RecipesApiResponse } from '../../models/recipes/RecipesApiResponse';
 
 export default function recipes() {
 
-    // let recipesData = MOCK_COOKIE_RECIPES_RESPONSE;
-
-    // const nutritionalInformation: NutritionalInformation[] = [
-    //     {
-    //         servingSize: 12,
-    //         calories: 1000,
-    //         protein: 50,
-    //         fat: 40,
-    //         carb: 100,
-    //         cholestrol: 1,
-    //         sodium: 2,
-    //         calcium: 3,
-    //         magnesium: 4,
-    //         potassium: 5,
-    //         iron: 6
-    //     }
-    // ]
-
-    // useEffect(() => {
-    //      fetch('http://localhost:3000/api/recipes').then(data => recipesData = data);
-    //     console.log('Recipes data: ' + JSON.stringify(recipesData))
-    // })
-
-    // fetch('http://localhost:3000/api/recipes').then(data => {
-    //     recipesData = data.body
-    //     console.log('data: ' + JSON.stringify(data))
-    // });
-
     return (
         <>
-            <Navbar></Navbar>
+            <NavbarComp />
             <Container>
-                <FontAdjust />
+                <HeaderComp />
                 <Row>
                     <Col></Col>
                     <Col xs={12}>
@@ -50,11 +23,16 @@ export default function recipes() {
                             <button className="search-bar-button" type="submit">Search</button>
                         </form>
                         <p className="description">I am a demon. I live and breathe hot fire like Bill Clinton.</p>
+
+                        <br />
+                        <p className="description">TODO: REMOVE THIS WITH RECIPE CARDS.</p>
+                        <br />
+                        <p style={{ overflowWrap: 'break-word'}} id="response-data"></p>
                     </Col>
                     <Col></Col>
                 </Row>
             </Container>
-            <FooterComp></FooterComp>
+            <FooterComp />
             <style jsx>{`
 
                 * {
@@ -106,14 +84,28 @@ export default function recipes() {
         </>
     )
 
-    function searchForRecipe(event) {
+    async function searchForRecipe(event) {
         // Cancel the submit request from the browser side.
         if (event) event.preventDefault();
 
-        // Parse the entered recipe name from the search bar input field.
-        const recipeToSearchFor = event?.target?.children[0]?.value;
+        // Parse the entered recipe name from the search bar input field, making sure to remove any additional whitespace.
+        let recipeToSearchFor = event?.target?.children[0]?.value;
+        recipeToSearchFor = recipeToSearchFor.trim();
 
-        // TODO: Construct API request with recipeToSearchFor as query parameter.
+        // If the search bar input field is empty, do not execute the API request.
+        if (!recipeToSearchFor) 
+            return;
+
+        // Execute API request with recipeToSearchFor as query parameter.
+        const response = await fetch('/api/recipes', {
+            method: 'POST',
+            body: JSON.stringify({ recipeToSearchFor }),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        const responseData: RecipesApiResponse = await response.json();
+        document.getElementById('response-data').innerHTML = JSON.stringify(responseData);
     }
 }
 
