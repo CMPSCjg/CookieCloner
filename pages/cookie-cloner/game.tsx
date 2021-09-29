@@ -27,6 +27,7 @@ import { JavascriptConsole } from '../../models/store/JavascriptConsole';
 import { Idleverse } from '../../models/store/Idleverse';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { iOSDeviceCheck } from '../../helpers/iOSDeviceCheck';
 
 var WINDOW;
 
@@ -1075,20 +1076,6 @@ export default function game() {
 
     function formatLargerNumber(numberToFormat: number): string {
         return numberToFormat?.toLocaleString();
-    }
-
-    function iOSDeviceCheck() {
-        return [
-            'iPad Simulator',
-            'iPhone Simulator',
-            'iPod Simulator',
-            'iPad',
-            'iPhone',
-            'iPod'
-        ].includes(navigator.platform)
-
-          // iPad on iOS 13 detection
-          || (navigator.userAgent.includes("Mac") && "ontouchend" in document)
     }
 }
 
