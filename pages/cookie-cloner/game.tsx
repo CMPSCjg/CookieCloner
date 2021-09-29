@@ -6,6 +6,8 @@ import NavbarComp from '../../components/nav/nav';
 import HeaderComp from '../../components/head/head'
 import FooterComp from '../../components/footer/footer';
 
+import { iOSDeviceCheck } from '../../helpers/iOSDeviceCheck';
+
 import { GameProgress } from '../../models/GameProgress';
 import { Cursor } from '../../models/store/Cursor';
 import { Grandma } from '../../models/store/Grandma';
@@ -27,7 +29,6 @@ import { JavascriptConsole } from '../../models/store/JavascriptConsole';
 import { Idleverse } from '../../models/store/Idleverse';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { iOSDeviceCheck } from '../../helpers/iOSDeviceCheck';
 
 var WINDOW;
 
