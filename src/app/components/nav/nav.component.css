@@ -21,6 +21,10 @@
   }
 }
 
+.nav-logo {
+  margin-right: 16px;
+}
+
 .nav-logo:hover {
   animation: pulse 1s infinite;
   animation-timing-function: linear;

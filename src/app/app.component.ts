@@ -1,10 +1,5 @@
 import { Component } from '@angular/core';
-
-interface Card {
-  title: string,
-  description: string,
-  calories: number
-}
+import { Router, RouterEvent } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -12,9 +7,14 @@ interface Card {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  isHomePage = true;
 
-  time = setTimeout(() => {
-    this.isHomePage = true;
-  }, 5000)
+  isOnHomePage: boolean = false;
+
+  constructor(public router: Router) {
+    this.router.events.subscribe(routerEvent => {
+      if (routerEvent instanceof RouterEvent) {
+        this.isOnHomePage = routerEvent.url === '/'
+      }
+    })
+  }
 }
