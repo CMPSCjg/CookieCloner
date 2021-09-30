@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RecipesService } from 'src/app/services/recipes-service';
 
 @Component({
   selector: 'app-recipes',
@@ -9,7 +10,7 @@ export class RecipesComponent implements OnInit {
 
   responseData: any;
 
-  constructor() { }
+  constructor(private recipesService: RecipesService) { }
 
   ngOnInit(): void {
   }
@@ -27,14 +28,9 @@ export class RecipesComponent implements OnInit {
         return;
 
     // Execute API request with recipeToSearchFor as query parameter.
-    // const response = await fetch('/api/recipes', {
-    //     method: 'POST',
-    //     body: JSON.stringify({ recipeToSearchFor }),
-    //     headers: {
-    //         'Content-Type': 'application/json'
-    //     }
-    // })
-    // const responseData: RecipesApiResponse = await response.json();
-    this.responseData = { test: 'test' }
+    const response = await this.recipesService.searchForRecipes(recipeToSearchFor)
+    response.subscribe(responseData => {
+      this.responseData = responseData
+    })
   }
 }
