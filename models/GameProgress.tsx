@@ -38,5 +38,23 @@ export interface GameProgress {
         fractalEngine: Partial<FractalEngine>
         javascriptConsole: Partial<JavascriptConsole>
         idleverse: Partial<Idleverse>
+    },
+    stats: {
+        cookiesInBank: number
+        cookiesBakedThisPrestige: number
+        cookiesBakedAllTime: number
+        cookiesForfeitedByMostRecentPrestige: number
+        startDate: number
+        totalTimePlayed: number
+        timePlayedThisPrestige: number
+        numberOfBuildingsOwned: number
+        cookiesPerSecond: number
+        rawCookiesPerSecond: number
+        cookiesPerClick: number
+        cookieClicks: number
+        handMadeCookies: number
+        goldenCookieClicks: number
+        goldenCookieClicksAllTime: number
+        numberOfTimesPrestiged: number
     }
 }
