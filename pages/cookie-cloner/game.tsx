@@ -42,6 +42,22 @@ export default function game() {
     // Define cookie amount variables that can be used across the scope of the game.
     let cookieTotalAmount;
     let cookiesPerSecond;
+    
+    let cookiesInBank = 0;
+    let cookiesBakedThisPrestige = 0;
+    let cookiesBakedAllTime = 0;
+    let cookiesForfeitedByMostRecentPrestige = 0;
+    let startDate = 0;
+    let totalTimePlayed = 0;
+    let timePlayedThisPrestige = 0;
+    let numberOfBuildingsOwned = 0;
+    let rawCookiesPerSecond = 0;
+    let cookiesPerClick = 0;
+    let cookieClicks = 0;
+    let handMadeCookies = 0;
+    let goldenCookieClicks = 0;
+    let goldenCookieClicksAllTime = 0;
+    let numberOfTimesPrestiged = 0;
 
     // Define store buildings as classes that can be used across the scope of the game.
     let cursor = new Cursor(0, 15);
@@ -175,6 +191,40 @@ export default function game() {
         // Update the UI to reflect these values.
         renderUpdatedStoreValues(buildings)
 
+        cookiesInBank = gameProgressFromBrowser.stats.cookiesInBank;
+        cookiesBakedThisPrestige = gameProgressFromBrowser.stats.cookiesBakedThisPrestige;
+        cookiesBakedAllTime = gameProgressFromBrowser.stats.cookiesBakedAllTime;
+        cookiesForfeitedByMostRecentPrestige = gameProgressFromBrowser.stats.cookiesForfeitedByMostRecentPrestige;
+        startDate = gameProgressFromBrowser.stats.startDate
+        totalTimePlayed = gameProgressFromBrowser.stats.totalTimePlayed;
+        timePlayedThisPrestige = gameProgressFromBrowser.stats.timePlayedThisPrestige;
+        numberOfBuildingsOwned = gameProgressFromBrowser.stats.numberOfBuildingsOwned;
+        rawCookiesPerSecond = gameProgressFromBrowser.stats.rawCookiesPerSecond;
+        cookiesPerClick = gameProgressFromBrowser.stats.cookiesPerClick;
+        cookieClicks = gameProgressFromBrowser.stats.cookieClicks;
+        handMadeCookies = gameProgressFromBrowser.stats.handMadeCookies;
+        goldenCookieClicks = gameProgressFromBrowser.stats.goldenCookieClicks;
+        goldenCookieClicksAllTime = gameProgressFromBrowser.stats.goldenCookieClicksAllTime;
+        numberOfTimesPrestiged = gameProgressFromBrowser.stats.numberOfTimesPrestiged;
+
+        renderUpdatedStatValues(    
+            cookiesInBank,
+            cookiesBakedThisPrestige,
+            cookiesBakedAllTime,
+            cookiesForfeitedByMostRecentPrestige,
+            startDate,
+            totalTimePlayed,
+            timePlayedThisPrestige,
+            numberOfBuildingsOwned,
+            cookiesPerSecond,
+            rawCookiesPerSecond,
+            cookiesPerClick,
+            cookieClicks,
+            handMadeCookies,
+            goldenCookieClicks,
+            goldenCookieClicksAllTime,
+            numberOfTimesPrestiged)
+
         // Kick off the repeated, setInterval code to have the player gain cookies every second and save their progress to Local Storage every 60 seconds.
         beginCookieGeneratingEngine();
         beginGameProgressSavingEngine();
@@ -224,6 +274,17 @@ export default function game() {
                         </Col>
                         <Col>
                             <button className="game-save-button" onClick={() => exportSavedGameProgress(WINDOW)}>EXPORT SAVE</button>
+                        </Col>
+                    </Row>
+
+                    <Row>
+                        <Col>
+                            <div className="card">
+                                <h3 className="">STATS</h3>
+                                <p>Note: Start date will be incorrect until first save!</p>
+                                <p id="start-date">You started playing on: {new Date(startDate).toLocaleDateString()}</p>
+                                <p id="cookies-baked-all-time">Cookies baked all time: {cookiesBakedAllTime} cookies</p>
+                            </div>
                         </Col>
                     </Row>
 
@@ -618,6 +679,12 @@ export default function game() {
 
         // Update their total cookie amount by 1 and render this updated value on the UI.
         cookieTotalAmount += manualCookieClickAmount;
+
+        // Update stats
+        cookiesBakedThisPrestige += manualCookieClickAmount;
+        cookiesBakedAllTime += manualCookieClickAmount;
+        cookieClicks++;
+        handMadeCookies += manualCookieClickAmount;
         renderUpdatedCookieValues(cookieTotalAmount, cookiesPerSecond);
     }
 
@@ -702,6 +769,24 @@ export default function game() {
                         amountOwned: separatedGameProgress[35] ?? 0,
                         buyCost: separatedGameProgress[36] ?? 12000000000000000000000
                     }
+                },
+                stats: {
+                    cookiesInBank: separatedGameProgress[37] ?? 0,
+                    cookiesBakedThisPrestige: separatedGameProgress[38] ?? 0,
+                    cookiesBakedAllTime: separatedGameProgress[39] ?? 0,
+                    cookiesForfeitedByMostRecentPrestige: separatedGameProgress[40] ?? 0,
+                    startDate: separatedGameProgress[41] ?? 0,
+                    totalTimePlayed: separatedGameProgress[42] ?? 0,
+                    timePlayedThisPrestige: separatedGameProgress[43] ?? 0,
+                    numberOfBuildingsOwned: separatedGameProgress[44] ?? 0,
+                    cookiesPerSecond: separatedGameProgress[45] ?? 0,
+                    rawCookiesPerSecond: separatedGameProgress[46] ?? 0,
+                    cookiesPerClick: separatedGameProgress[47] ?? 0,
+                    cookieClicks: separatedGameProgress[48] ?? 0,
+                    handMadeCookies: separatedGameProgress[49] ?? 0,
+                    goldenCookieClicks: separatedGameProgress[50] ?? 0,
+                    goldenCookieClicksAllTime: separatedGameProgress[51] ?? 0,
+                    numberOfTimesPrestiged: separatedGameProgress[52] ?? 0
                 }
             }
             return gameProgress;
@@ -733,6 +818,27 @@ export default function game() {
         cookiesPerSecond = calculateCookiesPerSecond(buildings)
         cookieTotalAmount += cookiesPerSecond;
         renderUpdatedCookieValues(cookieTotalAmount, cookiesPerSecond);
+        renderUpdatedStatValues(    
+            cookiesInBank,
+            cookiesBakedThisPrestige,
+            cookiesBakedAllTime,
+            cookiesForfeitedByMostRecentPrestige,
+            startDate,
+            totalTimePlayed,
+            timePlayedThisPrestige,
+            numberOfBuildingsOwned,
+            cookiesPerSecond,
+            rawCookiesPerSecond,
+            cookiesPerClick,
+            cookieClicks,
+            handMadeCookies,
+            goldenCookieClicks,
+            goldenCookieClicksAllTime,
+            numberOfTimesPrestiged)
+
+        // Update stats
+        cookiesBakedThisPrestige += cookiesPerSecond;
+        cookiesBakedAllTime += cookiesPerSecond;
 
         // Every second, execute this code to add to their cookie total amount.
         runningIntervalProcesses.push(
@@ -740,6 +846,27 @@ export default function game() {
                 cookiesPerSecond = calculateCookiesPerSecond(buildings)
                 cookieTotalAmount += cookiesPerSecond;
                 renderUpdatedCookieValues(cookieTotalAmount, cookiesPerSecond);
+                renderUpdatedStatValues(    
+                    cookiesInBank,
+                    cookiesBakedThisPrestige,
+                    cookiesBakedAllTime,
+                    cookiesForfeitedByMostRecentPrestige,
+                    startDate,
+                    totalTimePlayed,
+                    timePlayedThisPrestige,
+                    numberOfBuildingsOwned,
+                    cookiesPerSecond,
+                    rawCookiesPerSecond,
+                    cookiesPerClick,
+                    cookieClicks,
+                    handMadeCookies,
+                    goldenCookieClicks,
+                    goldenCookieClicksAllTime,
+                    numberOfTimesPrestiged)
+
+                // Update stats
+                cookiesBakedThisPrestige += cookiesPerSecond;
+                cookiesBakedAllTime += cookiesPerSecond;
             }, 1000)
         );
     }
@@ -798,7 +925,23 @@ export default function game() {
             gameProgress.store.chancemaker.gameProgressToString() + ';' +
             gameProgress.store.fractalEngine.gameProgressToString() + ';' +
             gameProgress.store.javascriptConsole.gameProgressToString() + ';' +
-            gameProgress.store.idleverse.gameProgressToString() + ';'
+            gameProgress.store.idleverse.gameProgressToString() + ';' +
+            gameProgress.stats.cookiesInBank + ';' +
+            gameProgress.stats.cookiesBakedThisPrestige + ';' +
+            gameProgress.stats.cookiesBakedAllTime + ';' +
+            gameProgress.stats.cookiesForfeitedByMostRecentPrestige + ';' +
+            gameProgress.stats.startDate + ';' +
+            gameProgress.stats.totalTimePlayed + ';' +
+            gameProgress.stats.timePlayedThisPrestige + ';' +
+            gameProgress.stats.numberOfBuildingsOwned + ';' +
+            gameProgress.stats.cookiesPerSecond + ';' +
+            gameProgress.stats.rawCookiesPerSecond + ';' +
+            gameProgress.stats.cookiesPerClick + ';' +
+            gameProgress.stats.cookieClicks + ';' +
+            gameProgress.stats.handMadeCookies + ';' +
+            gameProgress.stats.goldenCookieClicks + ';' + 
+            gameProgress.stats.goldenCookieClicksAllTime + ';' +
+            gameProgress.stats.numberOfTimesPrestiged + ';'
         );
         WINDOW.localStorage.setItem('CookieClonerGameProgress', serializedGameProgress);
 
@@ -860,7 +1003,38 @@ export default function game() {
         })
     }
 
+    function renderUpdatedStatValues(        
+        cookiesInBank: number,
+        cookiesBakedThisPrestige: number,
+        cookiesBakedAllTime: number,
+        cookiesForfeitedByMostRecentPrestige: number,
+        startDate: number,
+        totalTimePlayed: number,
+        timePlayedThisPrestige: number,
+        numberOfBuildingsOwned: number,
+        cookiesPerSecond: number,
+        rawCookiesPerSecond: number,
+        cookiesPerClick: number,
+        cookieClicks: number,
+        handMadeCookies: number,
+        goldenCookieClicks: number,
+        goldenCookieClicksAllTime: number,
+        numberOfTimesPrestiged: number) {
+            const startDateElement: HTMLElement = document.getElementById('start-date');
+            const cookiesBakedAllTimeElement: HTMLElement = document.getElementById('cookies-baked-all-time');
+            const formattedCookiesBakedAllTime = formatLargerNumber(cookiesBakedAllTime)
+            if (cookiesBakedAllTimeElement) {
+                cookiesBakedAllTimeElement.innerHTML = 'Cookies baked all time: ' + formattedCookiesBakedAllTime + ' cookies'
+            }
+
+            if (startDateElement) {
+                startDateElement.innerHTML = 'You started playing on: ' + new Date(startDate).toLocaleDateString();
+            }
+        }
+
     function getCurrentGameProgress(): GameProgress {
+        if (startDate === 0) startDate = Date.now()
+
         const gameProgress: GameProgress = {
             cookieTotalAmount,
             store: {
@@ -882,6 +1056,24 @@ export default function game() {
                 fractalEngine,
                 javascriptConsole,
                 idleverse
+            },
+            stats: {
+                cookiesInBank: cookieTotalAmount,
+                cookiesBakedThisPrestige,
+                cookiesBakedAllTime,
+                cookiesForfeitedByMostRecentPrestige,
+                startDate,
+                totalTimePlayed,
+                timePlayedThisPrestige,
+                numberOfBuildingsOwned: calculateNumberOfBuildingsOwned(buildings),
+                cookiesPerSecond,
+                rawCookiesPerSecond,
+                cookiesPerClick,
+                cookieClicks,
+                handMadeCookies,
+                goldenCookieClicks,
+                goldenCookieClicksAllTime,
+                numberOfTimesPrestiged
             }
         }
         return gameProgress;
@@ -894,6 +1086,13 @@ export default function game() {
 
         return cookiesPerSecond;
     }
+
+    function calculateNumberOfBuildingsOwned(buildings: Array<Cursor | Grandma | Farm | Mine | Factory | Bank | Temple | WizardTower | Shipment | AlchemyLab |
+        Portal | TimeMachine | AntimatterCondenser | Prism | Chancemaker | FractalEngine | JavascriptConsole | Idleverse>) {
+            let numberOfBuildingsOwned = 0;
+            buildings.forEach(building => numberOfBuildingsOwned += building.amountOwned);
+            return numberOfBuildingsOwned;
+        }
 
     function formatLargerNumber(numberToFormat: number): string {
         return numberToFormat?.toLocaleString();
