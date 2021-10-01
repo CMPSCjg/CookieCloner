@@ -15,6 +15,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RecipesService } from './services/recipes-service';
+import { StoreBuildingComponent } from './components/store-building/store-building.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { RecipesService } from './services/recipes-service';
     PageNotFoundComponent,
     NavComponent,
     LoaderComponent,
-    FooterComponent
+    FooterComponent,
+    StoreBuildingComponent
   ],
   imports: [
     BrowserModule,

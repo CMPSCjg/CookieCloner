@@ -1,7 +1,7 @@
 export class FractalEngine {
     id: number = 15;
     name: string = 'Fractal Engine';
-    icon: string = '../images/fractal-engine.png'
+    icon: string = '../../../public/images/fractal-engine.png'
     amountOwned: number = 0;
     buyCost: number = 310000000000000000;
     cookiesPerSecond: number = 150000000000;

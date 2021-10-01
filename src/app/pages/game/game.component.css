@@ -1,0 +1,147 @@
+* {
+  font-family: gluten;
+}
+@media (max-width: 600px) {
+  .game-save-button {
+    display: none;
+  }
+}
+.container {
+  min-height: 100vh;
+  padding: 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.the-cookie {
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: scale 1s ease;
+  display: block;
+  margin: auto;
+  user-select: none;
+}
+.the-cookie:hover {
+  transform: scale(1.1);
+}
+.the-cookie:active {
+  transform: scale(1);
+}
+#cookie-total-amount {
+  margin: 0;
+  line-height: 1.15;
+  font-size: 2rem;
+  text-align: center;
+}
+.game-saved {
+  font-weight: 600;
+  background: green;
+  cursor: default;
+  background: #00b31e;
+  color: white;
+  border: 4px solid black;
+  border-radius: 6px;
+  width: 40%;
+  text-align: center;
+}
+.game-saved-animation {
+  animation: fadeinout 5s linear;
+}
+@keyframes fadeinout {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 1;
+  }
+}
+.game-save-button {
+  white-space: nowrap;
+  background: white;
+  margin-bottom: 16px;
+  color: #00b31e;
+  transition: 0.2s ease;
+  cursor: pointer;
+  border: 4px solid #eaeaea;
+  border-radius: 6px;
+}
+.game-save-button:hover {
+  background: #00b31e;
+  color: white;
+  border: 4px solid black;
+}
+.building-icon {
+  float: left;
+  width: 33%;
+}
+.building-name {
+  font-weight: 800;
+  font-size: 2rem;
+}
+.building-buy-cost {
+  font-size: 1.5rem;
+  color: #00b31e;
+  float: left;
+}
+.building-amount-owned {
+  font-size: 3.5rem;
+  float: right;
+}
+
+.card {
+  margin: 0.5rem;
+  flex-basis: 45%;
+  padding: 1.5rem;
+  text-align: left;
+  color: inherit;
+  text-decoration: none;
+  border: 4px solid #eaeaea;
+  border-radius: 10px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.card:hover,
+.card:focus,
+.card:active {
+  background-color: #90e0ef;
+  border-color: #0096c7;
+}
+
+.card h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.card p {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.5;
+}
+main {
+  padding: 5rem 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.building-cookies-per-second {
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+.logo {
+  height: 1em;
+}

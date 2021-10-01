@@ -1,7 +1,7 @@
 export class Portal {
     id: number = 10;
     name: string = 'Portal';
-    icon: string = '../images/portal.png'
+    icon: string = '../../../public/images/portal.png'
     amountOwned: number = 0;
     buyCost: number = 1000000000000;
     cookiesPerSecond: number = 10000000;

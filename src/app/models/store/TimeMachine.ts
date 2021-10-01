@@ -1,7 +1,7 @@
 export class TimeMachine {
     id: number = 11;
     name: string = 'Time Machine';
-    icon: string = '../images/time-machine.png'
+    icon: string = '../../../public/images/time-machine.png'
     amountOwned: number = 0;
     buyCost: number = 14000000000000;
     cookiesPerSecond: number = 65000000;

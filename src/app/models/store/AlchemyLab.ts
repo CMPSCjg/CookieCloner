@@ -1,7 +1,7 @@
 export class AlchemyLab {
     id: number = 9;
     name: string = 'Alchemy Lab';
-    icon: string = '../images/alchemy-lab.png'
+    icon: string = '../../../public/images/alchemy-lab.png'
     amountOwned: number = 0;
     buyCost: number = 75000000000;
     cookiesPerSecond: number = 1600000;
