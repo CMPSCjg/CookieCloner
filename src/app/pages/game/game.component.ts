@@ -213,11 +213,8 @@ export class GameComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     // When the user navigates off the Game page, we will end each setInterval process.
-    console.log(this.runningIntervalProcesses)
     this.runningIntervalProcesses.forEach(intervalId => clearInterval(intervalId))
     this.runningIntervalProcesses = [];
-    console.log(this.runningIntervalProcesses)
-
 
     // Update the browser tab title back to the default 'Cookie Cloner'
     const titleElement: HTMLTitleElement = document.querySelector('title');
