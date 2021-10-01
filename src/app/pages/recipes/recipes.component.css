@@ -1,0 +1,41 @@
+.title {
+  margin-top: 120px;
+  font-size: 4rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.description {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.search-bar {
+  text-align: center;
+  margin: 16px;
+}
+
+.search-bar-input {
+  width: 75%;
+  height: 45px;
+  border-radius: 32px;
+  border: 2px #eaeaea solid;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  padding-left: 16px;
+  appearance: none;
+}
+
+.search-bar-input:hover {
+  box-shadow: 0 1px 6px rgb(32 33 36 / 28%);
+}
+
+.search-bar-button {
+  border: none;
+  padding: 8px;
+  background-color: rgb(239, 239, 239);
+}
+
+.search-bar-button:hover {
+  border: 2px #c7c5c5 solid;
+}

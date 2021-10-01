@@ -1,0 +1,46 @@
+<div class="container">
+    <h1 class="title">Support Us</h1>
+
+    <p class="description">There are 3 options available for how you can help support Cookie Cloner!</p>
+
+    <div class="donda-square" (click)="playDondaSound()" tabIndex=0>
+        <p class="donda-square-text">DONDA</p>
+    </div>
+    <div class="row">
+        <div class="col-lg-4">
+            <div class="card">
+                <h3 class="card-title">Stream DONDA</h3>
+                <p class="card-description">Listen to DONDA on any streaming platform on repeat.</p>
+                <br/><br/><br/><br/>
+                <div class="row">
+                    <div class="col"><img class="card-image clickable" src="public/images/spotify.png" (click)="openLink('spotify')" tabIndex=0 /></div>
+                    <div class="col"><img class="card-image clickable" src="public/images/apple.png" (click)="openLink('apple')" tabIndex=0 /></div>
+                    <div class="col"><img class="card-image clickable" src="public/images/tidal.png" (click)="openLink('tidal')" tabIndex=0 /></div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card">
+                <h3 class="card-title">Send us merch from Kanye's DONDA release</h3>
+                <p class="card-description">Looking specifically for these two long-sleeve shirts that were a limited release.</p>
+                <img class="card-image" src="public/images/donda-merch-main.png" />
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card">
+                <h3 class="card-title">Become a contributor</h3>
+                <p class="card-description">Check out the repo on GitHub.</p>
+                <img class="card-image clickable" src="public/images/git-logo.png" (click)="openLink('github')" tabIndex=0 />
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="kanye-quote">
+            "{{ kanyeQuotesAsArray[randomKanyeQuoteIndex] }}"<br /> -- Kanye West
+        </div>
+    </div>
+    <br/>
+    <br/>
+    <br/>
+</div>

@@ -1,0 +1,21 @@
+<div class="container">
+    <div class="row">
+        <div class="col-auto"></div>
+        <div class="col-md-12">
+            <h1 class="title">Recipes</h1>
+            <p class="description">You can enter your search below to find new recipes!</p>
+
+            <form class="search-bar" (submit)="searchForRecipe($event)">
+                <input class="search-bar-input" placeholder="Enter your search here. . ." />
+                <button class="search-bar-button" type="submit">Search</button>
+            </form>
+            <p class="description">I am a demon. I live and breathe hot fire like Bill Clinton.</p>
+
+            <br />
+            <p class="description">TODO: REMOVE THIS WITH RECIPE CARDS.</p>
+            <br />
+            <p [ngStyle]="{ overflowWrap: 'break-word'}" id="response-data">{{ responseData | json }}</p>
+        </div>
+        <div class="col-auto"></div>
+    </div>
+</div>

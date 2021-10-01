@@ -1,0 +1,67 @@
+.title {
+  margin-top: 120px;
+  font-size: 4rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+.description {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.donda-square {
+  color: white;
+  width: 100px;
+  height: 100px;
+  background-color: black;
+  margin: auto auto 16px auto;
+  cursor: pointer;
+}
+
+.donda-square-text {
+  text-align: center;
+  line-height: 100px;
+  font-weight: 600;
+}
+
+.card {
+  margin: 0.5rem;
+  padding: 1.5rem;
+  border: 2px #eaeaea solid;
+  height: 480px;
+  border-radius: 10px;
+}
+
+.card-title {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.card-description {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.card-image {
+  width: 95%;
+  margin: auto;
+}
+
+.card-image:hover {
+  transform: scale(1.1);
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.kanye-quote {
+  text-align: center;
+  margin: auto;
+  margin-top: 2.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  width: 50%;
+}
