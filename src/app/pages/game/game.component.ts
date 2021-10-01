@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 import { iOSDeviceCheck } from '../../helpers/iOSDeviceCheck';
 
@@ -27,7 +27,7 @@ import { Idleverse } from '../../models/store/Idleverse';
   templateUrl: './game.component.html',
   styleUrls: ['./game.component.css']
 })
-export class GameComponent implements OnInit {
+export class GameComponent implements OnInit, OnDestroy {
 
   // Maintain an array of interval IDs in order to stop these when the user navigates off this page.
   runningIntervalProcesses: Array<any> = [];
@@ -209,6 +209,21 @@ export class GameComponent implements OnInit {
    }
 
   ngOnInit(): void {
+  }
+
+  ngOnDestroy(): void {
+    // When the user navigates off the Game page, we will end each setInterval process.
+    console.log(this.runningIntervalProcesses)
+    this.runningIntervalProcesses.forEach(intervalId => clearInterval(intervalId))
+    this.runningIntervalProcesses = [];
+    console.log(this.runningIntervalProcesses)
+
+
+    // Update the browser tab title back to the default 'Cookie Cloner'
+    const titleElement: HTMLTitleElement = document.querySelector('title');
+    if (titleElement) {
+        titleElement.innerHTML = 'Cookie Cloner';
+    }
   }
 
   manualCookieClick(event: any) {
@@ -398,6 +413,7 @@ export class GameComponent implements OnInit {
       // When user first hits the page, render these values rather than waiting 1 second.
       this.cookiesPerSecond = this.calculateCookiesPerSecond(this.buildings)
       this.cookieTotalAmount += this.cookiesPerSecond;
+      this.renderUpdatedBrowserTitle(this.cookieTotalAmount);
 
       // Update stats
       this.cookiesBakedThisPrestige += this.cookiesPerSecond;
