@@ -447,31 +447,21 @@ export class GameComponent implements OnInit, OnDestroy {
         this.cookiesBakedThisPrestige += this.cookiesPerSecond;
         this.cookiesBakedAllTime += this.cookiesPerSecond;
 
-        // Every TIME_TO_UPDATE_IN_MS milliseconds, execute this code to add to their cookie total amount.
+        // Every TIME_TO_UPDATE_IN_MS add their cookiesPerSecond to their cookie total amount and stats.
         const ONE_SECOND_IN_MS = 1000;
         const TIME_TO_UPDATE_IN_MS = 100;
         const NUMBER_TO_DIVIDE_COOKIES_PER_SECOND_BY = ONE_SECOND_IN_MS / TIME_TO_UPDATE_IN_MS;
-        const shouldUseCounterAnimation = this.cookiesPerSecond >= NUMBER_TO_DIVIDE_COOKIES_PER_SECOND_BY;
         this.runningIntervalProcesses.push(
             setInterval(() => {
                 this.cookiesPerSecond = this.calculateCookiesPerSecond(this.buildings)
+                this.cookieTotalAmount += this.cookiesPerSecond / NUMBER_TO_DIVIDE_COOKIES_PER_SECOND_BY
 
-                if (shouldUseCounterAnimation) {
-                    this.cookieTotalAmount += Math.floor(this.cookiesPerSecond / NUMBER_TO_DIVIDE_COOKIES_PER_SECOND_BY)
-
-                    // Update stats
-                    this.cookiesBakedThisPrestige += Math.floor(this.cookiesPerSecond / NUMBER_TO_DIVIDE_COOKIES_PER_SECOND_BY);
-                    this.cookiesBakedAllTime += Math.floor(this.cookiesPerSecond / NUMBER_TO_DIVIDE_COOKIES_PER_SECOND_BY);
-                } else {
-                    this.cookieTotalAmount += this.cookiesPerSecond;
-
-                    // Update stats
-                    this.cookiesBakedThisPrestige += this.cookiesPerSecond;
-                    this.cookiesBakedAllTime += this.cookiesPerSecond;
-                }
-
+                // Update stats
+                this.cookiesBakedThisPrestige += this.cookiesPerSecond / NUMBER_TO_DIVIDE_COOKIES_PER_SECOND_BY;
+                this.cookiesBakedAllTime += this.cookiesPerSecond / NUMBER_TO_DIVIDE_COOKIES_PER_SECOND_BY;
                 this.renderUpdatedBrowserTitle(this.cookieTotalAmount);
-            }, shouldUseCounterAnimation ? TIME_TO_UPDATE_IN_MS : ONE_SECOND_IN_MS))
+            }, TIME_TO_UPDATE_IN_MS)
+        )
     }
 
     /*
@@ -639,7 +629,7 @@ export class GameComponent implements OnInit, OnDestroy {
     }
 
     formatLargerNumber(numberToFormat: number): string {
-        return numberToFormat?.toLocaleString();
+        return Math.floor(numberToFormat)?.toLocaleString();
     }
 
 }
