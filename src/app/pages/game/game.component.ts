@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 
 import { iOSDeviceCheck } from '../../helpers/iOSDeviceCheck';
 
@@ -32,6 +32,7 @@ export class GameComponent implements OnInit, OnDestroy {
     // Maintain an array of interval IDs in order to stop these when the user navigates off this page.
     runningIntervalProcesses: Array<any> = [];
     iOSDevice = false;
+    isMobile = false;
 
     // Define cookie amount variables that can be used across the scope of the game.
     cookieTotalAmount = 0;
@@ -206,6 +207,22 @@ export class GameComponent implements OnInit, OnDestroy {
         this.beginCookieGeneratingEngine();
         this.beginGameProgressSavingEngine();
 
+    }
+
+    
+    // Listen for any window re-size events, if fired, check current screen size.
+    @HostListener("window:resize", [])
+    private onResize() {
+        this.detectScreenSize();
+    }
+
+    ngAfterViewInit() {
+        this.detectScreenSize();
+    }
+
+    private detectScreenSize() {
+        console.log('Width has changed: ' + window.screen.width + 'px')
+        this.isMobile = (window.screen.width < 992)
     }
 
     ngOnInit(): void {
