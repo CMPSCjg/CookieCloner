@@ -17,9 +17,11 @@
 .card3d:hover {
   z-index: 99;
   transform: scale(1.3);
+  margin: 40px 0;
 }
 
-.card3d, .card3d img {
+.card3d,
+.card3d img {
   transition: all 250ms ease-out;
 }
 
@@ -39,6 +41,7 @@
   display: block;
   margin: auto;
   user-select: none;
+  touch-action: manipulation;
 }
 
 .the-cookie:hover {
@@ -73,7 +76,8 @@
 }
 
 @keyframes fadeinout {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0;
   }
   25% {
@@ -139,7 +143,9 @@
   user-select: none;
 }
 
-.card:hover, .card:focus, .card:active {
+.card:hover,
+.card:focus,
+.card:active {
   background-color: #90e0ef;
   border-color: #0096c7;
 }
@@ -168,7 +174,8 @@ main {
   color: white;
   font-size: 1rem;
   font-weight: 600;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 .logo {
