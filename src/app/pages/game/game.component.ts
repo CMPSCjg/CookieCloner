@@ -209,7 +209,7 @@ export class GameComponent implements OnInit, OnDestroy {
 
     }
 
-    
+
     // Listen for any window re-size events, if fired, check current screen size.
     @HostListener("window:resize", [])
     private onResize() {
@@ -247,13 +247,13 @@ export class GameComponent implements OnInit, OnDestroy {
         // When the user navigates off the Game page, we will end each setInterval process.
         this.runningIntervalProcesses.forEach(intervalId => clearInterval(intervalId))
         this.runningIntervalProcesses = [];
-    
+
         // Update the browser tab title back to the default 'Cookie Cloner'
         const titleElement: HTMLTitleElement = document.querySelector('title');
         if (titleElement) {
             titleElement.innerHTML = 'Cookie Cloner';
         }
-      }
+    }
 
     // Card animation
     map(val, minA, maxA, minB, maxB) {

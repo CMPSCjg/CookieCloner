@@ -2,10 +2,27 @@
   font-family: gluten;
 }
 
-@media (max-width: 600px) {
-  .game-save-button {
-    display: none;
+@media (max-width: 992px) {
+  .container-mobile {
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
+
+  main {
+    overflow: hidden
+  }
+
+  .the-cookie-mobile:hover,
+  .the-cookie-mobile:active {
+    transform: none;
+  }
+}
+
+.centered {
+  text-align: center;
 }
 
 .card3d {
@@ -67,7 +84,7 @@
   color: white;
   border: 4px solid black;
   border-radius: 6px;
-  width: 40%;
+  margin-top: 15px;
   text-align: center;
 }
 
@@ -95,6 +112,7 @@
   white-space: nowrap;
   background: white;
   margin-bottom: 16px;
+  margin-right: 16px;
   color: #00b31e;
   transition: 0.2s ease;
   cursor: pointer;
@@ -109,8 +127,7 @@
 }
 
 .building-icon {
-  float: left;
-  width: 33%;
+  width: 100%;
 }
 
 .building-name {
@@ -121,12 +138,10 @@
 .building-buy-cost {
   font-size: 1.5rem;
   color: #00b31e;
-  float: left;
 }
 
 .building-amount-owned {
   font-size: 3.5rem;
-  float: right;
 }
 
 .card {
@@ -150,6 +165,14 @@
   border-color: #0096c7;
 }
 
+.stats:hover,
+.stats:focus,
+.stats:active {
+  background-color: #fffc44;
+  border-color: #c3c000;
+  cursor: default;
+}
+
 .card h3 {
   margin: 0 0 1rem 0;
   font-size: 1.5rem;
@@ -159,15 +182,6 @@
   margin: 0;
   font-size: 1.25rem;
   line-height: 1.5;
-}
-
-main {
-  padding: 5rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .building-cookies-per-second {
