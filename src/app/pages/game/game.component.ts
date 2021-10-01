@@ -447,17 +447,31 @@ export class GameComponent implements OnInit, OnDestroy {
         this.cookiesBakedThisPrestige += this.cookiesPerSecond;
         this.cookiesBakedAllTime += this.cookiesPerSecond;
 
-        // Every second, execute this code to add to their cookie total amount.
+        // Every TIME_TO_UPDATE_IN_MS milliseconds, execute this code to add to their cookie total amount.
+        const ONE_SECOND_IN_MS = 1000;
+        const TIME_TO_UPDATE_IN_MS = 100;
+        const NUMBER_TO_DIVIDE_COOKIES_PER_SECOND_BY = ONE_SECOND_IN_MS / TIME_TO_UPDATE_IN_MS;
+        const shouldUseCounterAnimation = this.cookiesPerSecond >= NUMBER_TO_DIVIDE_COOKIES_PER_SECOND_BY;
         this.runningIntervalProcesses.push(
             setInterval(() => {
                 this.cookiesPerSecond = this.calculateCookiesPerSecond(this.buildings)
-                this.cookieTotalAmount += this.cookiesPerSecond;
-                this.renderUpdatedBrowserTitle(this.cookieTotalAmount);
 
-                // Update stats
-                this.cookiesBakedThisPrestige += this.cookiesPerSecond;
-                this.cookiesBakedAllTime += this.cookiesPerSecond;
-            }, 1000))
+                if (shouldUseCounterAnimation) {
+                    this.cookieTotalAmount += Math.floor(this.cookiesPerSecond / NUMBER_TO_DIVIDE_COOKIES_PER_SECOND_BY)
+
+                    // Update stats
+                    this.cookiesBakedThisPrestige += Math.floor(this.cookiesPerSecond / NUMBER_TO_DIVIDE_COOKIES_PER_SECOND_BY);
+                    this.cookiesBakedAllTime += Math.floor(this.cookiesPerSecond / NUMBER_TO_DIVIDE_COOKIES_PER_SECOND_BY);
+                } else {
+                    this.cookieTotalAmount += this.cookiesPerSecond;
+
+                    // Update stats
+                    this.cookiesBakedThisPrestige += this.cookiesPerSecond;
+                    this.cookiesBakedAllTime += this.cookiesPerSecond;
+                }
+
+                this.renderUpdatedBrowserTitle(this.cookieTotalAmount);
+            }, shouldUseCounterAnimation ? TIME_TO_UPDATE_IN_MS : ONE_SECOND_IN_MS))
     }
 
     /*
@@ -473,7 +487,7 @@ export class GameComponent implements OnInit, OnDestroy {
                 // Save the player's progress to their browser Local Storage.
                 this.saveGameProgress();
 
-            }, 60000)
+            }, 6000000)
         )
     }
 
