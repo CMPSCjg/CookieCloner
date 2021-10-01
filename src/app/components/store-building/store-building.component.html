@@ -1,10 +1,8 @@
-<div class="col-lg-3 col-md-4 col-sm-6">
-    <a class="card" (click)="clickedStorebuilding(building.id)">
-        <img class="building-icon" src="{{building.icon}}" />
-        <h3 class="building-name">{{building.name}}</h3>
-        <div>
-            <h4 class="building-buy-cost" id="building-buy-cost">{{building.buyCost}}</h4>
-            <h4 class="building-amount-owned" id="building-amount-owned">{{building.amountOwned}}</h4>
-        </div>
-    </a>
-</div>
+<a class="card" (click)="clickedStorebuilding(building.id)">
+    <img class="building-icon" src="{{building.icon}}" />
+    <h3 class="building-name">{{building.name}}</h3>
+    <div>
+        <h4 class="building-buy-cost" id="building-buy-cost">{{building.buyCost}}</h4>
+        <h4 class="building-amount-owned" id="building-amount-owned">{{building.amountOwned}}</h4>
+    </div>
+</a>

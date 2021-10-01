@@ -6,7 +6,7 @@
             <h3 id="cookie-total-amount">{{ formatLargerNumber(cookieTotalAmount) }} <br /> cookies <br /> per second :
                 {{ formatLargerNumber(cookiesPerSecond) }}</h3>
             <div class="card3d">
-                <img draggable='false' class="the-cookie" src="../../../public/images/gold_cookie.png"
+                <img draggable='false' class="the-cookie" src="../../../public/images/cookie-logo.png"
                     (click)="manualCookieClick($event)" />
             </div>
         </div>
@@ -40,188 +40,13 @@
             </div>
         </div>
 
-        <!-- TODO: Uncomment and fix styling -->
-        <!-- <div class="row">
-            <ng-container *ngFor="let building of buildings">
-                <app-store-building [building]="building" (storeBuildingClick)="purchaseStoreBuilding($event)"></app-store-building>
-            </ng-container>
-        </div> -->
-
         <div class="row">
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <a class="card" (click)="purchaseStoreBuilding(cursor.id)">
-                    <img class="building-icon" src="{{cursor.icon}}" />
-                    <h3 class="building-name">{{cursor.name}}</h3>
-                    <div>
-                        <h4 class="building-buy-cost" id="cursor-buy-cost">{{formatLargerNumber(cursor.buyCost)}}</h4>
-                        <h4 class="building-amount-owned" id="cursor-amount-owned">{{cursor.amountOwned}}</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <a class="card" (click)="purchaseStoreBuilding(grandma.id)">
-                    <img class="building-icon" src="{{grandma.icon}}" />
-                    <h3 class="building-name">{{grandma.name}}</h3>
-                    <div>
-                        <h4 class="building-buy-cost" id="grandma-buy-cost">{{grandma.buyCost}}</h4>
-                        <h4 class="building-amount-owned" id="grandma-amount-owned">{{grandma.amountOwned}}</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <a class="card" (click)="purchaseStoreBuilding(farm.id)">
-                    <img class="building-icon" src="{{farm.icon}}" />
-                    <h3 class="building-name">{{farm.name}}</h3>
-                    <div>
-                        <h4 class="building-buy-cost" id="farm-buy-cost">{{farm.buyCost}}</h4>
-                        <h4 class="building-amount-owned" id="farm-amount-owned">{{farm.amountOwned}}</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <a class="card" (click)="purchaseStoreBuilding(mine.id)">
-                    <img class="building-icon" src="{{mine.icon}}" />
-                    <h3 class="building-name">{{mine.name}}</h3>
-                    <div>
-                        <h4 class="building-buy-cost" id="mine-buy-cost">{{mine.buyCost}}</h4>
-                        <h4 class="building-amount-owned" id="mine-amount-owned">{{mine.amountOwned}}</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <a class="card" (click)="purchaseStoreBuilding(factory.id)">
-                    <img class="building-icon" src="{{factory.icon}}" />
-                    <h3 class="building-name">{{factory.name}}</h3>
-                    <div>
-                        <h4 class="building-buy-cost" id="factory-buy-cost">{{factory.buyCost}}</h4>
-                        <h4 class="building-amount-owned" id="factory-amount-owned">{{factory.amountOwned}}</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <a class="card" (click)="purchaseStoreBuilding(temple.id)">
-                    <img class="building-icon" src="{{temple.icon}}" />
-                    <h3 class="building-name">{{temple.name}}</h3>
-                    <div>
-                        <h4 class="building-buy-cost" id="temple-buy-cost">{{temple.buyCost}}</h4>
-                        <h4 class="building-amount-owned" id="temple-amount-owned">{{temple.amountOwned}}</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <a class="card" (click)="purchaseStoreBuilding(wizardTower.id)">
-                    <img class="building-icon" src="{{wizardTower.icon}}" />
-                    <h3 class="building-name">{{wizardTower.name}}</h3>
-                    <div>
-                        <h4 class="building-buy-cost" id="wizardtower-buy-cost">{{wizardTower.buyCost}}</h4>
-                        <h4 class="building-amount-owned" id="wizardtower-amount-owned">{{wizardTower.amountOwned}}</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <a class="card" (click)="purchaseStoreBuilding(shipment.id)">
-                    <img class="building-icon" src="{{shipment.icon}}" />
-                    <h3 class="building-name">{{shipment.name}}</h3>
-                    <div>
-                        <h4 class="building-buy-cost" id="shipment-buy-cost">{{shipment.buyCost}}</h4>
-                        <h4 class="building-amount-owned" id="shipment-amount-owned">{{shipment.amountOwned}}</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <a class="card" (click)="purchaseStoreBuilding(alchemyLab.id)">
-                    <img class="building-icon" src="{{alchemyLab.icon}}" />
-                    <h3 class="building-name">{{alchemyLab.name}}</h3>
-                    <div>
-                        <h4 class="building-buy-cost" id="alchemylab-buy-cost">{{alchemyLab.buyCost}}</h4>
-                        <h4 class="building-amount-owned" id="alchemylab-amount-owned">{{alchemyLab.amountOwned}}</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <a class="card" (click)="purchaseStoreBuilding(portal.id)">
-                    <img class="building-icon" src="{{portal.icon}}" />
-                    <h3 class="building-name">{{portal.name}}</h3>
-                    <div>
-                        <h4 class="building-buy-cost" id="portal-buy-cost">{{portal.buyCost}}</h4>
-                        <h4 class="building-amount-owned" id="portal-amount-owned">{{portal.amountOwned}}</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <a class="card" (click)="purchaseStoreBuilding(timeMachine.id)">
-                    <img class="building-icon" src="{{timeMachine.icon}}" />
-                    <h3 class="building-name">{{timeMachine.name}}</h3>
-                    <div>
-                        <h4 class="building-buy-cost" id="timemachine-buy-cost">{{timeMachine.buyCost}}</h4>
-                        <h4 class="building-amount-owned" id="timemachine-amount-owned">{{timeMachine.amountOwned}}</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <a class="card" (click)="purchaseStoreBuilding(antimatterCondenser.id)">
-                    <img class="building-icon" src="{{antimatterCondenser.icon}}" />
-                    <h3 class="building-name">{{antimatterCondenser.name}}</h3>
-                    <div>
-                        <h4 class="building-buy-cost" id="antimattercondenser-buy-cost">{{antimatterCondenser.buyCost}}
-                        </h4>
-                        <h4 class="building-amount-owned" id="antimattercondenser-amount-owned">
-                            {{antimatterCondenser.amountOwned}}</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <a class="card" (click)="purchaseStoreBuilding(prism.id)">
-                    <img class="building-icon" src="{{prism.icon}}" />
-                    <h3 class="building-name">{{prism.name}}</h3>
-                    <div>
-                        <h4 class="building-buy-cost" id="prism-buy-cost">{{prism.buyCost}}</h4>
-                        <h4 class="building-amount-owned" id="prism-amount-owned">{{prism.amountOwned}}</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <a class="card" (click)="purchaseStoreBuilding(chancemaker.id)">
-                    <img class="building-icon" src="{{chancemaker.icon}}" />
-                    <h3 class="building-name">{{chancemaker.name}}</h3>
-                    <div>
-                        <h4 class="building-buy-cost" id="chancemaker-buy-cost">{{chancemaker.buyCost}}</h4>
-                        <h4 class="building-amount-owned" id="chancemaker-amount-owned">{{chancemaker.amountOwned}}</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <a class="card" (click)="purchaseStoreBuilding(fractalEngine.id)">
-                    <img class="building-icon" src="{{fractalEngine.icon}}" />
-                    <h3 class="building-name">{{fractalEngine.name}}</h3>
-                    <div>
-                        <h4 class="building-buy-cost" id="fractalengine-buy-cost">{{fractalEngine.buyCost}}</h4>
-                        <h4 class="building-amount-owned" id="fractalengine-amount-owned">{{fractalEngine.amountOwned}}
-                        </h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <a class="card" (click)="purchaseStoreBuilding(javascriptConsole.id)">
-                    <img class="building-icon" src="{{javascriptConsole.icon}}" />
-                    <h3 class="building-name">{{javascriptConsole.name}}</h3>
-                    <div>
-                        <h4 class="building-buy-cost" id="javascriptconsole-buy-cost">{{javascriptConsole.buyCost}}</h4>
-                        <h4 class="building-amount-owned" id="javascriptconsole-amount-owned">
-                            {{javascriptConsole.amountOwned}}</h4>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-                <a class="card" (click)="purchaseStoreBuilding(idleverse.id)">
-                    <img class="building-icon" src="{{idleverse.icon}}" />
-                    <h3 class="building-name">{{idleverse.name}}</h3>
-                    <div>
-                        <h4 class="building-buy-cost" id="idleverse-buy-cost">{{idleverse.buyCost}}</h4>
-                        <h4 class="building-amount-owned" id="idleverse-amount-owned">{{idleverse.amountOwned}}</h4>
-                    </div>
-                </a>
-            </div>
+            <ng-container *ngFor="let building of buildings">
+                <div class="col-lg-3 col-md-4 col-sm-6">
+                    <app-store-building [building]="building" (storeBuildingClick)="purchaseStoreBuilding($event)">
+                    </app-store-building>
+                </div>
+            </ng-container>
         </div>
     </main>
 </div>
