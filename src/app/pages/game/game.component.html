@@ -1,20 +1,21 @@
 <div class="container">
     <main>
-        <p id="game-saved-message" class="game-saved" [ngStyle]="{ opacity: '0' }">Your game progress has been saved!</p>
+        <p id="game-saved-message" class="game-saved" [ngStyle]="{ opacity: '0' }">Your game progress has been saved!
+        </p>
         <div class="game">
-            <h3 id="cookie-total-amount">{{ formatLargerNumber(cookieTotalAmount) }} <br/> cookies <br/> per second : {{ formatLargerNumber(cookiesPerSecond) }}</h3>
-            <img
-                draggable='false'
-                class="the-cookie"
-                src="../../../public/images/cookie-logo.png"
-                (click)="manualCookieClick($event)"
-            />
+            <h3 id="cookie-total-amount">{{ formatLargerNumber(cookieTotalAmount) }} <br /> cookies <br /> per second :
+                {{ formatLargerNumber(cookiesPerSecond) }}</h3>
+            <div class="card3d">
+                <img draggable='false' class="the-cookie" src="../../../public/images/gold_cookie.png"
+                    (click)="manualCookieClick($event)" />
+            </div>
         </div>
         <p><strong>Game progress will automatically save every 60 seconds!</strong></p>
 
         <div class="row">
             <div class="col">
-                <label [ngStyle]="{ height: '30px', paddingTop: '1px', paddingLeft: '6px', paddingRight: '6px' }" class="game-save-button">
+                <label [ngStyle]="{ height: '30px', paddingTop: '1px', paddingLeft: '6px', paddingRight: '6px' }"
+                    class="game-save-button">
                     <input type="file" [ngStyle]="{ display: 'none' }" (change)="importSavedGameProgress($event)" />
                     IMPORT SAVE
                 </label>
@@ -33,7 +34,8 @@
                     <h3 class="">STATS</h3>
                     <p>Note: Start date will be incorrect until first save!</p>
                     <p id="start-date">You started playing on: {{formattedStartDate}}</p>
-                    <p id="cookies-baked-all-time">Cookies baked all time: {{formatLargerNumber(cookiesBakedAllTime)}} cookies</p>
+                    <p id="cookies-baked-all-time">Cookies baked all time: {{formatLargerNumber(cookiesBakedAllTime)}}
+                        cookies</p>
                 </div>
             </div>
         </div>
@@ -161,8 +163,10 @@
                     <img class="building-icon" src="{{antimatterCondenser.icon}}" />
                     <h3 class="building-name">{{antimatterCondenser.name}}</h3>
                     <div>
-                        <h4 class="building-buy-cost" id="antimattercondenser-buy-cost">{{antimatterCondenser.buyCost}}</h4>
-                        <h4 class="building-amount-owned" id="antimattercondenser-amount-owned">{{antimatterCondenser.amountOwned}}</h4>
+                        <h4 class="building-buy-cost" id="antimattercondenser-buy-cost">{{antimatterCondenser.buyCost}}
+                        </h4>
+                        <h4 class="building-amount-owned" id="antimattercondenser-amount-owned">
+                            {{antimatterCondenser.amountOwned}}</h4>
                     </div>
                 </a>
             </div>
@@ -192,7 +196,8 @@
                     <h3 class="building-name">{{fractalEngine.name}}</h3>
                     <div>
                         <h4 class="building-buy-cost" id="fractalengine-buy-cost">{{fractalEngine.buyCost}}</h4>
-                        <h4 class="building-amount-owned" id="fractalengine-amount-owned">{{fractalEngine.amountOwned}}</h4>
+                        <h4 class="building-amount-owned" id="fractalengine-amount-owned">{{fractalEngine.amountOwned}}
+                        </h4>
                     </div>
                 </a>
             </div>
@@ -202,7 +207,8 @@
                     <h3 class="building-name">{{javascriptConsole.name}}</h3>
                     <div>
                         <h4 class="building-buy-cost" id="javascriptconsole-buy-cost">{{javascriptConsole.buyCost}}</h4>
-                        <h4 class="building-amount-owned" id="javascriptconsole-amount-owned">{{javascriptConsole.amountOwned}}</h4>
+                        <h4 class="building-amount-owned" id="javascriptconsole-amount-owned">
+                            {{javascriptConsole.amountOwned}}</h4>
                     </div>
                 </a>
             </div>
