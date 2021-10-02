@@ -38,7 +38,7 @@
                 </div>
             </div>
 
-            <div class="col-5">
+            <div class="col-5 store-box">
                 <ng-container *ngFor="let building of buildings">
                     <app-store-building [building]="building" (storeBuildingClick)="purchaseStoreBuilding($event)">
                     </app-store-building>
