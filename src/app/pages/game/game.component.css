@@ -11,7 +11,8 @@
     align-items: center;
   }
   main {
-    overflow: hidden
+    overflow: hidden;
+    touch-action: manipulation;
   }
   .the-cookie-mobile:hover, .the-cookie-mobile:active {
     transform: none;
