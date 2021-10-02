@@ -1,5 +1,6 @@
-@media (max-width: 992px) {
-  
+.store-box{
+  overflow: auto;
+  height: 20%
 }
 
 .store-row {
@@ -27,9 +28,14 @@
   margin-bottom: 0;
 }
 
+.store-cost img {
+  width: 20px;
+}
+
 .store-title {
   text-align: left;
   font-size: 20px;
+  margin-top: 10px;
   margin-bottom: 0;
   overflow: hidden;
   font-weight: bold;
@@ -105,4 +111,27 @@
   font-size: 1rem;
   font-weight: 600;
   text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+@media (max-width: 992px) {
+
+  .store-cost {
+    text-align: left;
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+
+  .store-cost img {
+    width: 18px;
+    margin-bottom: 3px;
+  }
+  
+  .store-title {
+    text-align: left;
+    font-size: 17px;
+    margin-top: 5px;
+    margin-bottom: 0;
+    overflow: hidden;
+    font-weight: bold;
+  }
 }

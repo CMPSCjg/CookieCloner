@@ -2,23 +2,6 @@
   font-family: gluten;
 }
 
-@media (max-width: 992px) {
-  .container-mobile {
-    padding: 0 0.5rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-  main {
-    overflow: hidden;
-    touch-action: manipulation;
-  }
-  .the-cookie-mobile:hover, .the-cookie-mobile:active {
-    transform: none;
-  }
-}
-
 .store-box {
   margin-top: 50px;
   margin-bottom: 50px;
@@ -220,4 +203,28 @@
 
 .logo {
   height: 1em;
+}
+
+.modal-body::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 992px) {
+
+  .container-mobile {
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  main {
+    overflow: hidden;
+    touch-action: manipulation;
+  }
+
+  .the-cookie-mobile:hover, .the-cookie-mobile:active {
+    transform: none;
+  }
 }
