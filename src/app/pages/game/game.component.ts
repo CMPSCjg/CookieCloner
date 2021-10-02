@@ -471,13 +471,14 @@ export class GameComponent implements OnInit, OnDestroy {
     *     stats, upgrades, etc.
     */
     beginGameProgressSavingEngine() {
+        const SIXTY_SECONDS_IN_MILLISECONDS = 60 * 1000;
         this.runningIntervalProcesses.push(
             setInterval(() => {
 
                 // Save the player's progress to their browser Local Storage.
                 this.saveGameProgress();
 
-            }, 6000000)
+            }, SIXTY_SECONDS_IN_MILLISECONDS)
         )
     }
 
