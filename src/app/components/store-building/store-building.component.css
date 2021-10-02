@@ -1,18 +1,52 @@
 @media (max-width: 992px) {
-  .card-mobile {
-    margin: 0.5rem;
-    flex-basis: 45%;
-    padding: 1.5rem;
-    text-align: left;
-    color: inherit;
-    text-decoration: none;
-    border: 4px solid #eaeaea;
-    border-radius: 10px;
-    transition: color 0.2s ease, border-color 0.2s ease;
-    cursor: pointer;
-    user-select: none;
-    height: 150px;
-  }
+  
+}
+
+.store-row {
+  margin-bottom: 2px;
+  border-style: solid;
+  border-width: thin;
+  border-radius: 6px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+  user-select: none;
+  color: inherit;
+  text-decoration: none;
+  border: 4px solid #eaeaea;
+  border-radius: 10px;
+}
+
+.store-row:hover, .store-row:focus, .store-row:active {
+  background-color: #90e0ef;
+  border-color: #0096c7;
+}
+
+.store-cost {
+  text-align: left;
+  font-size: 20px;
+  margin-bottom: 0;
+}
+
+.store-title {
+  text-align: left;
+  font-size: 20px;
+  margin-bottom: 0;
+  overflow: hidden;
+  font-weight: bold;
+}
+
+.store-am {
+  text-align: right;
+  margin-bottom: 0;
+  padding-top: 15px;
+  font-size: 25px;
+}
+
+.store-img {
+  text-align: center;
+  width: 120%;
+  padding-top: 10px;
+  padding-left: 0px;
 }
 
 .card {
@@ -27,6 +61,7 @@
   transition: color 0.2s ease, border-color 0.2s ease;
   cursor: pointer;
   user-select: none;
+  height: 130px;
 }
 
 .card:hover, .card:focus, .card:active {

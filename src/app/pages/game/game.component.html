@@ -1,34 +1,34 @@
 <main *ngIf="!isMobile; else mobileGame">
     <div class="container">
-        <div class="justify-content-md-center">
-            <div class="col">
-                <p id="game-saved-message" class="game-saved" [ngStyle]="{ opacity: '0' }">Your game progress has been
-                    saved!</p>
-            </div>
-            <h3 id="cookie-total-amount">{{ formatLargerNumber(cookieTotalAmount) }} <br /> cookies <br /> per second :
-                {{ formatLargerNumber(cookiesPerSecond) }}</h3>
-            <div class="card3d">
-                <img draggable='false' class="the-cookie" src="../../../public/images/cookie-logo.png"
-                    (click)="manualCookieClick($event)" />
-            </div>
-        </div>
-
-        <div class="row justify-content-md-center centered">
-            <div class="col-12">
-                <p><strong>Game progress will automatically save every 60 seconds!</strong></p>
-            </div>
-            <div class="col-12">
-                <label class="game-save-button">
-                    <input type="file" [ngStyle]="{ display: 'none' }" (change)="importSavedGameProgress($event)" />
-                    IMPORT SAVE
-                </label>
-                <button class="game-save-button" (click)="saveGameProgress()">SAVE</button>
-                <button class="game-save-button" (click)="exportSavedGameProgress()">EXPORT SAVE</button>
-            </div>
-        </div>
-
         <div class="row">
-            <div class="col">
+            <div class='col-7'>
+                <p id="game-saved-message" class="game-saved" [ngStyle]="{ opacity: '0' }">Your game progress has
+                    been
+                    saved!</p>
+                <h3 id="cookie-total-amount">{{ formatLargerNumber(cookieTotalAmount) }} <br /> cookies <br /> per
+                    second :
+                    {{ formatLargerNumber(cookiesPerSecond) }}</h3>
+                <div class="card3d">
+                    <img draggable='false' class="the-cookie" src="../../../public/images/cookie-logo.png"
+                        (click)="manualCookieClick($event)" />
+                </div>
+
+                <div class="col-12 centered">
+                    <p><strong>Game progress will automatically save every 60 seconds!</strong></p>
+                </div>
+
+                <div class="col-12">
+                    <div class="row justify-content-center">
+                        <label class="game-save-button">
+                            <input type="file" [ngStyle]="{ display: 'none' }"
+                                (change)="importSavedGameProgress($event)" />
+                            IMPORT SAVE
+                        </label>
+                        <button class="game-save-button" (click)="saveGameProgress()">SAVE</button>
+                        <button class="game-save-button" (click)="exportSavedGameProgress()">EXPORT SAVE</button>
+                    </div>
+                </div>
+
                 <div class="card stats">
                     <h3>STATS</h3>
                     <p>Note: Start date will be incorrect until first save!</p>
@@ -37,15 +37,13 @@
                         cookies</p>
                 </div>
             </div>
-        </div>
 
-        <div class="row">
-            <ng-container *ngFor="let building of buildings">
-                <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="col-5">
+                <ng-container *ngFor="let building of buildings">
                     <app-store-building [building]="building" (storeBuildingClick)="purchaseStoreBuilding($event)">
                     </app-store-building>
-                </div>
-            </ng-container>
+                </ng-container>
+            </div>
         </div>
     </div>
 </main>
@@ -57,7 +55,7 @@
 
             <div class="row">
                 <div class="col">
-                    <br/>
+                    <br />
                     <p id="cookie-total-amount">{{ formatLargerNumber(cookieTotalAmount) }} Cookies!</p>
                     <p>{{ formatLargerNumber(cookiesPerSecond) }} per second</p>
                 </div>
@@ -67,7 +65,7 @@
                 <img draggable='false' class="the-cookie-mobile" src="../../../public/images/cookie-logo.png"
                     (click)="manualCookieClick($event)" />
             </div>
-            <br/><br/>
+            <br /><br />
             <div class="row">
                 <!-- Store Button trigger modal -->
                 <div class="col-4">
@@ -91,7 +89,7 @@
                 </div>
             </div>
 
-            <br/><br/><br/>
+            <br /><br /><br />
             <!-- Store Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
@@ -106,7 +104,7 @@
                         <div class="modal-body">
                             <div class="row">
                                 <ng-container *ngFor="let building of buildings">
-                                    <div class="col-lg-3 col-md-4 col-sm-6">
+                                    <div class="col-12">
                                         <app-store-building [building]="building"
                                             (storeBuildingClick)="purchaseStoreBuilding($event)">
                                         </app-store-building>

@@ -118,6 +118,9 @@
   cursor: pointer;
   border: 4px solid #eaeaea;
   border-radius: 6px;
+  padding-top: 1px;
+  padding-left: 6px;
+  padding-right: 6px;
 }
 
 .game-save-button:hover {
@@ -168,8 +171,8 @@
 .stats:hover,
 .stats:focus,
 .stats:active {
-  background-color: #fffc44;
-  border-color: #c3c000;
+  background-color: #90e0ef;
+  border-color: #0096c7;
   cursor: default;
 }
 
