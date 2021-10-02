@@ -19,4 +19,8 @@ export class StoreBuildingComponent implements OnInit {
     this.storeBuildingClick.emit(id)
   }
 
+  formatLargerNumber(numberToFormat: number): string {
+    return numberToFormat?.toLocaleString();
+}
+
 }
