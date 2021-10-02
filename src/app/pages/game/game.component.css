@@ -10,15 +10,45 @@
     justify-content: center;
     align-items: center;
   }
-
   main {
     overflow: hidden
   }
-
-  .the-cookie-mobile:hover,
-  .the-cookie-mobile:active {
+  .the-cookie-mobile:hover, .the-cookie-mobile:active {
     transform: none;
   }
+}
+
+.store-box {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  overflow-y: auto;
+  height: 800px;
+}
+
+.store-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+
+.store-box::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+/* Handle */
+
+.store-box::-webkit-scrollbar-thumb {
+  background: #888;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+
+.store-box::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .centered {
@@ -37,13 +67,11 @@
   margin: 40px 0;
 }
 
-.card3d,
-.card3d img {
+.card3d, .card3d img {
   transition: all 250ms ease-out;
 }
 
 .container {
-  min-height: 100vh;
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
@@ -93,8 +121,7 @@
 }
 
 @keyframes fadeinout {
-  0%,
-  100% {
+  0%, 100% {
     opacity: 0;
   }
   25% {
@@ -161,16 +188,12 @@
   user-select: none;
 }
 
-.card:hover,
-.card:focus,
-.card:active {
+.card:hover, .card:focus, .card:active {
   background-color: #90e0ef;
   border-color: #0096c7;
 }
 
-.stats:hover,
-.stats:focus,
-.stats:active {
+.stats:hover, .stats:focus, .stats:active {
   background-color: #90e0ef;
   border-color: #0096c7;
   cursor: default;
@@ -191,8 +214,7 @@
   color: white;
   font-size: 1rem;
   font-weight: 600;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-    1px 1px 0 #000;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .logo {
