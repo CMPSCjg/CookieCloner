@@ -41,7 +41,7 @@ export class GameComponent implements OnInit, OnDestroy {
     cookiesBakedThisPrestige = 0;
     cookiesBakedAllTime = 0;
     cookiesForfeitedByMostRecentPrestige = 0;
-    startDate = Date.now();
+    startDate = 0;
     totalTimePlayed = 0;
     timePlayedThisPrestige = 0;
     numberOfBuildingsOwned = 0;
@@ -402,7 +402,7 @@ export class GameComponent implements OnInit, OnDestroy {
                     cookiesBakedThisPrestige: separatedGameProgress[38] ?? 0,
                     cookiesBakedAllTime: separatedGameProgress[39] ?? 0,
                     cookiesForfeitedByMostRecentPrestige: separatedGameProgress[40] ?? 0,
-                    startDate: separatedGameProgress[41] ?? 0,
+                    startDate: separatedGameProgress[41] ?? Date.now(),
                     totalTimePlayed: separatedGameProgress[42] ?? 0,
                     timePlayedThisPrestige: separatedGameProgress[43] ?? 0,
                     numberOfBuildingsOwned: separatedGameProgress[44] ?? 0,
