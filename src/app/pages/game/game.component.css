@@ -227,4 +227,9 @@
   .the-cookie-mobile:hover, .the-cookie-mobile:active {
     transform: none;
   }
+
+  .btn:focus {
+    outline: none;
+    box-shadow: none;
+  }
 }
