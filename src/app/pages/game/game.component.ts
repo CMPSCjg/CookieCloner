@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 
 import { iOSDeviceCheck } from '../../helpers/iOSDeviceCheck';
 
@@ -32,6 +32,7 @@ export class GameComponent implements OnInit, OnDestroy {
     // Maintain an array of interval IDs in order to stop these when the user navigates off this page.
     runningIntervalProcesses: Array<any> = [];
     iOSDevice = false;
+    isMobile = false;
 
     // Define cookie amount variables that can be used across the scope of the game.
     cookieTotalAmount = 0;
@@ -208,7 +209,15 @@ export class GameComponent implements OnInit, OnDestroy {
 
     }
 
-    ngOnInit(): void {
+
+    // Listen for any window re-size events, if fired, check current screen size.
+    @HostListener("window:resize", [])
+    private onResize() {
+        this.detectScreenSize();
+    }
+
+    ngAfterViewInit() {
+        this.detectScreenSize();
         // Card array
         var cards = document.querySelectorAll('.card3d');
 
@@ -226,17 +235,24 @@ export class GameComponent implements OnInit, OnDestroy {
         });
     }
 
+    private detectScreenSize() {
+        this.isMobile = (window.screen.width < 992)
+    }
+
+    ngOnInit(): void {
+    }
+
     ngOnDestroy(): void {
         // When the user navigates off the Game page, we will end each setInterval process.
         this.runningIntervalProcesses.forEach(intervalId => clearInterval(intervalId))
         this.runningIntervalProcesses = [];
-    
+
         // Update the browser tab title back to the default 'Cookie Cloner'
         const titleElement: HTMLTitleElement = document.querySelector('title');
         if (titleElement) {
             titleElement.innerHTML = 'Cookie Cloner';
         }
-      }
+    }
 
     // Card animation
     map(val, minA, maxA, minB, maxB) {
