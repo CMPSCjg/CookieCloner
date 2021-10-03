@@ -42,7 +42,7 @@ export class GameComponent implements OnInit, OnDestroy {
     cookiesBakedThisPrestige = 0;
     cookiesBakedAllTime = 0;
     cookiesForfeitedByMostRecentPrestige = 0;
-    startDate = Date.now();
+    startDate = 0;
     totalTimePlayed = 0;
     timePlayedThisPrestige = 0;
     numberOfBuildingsOwned = 0;
@@ -418,7 +418,7 @@ export class GameComponent implements OnInit, OnDestroy {
                     cookiesBakedThisPrestige: separatedGameProgress[38] ?? 0,
                     cookiesBakedAllTime: separatedGameProgress[39] ?? 0,
                     cookiesForfeitedByMostRecentPrestige: separatedGameProgress[40] ?? 0,
-                    startDate: separatedGameProgress[41] ?? 0,
+                    startDate: separatedGameProgress[41] ?? Date.now(),
                     totalTimePlayed: separatedGameProgress[42] ?? 0,
                     timePlayedThisPrestige: separatedGameProgress[43] ?? 0,
                     numberOfBuildingsOwned: separatedGameProgress[44] ?? 0,
@@ -463,17 +463,21 @@ export class GameComponent implements OnInit, OnDestroy {
         this.cookiesBakedThisPrestige += this.cookiesPerSecond;
         this.cookiesBakedAllTime += this.cookiesPerSecond;
 
-        // Every second, execute this code to add to their cookie total amount.
+        // Every TIME_TO_UPDATE_IN_MS add their cookiesPerSecond to their cookie total amount and stats.
+        const ONE_SECOND_IN_MS = 1000;
+        const TIME_TO_UPDATE_IN_MS = 100;
+        const NUMBER_TO_DIVIDE_COOKIES_PER_SECOND_BY = ONE_SECOND_IN_MS / TIME_TO_UPDATE_IN_MS;
         this.runningIntervalProcesses.push(
             setInterval(() => {
                 this.cookiesPerSecond = this.calculateCookiesPerSecond(this.buildings)
-                this.cookieTotalAmount += this.cookiesPerSecond;
-                this.renderUpdatedBrowserTitle(this.cookieTotalAmount);
+                this.cookieTotalAmount += this.cookiesPerSecond / NUMBER_TO_DIVIDE_COOKIES_PER_SECOND_BY
 
                 // Update stats
-                this.cookiesBakedThisPrestige += this.cookiesPerSecond;
-                this.cookiesBakedAllTime += this.cookiesPerSecond;
-            }, 1000))
+                this.cookiesBakedThisPrestige += this.cookiesPerSecond / NUMBER_TO_DIVIDE_COOKIES_PER_SECOND_BY;
+                this.cookiesBakedAllTime += this.cookiesPerSecond / NUMBER_TO_DIVIDE_COOKIES_PER_SECOND_BY;
+                this.renderUpdatedBrowserTitle(this.cookieTotalAmount);
+            }, TIME_TO_UPDATE_IN_MS)
+        )
     }
 
     /*
@@ -483,13 +487,14 @@ export class GameComponent implements OnInit, OnDestroy {
     *     stats, upgrades, etc.
     */
     beginGameProgressSavingEngine() {
+        const SIXTY_SECONDS_IN_MILLISECONDS = 60 * 1000;
         this.runningIntervalProcesses.push(
             setInterval(() => {
 
                 // Save the player's progress to their browser Local Storage.
                 this.saveGameProgress();
 
-            }, 60000)
+            }, SIXTY_SECONDS_IN_MILLISECONDS)
         )
     }
 
@@ -641,7 +646,7 @@ export class GameComponent implements OnInit, OnDestroy {
     }
 
     formatLargerNumber(numberToFormat: number): string {
-        return numberToFormat?.toLocaleString();
+        return Math.floor(numberToFormat)?.toLocaleString();
     }
 
 }

@@ -34,7 +34,10 @@ ng serve
 ## Preview 
 
 ### The production build of our Cookie Cloner is available [here](https://cookie-cloner.vercel.app/)!
-[![cookie-clicker-preview.png](https://i.postimg.cc/9QDjp80H/cookie-clicker-preview.png)](https://cookie-cloner.vercel.app/)
+#### Desktop View
+![image](https://user-images.githubusercontent.com/77583463/135708373-fad90d85-4a2f-444c-972f-abf38893ea1f.png)
+#### Mobile View
+<img src="https://user-images.githubusercontent.com/77583463/135697305-1926af43-fb9c-4805-b4ed-5482f3bbfdb8.png" alt="mobile-view" width="300"/>
 
     
     
