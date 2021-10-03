@@ -39,6 +39,7 @@ import { ChancemakerUpgrades } from 'src/app/models/upgrades/buildings/Chancemak
 import { FractalEngineUpgrades } from 'src/app/models/upgrades/buildings/FractalEngine';
 import { JavascriptConsoleUpgrades } from 'src/app/models/upgrades/buildings/JavascriptConsole';
 import { IdleverseUpgrades } from 'src/app/models/upgrades/buildings/Idleverse';
+import { NumberFormatType } from 'src/app/models/NumberFormatType';
 
 @Component({
     selector: 'app-game',
@@ -46,6 +47,8 @@ import { IdleverseUpgrades } from 'src/app/models/upgrades/buildings/Idleverse';
     styleUrls: ['./game.component.css']
 })
 export class GameComponent implements OnInit, OnDestroy {
+
+    NumberFormatType = NumberFormatType;
 
     // Maintain an array of interval IDs in order to stop these when the user navigates off this page.
     runningIntervalProcesses: Array<any> = [];
@@ -375,7 +378,7 @@ export class GameComponent implements OnInit, OnDestroy {
         cookieClickElement.style.textShadow = '-1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000';
         cookieClickElement.style.pointerEvents = 'none'
         cookieClickElement.style.opacity = startingOpacity + '%';
-        cookieClickElement.innerHTML = '+' + manualCookieClickAmount + (manualCookieClickAmount === 1 ? ' cookie' : ' cookies');
+        cookieClickElement.innerHTML = '+' + this.formatLargerNumber(manualCookieClickAmount, NumberFormatType.WORD) + (manualCookieClickAmount === 1 ? ' cookie' : ' cookies');
 
         // Add the manual cookie click amount element to the page.
         document.getElementsByTagName('main')[0].appendChild(cookieClickElement)
@@ -749,7 +752,7 @@ export class GameComponent implements OnInit, OnDestroy {
 
     renderUpdatedBrowserTitle(cookieTotalAmount: number) {
         const titleElement: HTMLTitleElement = document.querySelector('title');
-        const formattedCookieTotalAmount = this.formatLargerNumber(cookieTotalAmount);
+        const formattedCookieTotalAmount = this.formatLargerNumber(cookieTotalAmount, NumberFormatType.WORD);
         if (titleElement) {
             titleElement.innerHTML = formattedCookieTotalAmount + ' cookies - Cookie Cloner';
         }
@@ -935,8 +938,42 @@ export class GameComponent implements OnInit, OnDestroy {
     }
 
 
-    formatLargerNumber(numberToFormat: number): string {
-        return Math.floor(numberToFormat)?.toLocaleString();
+    formatLargerNumber(numberToFormat: number, format?: NumberFormatType): string {
+        switch (format) {
+            case NumberFormatType.COMMA:
+                return Math.floor(numberToFormat)?.toLocaleString();
+            case NumberFormatType.WORD:
+                return this.getNumberUnit(numberToFormat)
+            default:
+                return Math.floor(numberToFormat)?.toLocaleString();
+        }
     }
 
+    getNumberUnit(number: number) {
+        const units = ['million', 'billion', 'trillion', 'quadrillion', 'quintillion', 'sextillion', 
+        'septillion', 'octillion', 'nonillion', 'decillion', 'undecillion', 'duodecillion', 'tredecillion', 'quattuordecillion', 'quindecillion',
+        'sexdecillion', 'septendecillion', 'octodecillion', 'novemdecillion', 'vigintillion', 'centillion']
+        let base = 0
+        let unitValue = '';
+    
+        // Check if the number is not finite.
+        if (!isFinite(number)) return 'Infinity';
+    
+        // Increment the base counter for every 3 zeroes found in the number until there are no longer more than 3 zeroes left.
+        if (number >= 1000000)
+        {
+            number /= 1000;
+            while(Math.round(number) >= 1000)
+            {
+                number /= 1000;
+                base++;
+            }
+            if (base >= units.length) {
+                return 'Infinity';
+            } else {
+                unitValue = units[base - 1];
+            }
+        }
+        return (Math.round(number*1000) / 1000) + ' ' + unitValue;
+    }
 }

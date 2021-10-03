@@ -5,9 +5,9 @@
                 <p id="game-saved-message" class="game-saved" [ngStyle]="{ opacity: '0' }">Your game progress has
                     been
                     saved!</p>
-                <h3 id="cookie-total-amount">{{ formatLargerNumber(cookieTotalAmount) }} <br /> cookies <br /> per
+                <h3 id="cookie-total-amount">{{ formatLargerNumber(cookieTotalAmount, NumberFormatType.WORD) }} <br /> cookies <br /> per
                     second :
-                    {{ formatLargerNumber(cookiesPerSecond) }}</h3>
+                    {{ formatLargerNumber(cookiesPerSecond, NumberFormatType.WORD) }}</h3>
                 <div class="card3d">
                     <img draggable='false' class="the-cookie" src="../../../public/images/cookie-logo.png"
                         (click)="manualCookieClick($event)" />
@@ -55,7 +55,7 @@
                     <h3>STATS</h3>
                     <p>Note: Start date will be incorrect until first save!</p>
                     <p id="start-date">You started playing on: {{formattedStartDate}}</p>
-                    <p id="cookies-baked-all-time">Cookies baked all time: <img [ngStyle]="{ width: '18px' }" src="../../../public/images/cookie-logo.png" /> {{formatLargerNumber(cookiesBakedAllTime)}}
+                    <p id="cookies-baked-all-time">Cookies baked all time: <img [ngStyle]="{ width: '18px' }" src="../../../public/images/cookie-logo.png" /> {{formatLargerNumber(cookiesBakedAllTime, NumberFormatType.WORD)}}
                     </p>
                 </div>
             </div>
@@ -78,8 +78,8 @@
             <div class="row">
                 <div class="col">
                     <br />
-                    <p id="cookie-total-amount">{{ formatLargerNumber(cookieTotalAmount) }} Cookies!</p>
-                    <p>{{ formatLargerNumber(cookiesPerSecond) }} per second</p>
+                    <p id="cookie-total-amount">{{ formatLargerNumber(cookieTotalAmount, NumberFormatType.WORD) }} Cookies!</p>
+                    <p>{{ formatLargerNumber(cookiesPerSecond, NumberFormatType.WORD) }} per second</p>
                 </div>
             </div>
 
@@ -192,7 +192,7 @@
                                         <p id="start-date">You started playing on: {{formattedStartDate}}</p>
                                         <p id="cookies-baked-all-time">Cookies baked all time:
                                             <img [ngStyle]="{ width: '18px' }" src="../../../public/images/cookie-logo.png" />
-                                            {{formatLargerNumber(cookiesBakedAllTime)}}
+                                            {{formatLargerNumber(cookiesBakedAllTime, NumberFormatType.WORD)}}
                                         </p>
                                     </div>
                                 </div>
