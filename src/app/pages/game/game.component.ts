@@ -21,6 +21,24 @@ import { Chancemaker } from '../../models/store/Chancemaker';
 import { FractalEngine } from '../../models/store/FractalEngine';
 import { JavascriptConsole } from '../../models/store/JavascriptConsole';
 import { Idleverse } from '../../models/store/Idleverse';
+import { CursorUpgrades } from 'src/app/models/upgrades/buildings/Cursor';
+import { GrandmaUpgrades } from 'src/app/models/upgrades/buildings/Grandma';
+import { FarmUpgrades } from 'src/app/models/upgrades/buildings/Farm';
+import { MineUpgrades } from 'src/app/models/upgrades/buildings/Mine';
+import { FactoryUpgrades } from 'src/app/models/upgrades/buildings/Factory';
+import { BankUpgrades } from 'src/app/models/upgrades/buildings/Bank';
+import { TempleUpgrades } from 'src/app/models/upgrades/buildings/Temple';
+import { WizardTowerUpgrades } from 'src/app/models/upgrades/buildings/WizardTower';
+import { ShipmentUpgrades } from 'src/app/models/upgrades/buildings/Shipment';
+import { AlchemyLabUpgrades } from 'src/app/models/upgrades/buildings/AlchemyLab';
+import { PortalUpgrades } from 'src/app/models/upgrades/buildings/Portal';
+import { TimeMachineUpgrades } from 'src/app/models/upgrades/buildings/TimeMachine';
+import { AntimatterCondenserUpgrades } from 'src/app/models/upgrades/buildings/AntimatterCondenser';
+import { PrismUpgrades } from 'src/app/models/upgrades/buildings/Prism';
+import { ChancemakerUpgrades } from 'src/app/models/upgrades/buildings/Chancemaker';
+import { FractalEngineUpgrades } from 'src/app/models/upgrades/buildings/FractalEngine';
+import { JavascriptConsoleUpgrades } from 'src/app/models/upgrades/buildings/JavascriptConsole';
+import { IdleverseUpgrades } from 'src/app/models/upgrades/buildings/Idleverse';
 
 @Component({
     selector: 'app-game',
@@ -55,7 +73,7 @@ export class GameComponent implements OnInit, OnDestroy {
 
     formattedStartDate;
 
-    // Define store this.buildings as classes that can be used across the scope of the game.
+    // Define store buildings as classes that can be used across the scope of the game.
     cursor = new Cursor(0, 15);
     grandma = new Grandma(0, 100);
     farm = new Farm(0, 1100);
@@ -78,6 +96,30 @@ export class GameComponent implements OnInit, OnDestroy {
         Array<Cursor | Grandma | Farm | Mine | Factory | Bank | Temple | WizardTower | Shipment | AlchemyLab |
             Portal | TimeMachine | AntimatterCondenser | Prism | Chancemaker | FractalEngine | JavascriptConsole | Idleverse> = [];
 
+    // Define building upgrades as classes that can be used across the scope of the game.
+    cursorUpgrades = new CursorUpgrades(0);
+    grandmaUpgrades = new GrandmaUpgrades(0);
+    farmUpgrades = new FarmUpgrades(0);
+    mineUpgrades = new MineUpgrades(0);
+    factoryUpgrades = new FactoryUpgrades(0);
+    bankUpgrades = new BankUpgrades(0);
+    templeUpgrades = new TempleUpgrades(0);
+    wizardTowerUpgrades = new WizardTowerUpgrades(0);
+    shipmentUpgrades = new ShipmentUpgrades(0);
+    alchemyLabUpgrades = new AlchemyLabUpgrades(0);
+    portalUpgrades = new PortalUpgrades(0);
+    timeMachineUpgrades = new TimeMachineUpgrades(0);
+    antimatterCondenserUpgrades = new AntimatterCondenserUpgrades(0);
+    prismUpgrades = new PrismUpgrades(0);
+    chancemakerUpgrades = new ChancemakerUpgrades(0);
+    fractalEngineUpgrades = new FractalEngineUpgrades(0);
+    javascriptConsoleUpgrades = new JavascriptConsoleUpgrades(0);
+    idleverseUpgrades = new IdleverseUpgrades(0);
+    buildingUpgrades:
+        Array<CursorUpgrades | GrandmaUpgrades | FarmUpgrades | MineUpgrades | FactoryUpgrades | BankUpgrades | WizardTowerUpgrades
+        | ShipmentUpgrades | AlchemyLabUpgrades | PortalUpgrades | AntimatterCondenserUpgrades | PrismUpgrades | ChancemakerUpgrades
+        | FractalEngineUpgrades | JavascriptConsoleUpgrades | IdleverseUpgrades> = [];
+
     constructor() {
 
         // Store these buildings in an array that can be looped over and reduce redundant code.
@@ -99,6 +141,26 @@ export class GameComponent implements OnInit, OnDestroy {
         this.buildings.push(this.fractalEngine);
         this.buildings.push(this.javascriptConsole);
         this.buildings.push(this.idleverse)
+
+        // Store these building upgrades in an array that can be looped over and reduce redundant code.
+        this.buildingUpgrades.push(this.cursorUpgrades)
+        this.buildingUpgrades.push(this.grandmaUpgrades)
+        this.buildingUpgrades.push(this.farmUpgrades)
+        this.buildingUpgrades.push(this.mineUpgrades)
+        this.buildingUpgrades.push(this.factoryUpgrades)
+        this.buildingUpgrades.push(this.bankUpgrades)
+        this.buildingUpgrades.push(this.templeUpgrades)
+        this.buildingUpgrades.push(this.wizardTowerUpgrades)
+        this.buildingUpgrades.push(this.shipmentUpgrades)
+        this.buildingUpgrades.push(this.alchemyLabUpgrades)
+        this.buildingUpgrades.push(this.portalUpgrades)
+        this.buildingUpgrades.push(this.timeMachineUpgrades)
+        this.buildingUpgrades.push(this.antimatterCondenserUpgrades)
+        this.buildingUpgrades.push(this.prismUpgrades)
+        this.buildingUpgrades.push(this.chancemakerUpgrades)
+        this.buildingUpgrades.push(this.fractalEngineUpgrades)
+        this.buildingUpgrades.push(this.javascriptConsoleUpgrades)
+        this.buildingUpgrades.push(this.idleverseUpgrades)
 
         /* Retrieve the current game progress from their browser's local storage. */
 
@@ -199,6 +261,25 @@ export class GameComponent implements OnInit, OnDestroy {
         this.goldenCookieClicksAllTime = gameProgressFromBrowser.stats.goldenCookieClicksAllTime;
         this.numberOfTimesPrestiged = gameProgressFromBrowser.stats.numberOfTimesPrestiged;
 
+        this.cursorUpgrades.level = gameProgressFromBrowser.buildingUpgrades.cursor.level
+        this.grandmaUpgrades.level = gameProgressFromBrowser.buildingUpgrades.grandma.level
+        this.farmUpgrades.level = gameProgressFromBrowser.buildingUpgrades.farm.level
+        this.mineUpgrades.level = gameProgressFromBrowser.buildingUpgrades.mine.level
+        this.factoryUpgrades.level = gameProgressFromBrowser.buildingUpgrades.factory.level
+        this.bankUpgrades.level = gameProgressFromBrowser.buildingUpgrades.bank.level
+        this.templeUpgrades.level = gameProgressFromBrowser.buildingUpgrades.temple.level
+        this.wizardTowerUpgrades.level = gameProgressFromBrowser.buildingUpgrades.wizardTower.level
+        this.shipmentUpgrades.level = gameProgressFromBrowser.buildingUpgrades.shipment.level
+        this.alchemyLabUpgrades.level = gameProgressFromBrowser.buildingUpgrades.alchemyLab.level
+        this.portalUpgrades.level = gameProgressFromBrowser.buildingUpgrades.portal.level
+        this.timeMachineUpgrades.level = gameProgressFromBrowser.buildingUpgrades.timeMachine.level
+        this.antimatterCondenserUpgrades.level = gameProgressFromBrowser.buildingUpgrades.antimatterCondenser.level
+        this.prismUpgrades.level = gameProgressFromBrowser.buildingUpgrades.prism.level
+        this.chancemakerUpgrades.level = gameProgressFromBrowser.buildingUpgrades.chancemaker.level
+        this.fractalEngineUpgrades.level = gameProgressFromBrowser.buildingUpgrades.fractalEngine.level
+        this.javascriptConsoleUpgrades.level = gameProgressFromBrowser.buildingUpgrades.javascriptConsole.level
+        this.idleverseUpgrades.level = gameProgressFromBrowser.buildingUpgrades.idleverse.level
+
         // Format and display the correct start date and time
         this.formattedStartDate = new Date(this.startDate).toLocaleDateString() + ' ' + new Date(this.startDate).toLocaleTimeString();
 
@@ -257,8 +338,8 @@ export class GameComponent implements OnInit, OnDestroy {
 
     manualCookieClick(event: any) {
 
-        // TODO: As we build out the 'upgrades' portion of the game, this manualCookieClickAmount should increase based off of what upgrades the player has purchased.
-        const manualCookieClickAmount = 1;
+        // As we build out the 'upgrades' portion of the game, this manualCookieClickAmount should increase based off of what upgrades the player has purchased.
+        const manualCookieClickAmount = this.calculateManualCookieClickAmount(this.buildings, this.buildingUpgrades);
 
         // Retrieve the cursor position where the user clicked the big cookie.
         let { pageX, pageY } = event;
@@ -414,6 +495,62 @@ export class GameComponent implements OnInit, OnDestroy {
                     goldenCookieClicks: separatedGameProgress[50] ?? 0,
                     goldenCookieClicksAllTime: separatedGameProgress[51] ?? 0,
                     numberOfTimesPrestiged: separatedGameProgress[52] ?? 0
+                },
+                buildingUpgrades: {
+                    cursor: {
+                        level: separatedGameProgress[53] ?? 0
+                    },
+                    grandma: {
+                        level: separatedGameProgress[54] ?? 0
+                    },
+                    farm: {
+                        level: separatedGameProgress[55] ?? 0
+                    },
+                    mine: {
+                        level: separatedGameProgress[56] ?? 0
+                    },
+                    factory: {
+                        level: separatedGameProgress[57] ?? 0
+                    },
+                    bank: {
+                        level: separatedGameProgress[58] ?? 0
+                    },
+                    temple: {
+                        level: separatedGameProgress[59] ?? 0
+                    },
+                    wizardTower: {
+                        level: separatedGameProgress[60] ?? 0
+                    },
+                    shipment: {
+                        level: separatedGameProgress[61] ?? 0
+                    },
+                    alchemyLab: {
+                        level: separatedGameProgress[62] ?? 0
+                    },
+                    portal: {
+                        level: separatedGameProgress[63] ?? 0
+                    },
+                    timeMachine: {
+                        level: separatedGameProgress[64] ?? 0
+                    },
+                    antimatterCondenser: {
+                        level: separatedGameProgress[65] ?? 0
+                    },
+                    prism: {
+                        level: separatedGameProgress[66] ?? 0
+                    },
+                    chancemaker: {
+                        level: separatedGameProgress[67] ?? 0
+                    },
+                    fractalEngine: {
+                        level: separatedGameProgress[68] ?? 0
+                    },
+                    javascriptConsole: {
+                        level: separatedGameProgress[69] ?? 0
+                    },
+                    idleverse: {
+                        level: separatedGameProgress[70] ?? 0
+                    }
                 }
             }
             return gameProgress;
@@ -430,7 +567,24 @@ export class GameComponent implements OnInit, OnDestroy {
             this.buildings[id].buyCost = this.calculateStoreBuildingCost(id);
         }
 
-        this.cookiesPerSecond = this.calculateCookiesPerSecond(this.buildings);
+        this.cookiesPerSecond = this.calculateCookiesPerSecond(this.buildings, this.buildingUpgrades);
+    }
+
+    purchaseBuildingUpgrade(id: number) {
+        const nextUpgradeLevel = this.buildingUpgrades[id]?.level + 1;
+
+        // If the upgrade level has been maxed out, stop this function.
+        if (!this.buildingUpgrades[id].buyCost[nextUpgradeLevel]) {
+            return;
+        }
+        
+        const currentAmountOwned = this.buildings[id].amountOwned;
+        if (this.cookieTotalAmount >= this.buildingUpgrades[id].buyCost[nextUpgradeLevel] && currentAmountOwned >= this.buildingUpgrades[id].unlockAmount[nextUpgradeLevel]) {
+            this.cookieTotalAmount -= this.buildingUpgrades[id].buyCost[nextUpgradeLevel];
+            this.buildingUpgrades[id].level = nextUpgradeLevel;
+        }
+
+        this.cookiesPerSecond = this.calculateCookiesPerSecond(this.buildings, this.buildingUpgrades);
     }
 
     calculateStoreBuildingCost(id: number) {
@@ -440,7 +594,7 @@ export class GameComponent implements OnInit, OnDestroy {
     beginCookieGeneratingEngine() {
 
         // When user first hits the page, render these values rather than waiting 1 second.
-        this.cookiesPerSecond = this.calculateCookiesPerSecond(this.buildings)
+        this.cookiesPerSecond = this.calculateCookiesPerSecond(this.buildings, this.buildingUpgrades)
         this.cookieTotalAmount += this.cookiesPerSecond;
 
         // Update stats
@@ -453,7 +607,7 @@ export class GameComponent implements OnInit, OnDestroy {
         const NUMBER_TO_DIVIDE_COOKIES_PER_SECOND_BY = ONE_SECOND_IN_MS / TIME_TO_UPDATE_IN_MS;
         this.runningIntervalProcesses.push(
             setInterval(() => {
-                this.cookiesPerSecond = this.calculateCookiesPerSecond(this.buildings)
+                this.cookiesPerSecond = this.calculateCookiesPerSecond(this.buildings, this.buildingUpgrades)
                 this.cookieTotalAmount += this.cookiesPerSecond / NUMBER_TO_DIVIDE_COOKIES_PER_SECOND_BY
 
                 // Update stats
@@ -530,7 +684,25 @@ export class GameComponent implements OnInit, OnDestroy {
             gameProgress.stats.handMadeCookies + ';' +
             gameProgress.stats.goldenCookieClicks + ';' +
             gameProgress.stats.goldenCookieClicksAllTime + ';' +
-            gameProgress.stats.numberOfTimesPrestiged + ';'
+            gameProgress.stats.numberOfTimesPrestiged + ';' +
+            gameProgress.buildingUpgrades.cursor.level + ';' +
+            gameProgress.buildingUpgrades.grandma.level + ';' +
+            gameProgress.buildingUpgrades.farm.level + ';' +
+            gameProgress.buildingUpgrades.mine.level + ';' +
+            gameProgress.buildingUpgrades.factory.level + ';' +
+            gameProgress.buildingUpgrades.bank.level + ';' +
+            gameProgress.buildingUpgrades.temple.level + ';' +
+            gameProgress.buildingUpgrades.wizardTower.level + ';' +
+            gameProgress.buildingUpgrades.shipment.level + ';' +
+            gameProgress.buildingUpgrades.alchemyLab.level + ';' +
+            gameProgress.buildingUpgrades.portal.level + ';' +
+            gameProgress.buildingUpgrades.timeMachine.level + ';' +
+            gameProgress.buildingUpgrades.antimatterCondenser.level + ';' +
+            gameProgress.buildingUpgrades.prism.level + ';' +
+            gameProgress.buildingUpgrades.chancemaker.level + ';' +
+            gameProgress.buildingUpgrades.fractalEngine.level + ';' +
+            gameProgress.buildingUpgrades.javascriptConsole.level + ';' +
+            gameProgress.buildingUpgrades.idleverse.level + ';'
         );
         window.localStorage.setItem('CookieClonerGameProgress', serializedGameProgress);
 
@@ -609,18 +781,125 @@ export class GameComponent implements OnInit, OnDestroy {
                 goldenCookieClicks: this.goldenCookieClicks,
                 goldenCookieClicksAllTime: this.goldenCookieClicksAllTime,
                 numberOfTimesPrestiged: this.numberOfTimesPrestiged
+            },
+            buildingUpgrades: {
+                cursor: this.cursorUpgrades,
+                grandma: this.grandmaUpgrades,
+                farm: this.farmUpgrades,
+                mine: this.mineUpgrades,
+                factory: this.factoryUpgrades,
+                bank: this.bankUpgrades,
+                temple: this.templeUpgrades,
+                wizardTower: this.wizardTowerUpgrades,
+                shipment: this.shipmentUpgrades,
+                alchemyLab: this.alchemyLabUpgrades,
+                portal: this.portalUpgrades,
+                timeMachine: this.timeMachineUpgrades,
+                antimatterCondenser: this.antimatterCondenserUpgrades,
+                prism: this.prismUpgrades,
+                chancemaker: this.chancemakerUpgrades,
+                fractalEngine: this.fractalEngineUpgrades,
+                javascriptConsole: this.javascriptConsoleUpgrades,
+                idleverse: this.idleverseUpgrades
             }
         }
         return gameProgress;
     }
 
     calculateCookiesPerSecond(buildings: Array<Cursor | Grandma | Farm | Mine | Factory | Bank | Temple | WizardTower | Shipment | AlchemyLab |
-        Portal | TimeMachine | AntimatterCondenser | Prism | Chancemaker | FractalEngine | JavascriptConsole | Idleverse>) {
+        Portal | TimeMachine | AntimatterCondenser | Prism | Chancemaker | FractalEngine | JavascriptConsole | Idleverse>, buildingUpgrades: Array<CursorUpgrades>) {
         let cookiesPerSecond = 0;
-        buildings.forEach(building => cookiesPerSecond += (building.amountOwned * building.cookiesPerSecond));
+        buildings.forEach((building, index) => {
 
+            // For 'Cursor upgrades', the bonuses to cookiesPerSecond are different from the 'twice as efficient' effect for all the other store buildings.
+            if (index === 0) {
+                let rawCursorCookiesPerSecond = (building.amountOwned * building.cookiesPerSecond)
+                for (let level = 0; level <= buildingUpgrades[index].level; level++) {
+                    switch (level) {
+                        case 0:
+                            rawCursorCookiesPerSecond *= 1
+                            break
+                        case 1:
+                            rawCursorCookiesPerSecond *= 2
+                            break
+                        case 2:
+                            rawCursorCookiesPerSecond *= 2
+                            break
+                        case 3:
+                            rawCursorCookiesPerSecond *= 2
+                            break
+                        case 4:
+                            rawCursorCookiesPerSecond += (0.1 * this.calculateNumberOfBuildingsOwnedExcludingCursors(buildings))
+                            break
+                        case 5:
+                            rawCursorCookiesPerSecond += 5 * (0.1 * this.calculateNumberOfBuildingsOwnedExcludingCursors(buildings))
+                            break
+                        case 6:
+                            rawCursorCookiesPerSecond += 10 * (0.1 * this.calculateNumberOfBuildingsOwnedExcludingCursors(buildings))
+                            break
+                        case 7:
+                        case 8:
+                        case 9:
+                        case 10:
+                        case 11:
+                        case 12:
+                        case 13:    
+                            rawCursorCookiesPerSecond += 20 * (0.1 * this.calculateNumberOfBuildingsOwnedExcludingCursors(buildings))
+                            break
+                    }
+                }
+                cookiesPerSecond += rawCursorCookiesPerSecond
+            } else {
+            cookiesPerSecond += (
+                (Math.pow(2, buildingUpgrades[index] ? buildingUpgrades[index].level : 0)) * (building.amountOwned * building.cookiesPerSecond)
+            )}
+        })
         return cookiesPerSecond;
     }
+
+    calculateManualCookieClickAmount(buildings: Array<Cursor | Grandma | Farm | Mine | Factory | Bank | Temple | WizardTower | Shipment | AlchemyLab |
+        Portal | TimeMachine | AntimatterCondenser | Prism | Chancemaker | FractalEngine | JavascriptConsole | Idleverse>, buildingUpgrades: Array<CursorUpgrades>) {
+        let manualCookieClickAmount = 1;
+
+        // For 'Cursor upgrades', the bonuses to cookiesPerSecond are different from the 'twice as efficient' effect for all the other store buildings.
+        // These effects also impact the manual cookie click value.
+        for (let level = 0; level <= buildingUpgrades[0].level; level++) {
+            switch (level) {
+                case 0:
+                    manualCookieClickAmount *= 1
+                    break
+                case 1:
+                    manualCookieClickAmount *= 2
+                    break
+                case 2:
+                    manualCookieClickAmount *= 2
+                    break
+                case 3:
+                    manualCookieClickAmount *= 2
+                    break
+                case 4:
+                    manualCookieClickAmount += (0.1 * this.calculateNumberOfBuildingsOwnedExcludingCursors(buildings))
+                    break
+                case 5:
+                    manualCookieClickAmount += 5 * (0.1 * this.calculateNumberOfBuildingsOwnedExcludingCursors(buildings))
+                    break
+                case 6:
+                    manualCookieClickAmount += 10 * (0.1 * this.calculateNumberOfBuildingsOwnedExcludingCursors(buildings))
+                    break
+                case 7:
+                case 8:
+                case 9:
+                case 10:
+                case 11:
+                case 12:
+                case 13:    
+                    manualCookieClickAmount += 20 * (0.1 * this.calculateNumberOfBuildingsOwnedExcludingCursors(buildings))
+                    break
+            }
+        }
+
+        return Math.floor(manualCookieClickAmount);
+    }    
 
     calculateNumberOfBuildingsOwned(buildings: Array<Cursor | Grandma | Farm | Mine | Factory | Bank | Temple | WizardTower | Shipment | AlchemyLab |
         Portal | TimeMachine | AntimatterCondenser | Prism | Chancemaker | FractalEngine | JavascriptConsole | Idleverse>) {
@@ -628,6 +907,17 @@ export class GameComponent implements OnInit, OnDestroy {
         buildings.forEach(building => numberOfBuildingsOwned += building.amountOwned);
         return numberOfBuildingsOwned;
     }
+
+    calculateNumberOfBuildingsOwnedExcludingCursors(buildings: Array<Cursor | Grandma | Farm | Mine | Factory | Bank | Temple | WizardTower | Shipment | AlchemyLab |
+        Portal | TimeMachine | AntimatterCondenser | Prism | Chancemaker | FractalEngine | JavascriptConsole | Idleverse>) {
+        let numberOfBuildingsOwned = 0;
+        buildings.forEach((building, index) => {
+            if (index !== 0)
+                numberOfBuildingsOwned += building.amountOwned
+        });
+        return numberOfBuildingsOwned;
+    }
+
 
     formatLargerNumber(numberToFormat: number): string {
         return Math.floor(numberToFormat)?.toLocaleString();
