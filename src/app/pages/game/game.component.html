@@ -13,6 +13,28 @@
                         (click)="manualCookieClick($event)" />
                 </div>
 
+                <!-- TODO - Upgrade section code -->
+                <!-- <div class="row">
+                    <div class="col">
+                        <div (click)="purchaseBuildingUpgrade(cursor.id)">
+                            <img [ngStyle]="{ width: '50px' }" className="building-icon" src="{{cursor.icon}}" />
+                            Cursor Upgrade
+                            <p>Cursor CPS is doubled for every upgrade level purchased.</p>
+                            <p id="cursor-upgrade-owned-requirement">Amount Owned Requirement: {{ buildingUpgrades[0].unlockAmount[buildingUpgrades[0].level + 1]}}</p>
+                            <p id="cursor-upgrade-cost">Cost: {{ buildingUpgrades[0].buyCost[buildingUpgrades[0].level + 1]}}</p>
+                            <p>Current Level: {{ buildingUpgrades[0].level }}</p>
+                        </div>
+                        <div (click)="purchaseBuildingUpgrade(grandma.id)">
+                            <img [ngStyle]="{ width: '50px' }" className="building-icon" src="{{grandma.icon}}" />
+                            Grandma Upgrade
+                            <p>Grandma CPS is doubled for every upgrade level purchased.</p>
+                            <p id="grandma-upgrade-owned-requirement">Amount Owned Requirement: {{ buildingUpgrades[1].unlockAmount[buildingUpgrades[1].level + 1]}}</p>
+                            <p id="grandma-upgrade-cost">Cost: {{ buildingUpgrades[1].buyCost[buildingUpgrades[1].level + 1]}}</p>
+                            <p>Current Level: {{ buildingUpgrades[1].level }}</p>
+                        </div>
+                    </div>
+                </div> -->
+
                 <div class="col-12 centered">
                     <p><strong>Game progress will automatically save every 60 seconds!</strong></p>
                 </div>
@@ -33,8 +55,8 @@
                     <h3>STATS</h3>
                     <p>Note: Start date will be incorrect until first save!</p>
                     <p id="start-date">You started playing on: {{formattedStartDate}}</p>
-                    <p id="cookies-baked-all-time">Cookies baked all time: {{formatLargerNumber(cookiesBakedAllTime)}}
-                        cookies</p>
+                    <p id="cookies-baked-all-time">Cookies baked all time: <img [ngStyle]="{ width: '18px' }" src="../../../public/images/cookie-logo.png" /> {{formatLargerNumber(cookiesBakedAllTime)}}
+                    </p>
                 </div>
             </div>
 
@@ -169,8 +191,9 @@
                                         <p>Note: Start date will be incorrect until first save!</p>
                                         <p id="start-date">You started playing on: {{formattedStartDate}}</p>
                                         <p id="cookies-baked-all-time">Cookies baked all time:
+                                            <img [ngStyle]="{ width: '18px' }" src="../../../public/images/cookie-logo.png" />
                                             {{formatLargerNumber(cookiesBakedAllTime)}}
-                                            cookies</p>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
