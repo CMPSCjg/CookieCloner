@@ -9,6 +9,10 @@
   height: 800px;
 }
 
+.store-btn {
+  font-weight: bold;
+}
+
 .store-box::-webkit-scrollbar {
   width: 6px;
 }
