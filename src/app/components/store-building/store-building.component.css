@@ -24,12 +24,13 @@
 
 .store-cost {
   text-align: left;
-  font-size: 20px;
+  font-size: 19px;
   margin-bottom: 0;
 }
 
 .store-cost img {
   width: 20px;
+  margin-bottom: 5px;
 }
 
 .store-title {
