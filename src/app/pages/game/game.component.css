@@ -2,10 +2,51 @@
   font-family: gluten;
 }
 
-@media (max-width: 600px) {
-  .game-save-button {
-    display: none;
-  }
+.store-box {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  overflow-y: auto;
+  height: 800px;
+}
+
+.store-btn {
+  font-weight: bold;
+}
+
+.store-header {
+  font-size: 30px;
+  font-weight: bold;
+  padding-top: 15px;
+}
+
+.store-box::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+
+.store-box::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+/* Handle */
+
+.store-box::-webkit-scrollbar-thumb {
+  background: #888;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+
+.store-box::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.centered {
+  text-align: center;
 }
 
 .card3d {
@@ -20,13 +61,11 @@
   margin: 40px 0;
 }
 
-.card3d,
-.card3d img {
+.card3d, .card3d img {
   transition: all 250ms ease-out;
 }
 
 .container {
-  min-height: 100vh;
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
@@ -67,7 +106,7 @@
   color: white;
   border: 4px solid black;
   border-radius: 6px;
-  width: 40%;
+  margin-top: 15px;
   text-align: center;
 }
 
@@ -76,8 +115,7 @@
 }
 
 @keyframes fadeinout {
-  0%,
-  100% {
+  0%, 100% {
     opacity: 0;
   }
   25% {
@@ -95,11 +133,15 @@
   white-space: nowrap;
   background: white;
   margin-bottom: 16px;
+  margin-right: 16px;
   color: #00b31e;
   transition: 0.2s ease;
   cursor: pointer;
   border: 4px solid #eaeaea;
   border-radius: 6px;
+  padding-top: 1px;
+  padding-left: 6px;
+  padding-right: 6px;
 }
 
 .game-save-button:hover {
@@ -109,8 +151,7 @@
 }
 
 .building-icon {
-  float: left;
-  width: 33%;
+  width: 100%;
 }
 
 .building-name {
@@ -121,12 +162,10 @@
 .building-buy-cost {
   font-size: 1.5rem;
   color: #00b31e;
-  float: left;
 }
 
 .building-amount-owned {
   font-size: 3.5rem;
-  float: right;
 }
 
 .card {
@@ -143,11 +182,15 @@
   user-select: none;
 }
 
-.card:hover,
-.card:focus,
-.card:active {
+.card:hover, .card:focus, .card:active {
   background-color: #90e0ef;
   border-color: #0096c7;
+}
+
+.stats:hover, .stats:focus, .stats:active {
+  background-color: #90e0ef;
+  border-color: #0096c7;
+  cursor: default;
 }
 
 .card h3 {
@@ -161,23 +204,38 @@
   line-height: 1.5;
 }
 
-main {
-  padding: 5rem 0;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
 .building-cookies-per-second {
   color: white;
   font-size: 1rem;
   font-weight: 600;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
-    1px 1px 0 #000;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
 .logo {
   height: 1em;
+}
+
+.modal-body::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 992px) {
+  .container-mobile {
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  main {
+    overflow: hidden;
+    touch-action: manipulation;
+  }
+  .the-cookie-mobile:hover, .the-cookie-mobile:active {
+    transform: none;
+  }
+  .btn:focus {
+    outline: none;
+    box-shadow: none;
+  }
 }

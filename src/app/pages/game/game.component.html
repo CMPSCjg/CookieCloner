@@ -1,74 +1,209 @@
-<div class="container">
-    <main>
-        <p id="game-saved-message" class="game-saved" [ngStyle]="{ opacity: '0' }">Your game progress has been saved!
-        </p>
-        <div class="game">
-            <h3 id="cookie-total-amount">{{ formatLargerNumber(cookieTotalAmount) }} <br /> cookies <br /> per second :
-                {{ formatLargerNumber(cookiesPerSecond) }}</h3>
-            <div class="card3d">
-                <img draggable='false' class="the-cookie" src="../../../public/images/cookie-logo.png"
-                    (click)="manualCookieClick($event)" />
-            </div>
-        </div>
-        <p><strong>Game progress will automatically save every 60 seconds!</strong></p>
-
+<main *ngIf="!isMobile; else mobileGame">
+    <div class="container">
         <div class="row">
-            <div class="col">
-                <label [ngStyle]="{ height: '30px', paddingTop: '1px', paddingLeft: '6px', paddingRight: '6px' }"
-                    class="game-save-button">
-                    <input type="file" [ngStyle]="{ display: 'none' }" (change)="importSavedGameProgress($event)" />
-                    IMPORT SAVE
-                </label>
-            </div>
-            <div class="col">
-                <button class="game-save-button" (click)="saveGameProgress()">SAVE</button>
-            </div>
-            <div class="col">
-                <button class="game-save-button" (click)="exportSavedGameProgress()">EXPORT SAVE</button>
-            </div>
-        </div>
-
-        <!-- TODO - Upgrade section code -->
-        <!-- <div class="row">
-            <div class="col">
-                <div (click)="purchaseBuildingUpgrade(cursor.id)">
-                    <img [ngStyle]="{ width: '50px' }" className="building-icon" src="{{cursor.icon}}" />
-                    Cursor Upgrade
-                    <p>Cursor CPS is doubled for every upgrade level purchased.</p>
-                    <p id="cursor-upgrade-owned-requirement">Amount Owned Requirement: {{ buildingUpgrades[0].unlockAmount[buildingUpgrades[0].level + 1]}}</p>
-                    <p id="cursor-upgrade-cost">Cost: {{ buildingUpgrades[0].buyCost[buildingUpgrades[0].level + 1]}}</p>
-                    <p>Current Level: {{ buildingUpgrades[0].level }}</p>
+            <div class='col-7'>
+                <p id="game-saved-message" class="game-saved" [ngStyle]="{ opacity: '0' }">Your game progress has
+                    been
+                    saved!</p>
+                <h3 id="cookie-total-amount">{{ formatLargerNumber(cookieTotalAmount) }} <br /> cookies <br /> per
+                    second :
+                    {{ formatLargerNumber(cookiesPerSecond) }}</h3>
+                <div class="card3d">
+                    <img draggable='false' class="the-cookie" src="../../../public/images/cookie-logo.png"
+                        (click)="manualCookieClick($event)" />
                 </div>
-                <div (click)="purchaseBuildingUpgrade(grandma.id)">
-                    <img [ngStyle]="{ width: '50px' }" className="building-icon" src="{{grandma.icon}}" />
-                    Grandma Upgrade
-                    <p>Grandma CPS is doubled for every upgrade level purchased.</p>
-                    <p id="grandma-upgrade-owned-requirement">Amount Owned Requirement: {{ buildingUpgrades[1].unlockAmount[buildingUpgrades[1].level + 1]}}</p>
-                    <p id="grandma-upgrade-cost">Cost: {{ buildingUpgrades[1].buyCost[buildingUpgrades[1].level + 1]}}</p>
-                    <p>Current Level: {{ buildingUpgrades[1].level }}</p>
-                </div>
-            </div>
-        </div> -->
 
-        <div class="row">
-            <div class="col">
-                <div class="card">
-                    <h3 class="">STATS</h3>
+                <!-- TODO - Upgrade section code -->
+                <!-- <div class="row">
+                    <div class="col">
+                        <div (click)="purchaseBuildingUpgrade(cursor.id)">
+                            <img [ngStyle]="{ width: '50px' }" className="building-icon" src="{{cursor.icon}}" />
+                            Cursor Upgrade
+                            <p>Cursor CPS is doubled for every upgrade level purchased.</p>
+                            <p id="cursor-upgrade-owned-requirement">Amount Owned Requirement: {{ buildingUpgrades[0].unlockAmount[buildingUpgrades[0].level + 1]}}</p>
+                            <p id="cursor-upgrade-cost">Cost: {{ buildingUpgrades[0].buyCost[buildingUpgrades[0].level + 1]}}</p>
+                            <p>Current Level: {{ buildingUpgrades[0].level }}</p>
+                        </div>
+                        <div (click)="purchaseBuildingUpgrade(grandma.id)">
+                            <img [ngStyle]="{ width: '50px' }" className="building-icon" src="{{grandma.icon}}" />
+                            Grandma Upgrade
+                            <p>Grandma CPS is doubled for every upgrade level purchased.</p>
+                            <p id="grandma-upgrade-owned-requirement">Amount Owned Requirement: {{ buildingUpgrades[1].unlockAmount[buildingUpgrades[1].level + 1]}}</p>
+                            <p id="grandma-upgrade-cost">Cost: {{ buildingUpgrades[1].buyCost[buildingUpgrades[1].level + 1]}}</p>
+                            <p>Current Level: {{ buildingUpgrades[1].level }}</p>
+                        </div>
+                    </div>
+                </div> -->
+
+                <div class="col-12 centered">
+                    <p><strong>Game progress will automatically save every 60 seconds!</strong></p>
+                </div>
+
+                <div class="col-12">
+                    <div class="row justify-content-center">
+                        <label class="game-save-button">
+                            <input type="file" [ngStyle]="{ display: 'none' }"
+                                (change)="importSavedGameProgress($event)" />
+                            IMPORT SAVE
+                        </label>
+                        <button class="game-save-button" (click)="saveGameProgress()">SAVE</button>
+                        <button class="game-save-button" (click)="exportSavedGameProgress()">EXPORT SAVE</button>
+                    </div>
+                </div>
+
+                <div class="card stats">
+                    <h3>STATS</h3>
                     <p>Note: Start date will be incorrect until first save!</p>
                     <p id="start-date">You started playing on: {{formattedStartDate}}</p>
-                    <p id="cookies-baked-all-time">Cookies baked all time: {{formatLargerNumber(cookiesBakedAllTime)}}
-                        cookies</p>
+                    <p id="cookies-baked-all-time">Cookies baked all time: <img [ngStyle]="{ width: '18px' }" src="../../../public/images/cookie-logo.png" /> {{formatLargerNumber(cookiesBakedAllTime)}}
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-5 store-box">
+                <ng-container *ngFor="let building of buildings">
+                    <app-store-building [building]="building" (storeBuildingClick)="purchaseStoreBuilding($event)">
+                    </app-store-building>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</main>
+
+<ng-template #mobileGame>
+    <!-- Mobile game view -->
+    <main>
+        <div class='container-mobile'>
+
+            <div class="row">
+                <div class="col">
+                    <br />
+                    <p id="cookie-total-amount">{{ formatLargerNumber(cookieTotalAmount) }} Cookies!</p>
+                    <p>{{ formatLargerNumber(cookiesPerSecond) }} per second</p>
+                </div>
+            </div>
+
+            <div>
+                <img draggable='false' class="the-cookie-mobile" src="../../../public/images/cookie-logo.png"
+                    (click)="manualCookieClick($event)" />
+            </div>
+            <br /><br />
+            <div class="row">
+                <!-- Store Button trigger modal -->
+                <div class="col-4">
+                    <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal">
+                        <img width="auto" height="55px" src="../../../public/images/store.png">
+                        <span class="store-btn">Store</span>
+                    </button>
+                </div>
+
+                <!-- Stats Button trigger modal -->
+                <div class="col-4">
+                    <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal3">
+                        <img width="auto" height="55px" src="../../../public/images/stats.png">
+                        <span class="store-btn">Stats</span>
+                    </button>
+                </div>
+
+                <!-- Settings Button trigger modal -->
+                <div class="col-4">
+                    <button type="button" class="btn" data-toggle="modal" data-target="#exampleModal2">
+                        <img width="auto" height="55px" src="../../../public/images/settings.png">
+                        <span class="store-btn">Settings</span>
+                    </button>
+                </div>
+            </div>
+
+            <br /><br /><br />
+            <!-- Store Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="store-header" id="exampleModalLabel">Store</h5>
+                            <img width="auto" height="55px" src="../../../public/images/store.png">
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <ng-container *ngFor="let building of buildings">
+                                    <div class="col-12">
+                                        <app-store-building [building]="building"
+                                            (storeBuildingClick)="purchaseStoreBuilding($event)">
+                                        </app-store-building>
+                                    </div>
+                                </ng-container>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Modal -->
+            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="store-header" id="exampleModalLabel2">Settings</h5>
+                            <img width="auto" height="55px" src="../../../public/images/settings.png">
+                        </div>
+                        <div class="modal-body">
+                            <div class="row justify-content-md-center centered">
+                                <div class="col-12">
+                                    <p><strong>Game progress will automatically save every 60 seconds!</strong></p>
+                                </div>
+                                <div class="col-12">
+                                    <label class="game-save-button">
+                                        <input type="file" [ngStyle]="{ display: 'none' }"
+                                            (change)="importSavedGameProgress($event)" />
+                                        IMPORT SAVE
+                                    </label>
+                                    <button class="game-save-button" (click)="saveGameProgress()">SAVE</button>
+                                    <button class="game-save-button" (click)="exportSavedGameProgress()">EXPORT
+                                        SAVE</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats Modal -->
+            <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="store-header" id="exampleModalLabel3">Stats</h5>
+                            <img width="auto" height="55px" src="../../../public/images/stats.png">
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col">
+                                    <div class="card stats">
+                                        <p>Note: Start date will be incorrect until first save!</p>
+                                        <p id="start-date">You started playing on: {{formattedStartDate}}</p>
+                                        <p id="cookies-baked-all-time">Cookies baked all time:
+                                            <img [ngStyle]="{ width: '18px' }" src="../../../public/images/cookie-logo.png" />
+                                            {{formatLargerNumber(cookiesBakedAllTime)}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="row">
-            <ng-container *ngFor="let building of buildings">
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <app-store-building [building]="building" (storeBuildingClick)="purchaseStoreBuilding($event)">
-                    </app-store-building>
-                </div>
-            </ng-container>
-        </div>
     </main>
-</div>
+</ng-template>
