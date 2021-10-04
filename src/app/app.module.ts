@@ -16,6 +16,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RecipesService } from './services/recipes-service';
 import { StoreBuildingComponent } from './components/store-building/store-building.component';
+import { RecipeCardComponent } from './components/recipe-card/recipe-card.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { StoreBuildingComponent } from './components/store-building/store-buildi
     NavComponent,
     LoaderComponent,
     FooterComponent,
-    StoreBuildingComponent
+    StoreBuildingComponent,
+    RecipeCardComponent
   ],
   imports: [
     BrowserModule,

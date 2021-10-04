@@ -14,7 +14,14 @@
             <br />
             <p class="description">TODO: REMOVE THIS WITH RECIPE CARDS.</p>
             <br />
-            <p [ngStyle]="{ overflowWrap: 'break-word'}" id="response-data">{{ responseData | json }}</p>
+            <!-- <p [ngStyle]="{ overflowWrap: 'break-word'}" id="response-data">{{ responseData | json }}</p> -->
+
+            <!-- ng for loop for recipe card -->
+            <ng-container *ngFor="let hit of responseData.hits">
+                <app-recipe-card [hits]="hit">
+                </app-recipe-card>
+            </ng-container>
+
         </div>
         <div class="col-auto"></div>
     </div>
