@@ -778,9 +778,7 @@ export class RecipesService {
     constructor(private http: HttpClient) {}
 
     public searchForRecipes(recipeToSearchFor: string): Observable<any> {
-      console.log('RecipesService invoked')
         const isProduction = environment.production;
-        console.log('is production: ' + environment.production)
         if (isProduction) {
             const url = 'https://api.edamam.com/api/recipes/v2?app_id=75e7a254&app_key=9e0e776f76b893572427067592520f82&type=public&q=' + recipeToSearchFor;
             return this.http.get(url).pipe(catchError((err) => throwError(err.message || err)))
