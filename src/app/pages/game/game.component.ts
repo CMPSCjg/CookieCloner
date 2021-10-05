@@ -21,25 +21,25 @@ import { Chancemaker } from '../../models/store/Chancemaker';
 import { FractalEngine } from '../../models/store/FractalEngine';
 import { JavascriptConsole } from '../../models/store/JavascriptConsole';
 import { Idleverse } from '../../models/store/Idleverse';
-import { CursorUpgrades } from 'src/app/models/upgrades/buildings/Cursor';
-import { GrandmaUpgrades } from 'src/app/models/upgrades/buildings/Grandma';
-import { FarmUpgrades } from 'src/app/models/upgrades/buildings/Farm';
-import { MineUpgrades } from 'src/app/models/upgrades/buildings/Mine';
-import { FactoryUpgrades } from 'src/app/models/upgrades/buildings/Factory';
-import { BankUpgrades } from 'src/app/models/upgrades/buildings/Bank';
-import { TempleUpgrades } from 'src/app/models/upgrades/buildings/Temple';
-import { WizardTowerUpgrades } from 'src/app/models/upgrades/buildings/WizardTower';
-import { ShipmentUpgrades } from 'src/app/models/upgrades/buildings/Shipment';
-import { AlchemyLabUpgrades } from 'src/app/models/upgrades/buildings/AlchemyLab';
-import { PortalUpgrades } from 'src/app/models/upgrades/buildings/Portal';
-import { TimeMachineUpgrades } from 'src/app/models/upgrades/buildings/TimeMachine';
-import { AntimatterCondenserUpgrades } from 'src/app/models/upgrades/buildings/AntimatterCondenser';
-import { PrismUpgrades } from 'src/app/models/upgrades/buildings/Prism';
-import { ChancemakerUpgrades } from 'src/app/models/upgrades/buildings/Chancemaker';
-import { FractalEngineUpgrades } from 'src/app/models/upgrades/buildings/FractalEngine';
-import { JavascriptConsoleUpgrades } from 'src/app/models/upgrades/buildings/JavascriptConsole';
-import { IdleverseUpgrades } from 'src/app/models/upgrades/buildings/Idleverse';
-import { NumberFormatType } from 'src/app/models/NumberFormatType';
+import { CursorUpgrades } from '../../models/upgrades/buildings/Cursor';
+import { GrandmaUpgrades } from '../../models/upgrades/buildings/Grandma';
+import { FarmUpgrades } from '../../models/upgrades/buildings/Farm';
+import { MineUpgrades } from '../../models/upgrades/buildings/Mine';
+import { FactoryUpgrades } from '../../models/upgrades/buildings/Factory';
+import { BankUpgrades } from '../../models/upgrades/buildings/Bank';
+import { TempleUpgrades } from '../../models/upgrades/buildings/Temple';
+import { WizardTowerUpgrades } from '../../models/upgrades/buildings/WizardTower';
+import { ShipmentUpgrades } from '../../models/upgrades/buildings/Shipment';
+import { AlchemyLabUpgrades } from '../../models/upgrades/buildings/AlchemyLab';
+import { PortalUpgrades } from '../../models/upgrades/buildings/Portal';
+import { TimeMachineUpgrades } from '../../models/upgrades/buildings/TimeMachine';
+import { AntimatterCondenserUpgrades } from '../../models/upgrades/buildings/AntimatterCondenser';
+import { PrismUpgrades } from '../../models/upgrades/buildings/Prism';
+import { ChancemakerUpgrades } from '../../models/upgrades/buildings/Chancemaker';
+import { FractalEngineUpgrades } from '../../models/upgrades/buildings/FractalEngine';
+import { JavascriptConsoleUpgrades } from '../../models/upgrades/buildings/JavascriptConsole';
+import { IdleverseUpgrades } from '../../models/upgrades/buildings/Idleverse';
+import { NumberFormatType } from '../../models/NumberFormatType';
 
 @Component({
     selector: 'app-game',
@@ -302,6 +302,7 @@ export class GameComponent implements OnInit, OnDestroy {
 
     ngAfterViewInit() {
         this.detectScreenSize();
+
         // Card array
         var cards = document.querySelectorAll('.card3d');
 

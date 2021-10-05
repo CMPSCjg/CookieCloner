@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { RecipesService } from 'src/app/services/recipes-service';
+import { RecipesApiResponse } from '../../models/recipes/RecipesApiResponse';
+import { RecipesService } from '../../services/recipes.service';
 
 @Component({
   selector: 'app-recipes',
@@ -8,7 +9,8 @@ import { RecipesService } from 'src/app/services/recipes-service';
 })
 export class RecipesComponent implements OnInit {
 
-  responseData: any;
+  isLoadingRecipesApi: boolean = false;
+  responseData: RecipesApiResponse;
 
   constructor(private recipesService: RecipesService) { }
 
@@ -16,6 +18,9 @@ export class RecipesComponent implements OnInit {
   }
 
   async searchForRecipe(event: any) {
+    // Update the 'isLoadingRecipesApi' flag to be true.
+    this.isLoadingRecipesApi = true;
+
     // Cancel the submit request from the browser side.
     if (event) event.preventDefault();
 
@@ -29,7 +34,12 @@ export class RecipesComponent implements OnInit {
 
     // Execute API request with recipeToSearchFor as query parameter.
     const response = await this.recipesService.searchForRecipes(recipeToSearchFor)
-    response.subscribe(responseData => {
+    response.subscribe((responseData: RecipesApiResponse) => {
+
+      // With the response coming back, update the 'isLoadingRecipesApi' flag to be false.
+      this.isLoadingRecipesApi = false;
+
+      // Store the response data coming back from the Recipes API.
       this.responseData = responseData
     })
   }

@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable, of, throwError } from "rxjs";
 import { catchError } from "rxjs/operators";
+import { environment } from "../../environments/environment";
 
 export const MOCK_COOKIE_RECIPES_RESPONSE = JSON.parse(`
 {
@@ -777,7 +778,7 @@ export class RecipesService {
     constructor(private http: HttpClient) {}
 
     public searchForRecipes(recipeToSearchFor: string): Observable<any> {
-        const isProduction = false;
+        const isProduction = environment.production;
         if (isProduction) {
             const url = 'https://api.edamam.com/api/recipes/v2?app_id=75e7a254&app_key=9e0e776f76b893572427067592520f82&type=public&q=' + recipeToSearchFor;
             return this.http.get(url).pipe(catchError((err) => throwError(err.message || err)))

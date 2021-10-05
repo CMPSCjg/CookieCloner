@@ -14,7 +14,7 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { NavComponent } from './components/nav/nav.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { RecipesService } from './services/recipes-service';
+import { RecipesService } from './services/recipes.service';
 import { StoreBuildingComponent } from './components/store-building/store-building.component';
 
 @NgModule({

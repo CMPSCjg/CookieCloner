@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { NumberFormatType } from 'src/app/models/NumberFormatType';
+import { NumberFormatType } from '../../models/NumberFormatType';
 
 @Component({
   selector: 'app-store-building',
