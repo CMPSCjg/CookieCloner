@@ -9,13 +9,17 @@
                 <input class="search-bar-input" placeholder="Enter your search here. . ." />
                 <button class="search-bar-button" type="submit">Search</button>
             </form>
-            <p class="description">I am a demon. I live and breathe hot fire like Bill Clinton.</p>
-
             <br />
-            <p class="description">TODO: REMOVE THIS WITH RECIPE CARDS.</p>
             <br />
-            <p [ngStyle]="{ overflowWrap: 'break-word'}" id="response-data">{{ responseData | json }}</p>
+            <br />
+            <p *ngIf="!isLoadingRecipesApi; else loader" [ngStyle]="{ overflowWrap: 'break-word' }" id="response-data">{{ responseData | json }}</p>
         </div>
         <div class="col-auto"></div>
     </div>
 </div>
+
+<ng-template #loader>
+    <div class="loader">
+        <app-loader [size]=150></app-loader>
+    </div>
+</ng-template>

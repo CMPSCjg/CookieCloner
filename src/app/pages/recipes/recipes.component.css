@@ -38,3 +38,8 @@
 .search-bar-button:hover {
   border: 2px #c7c5c5 solid;
 }
+
+.loader {
+  /* Add height to push footer down while Recipe data is being retrieved */
+  height: 400px;
+}
