@@ -1,0 +1,12 @@
+<div placement="top" [animation]="true" [ngbTooltip]="tooltip" class="upgrade-square" (click)="clickedUpgrade(building.id)">
+    <img [ngStyle]="{ width: '50px' }" src="{{building.icon}}" />
+    <img class="upgrade-icon" src="../../../public/images/upgrade-arrow.png" />
+</div>
+
+<ng-template #tooltip>
+    <p>{{ building.name }} cookies per second are doubled.</p>
+    <p id="building-upgrade-owned-requirement">You must own at least <strong>{{ upgrade.unlockAmount[upgrade.level + 1]}}</strong> of this building to buy this upgrade!</p>
+    <p id="building-upgrade-cost"><img class="upgrade-cost" src="../../../public/images/cookie-logo.png" /> {{ formatLargerNumber(upgrade.buyCost[upgrade.level + 1], NumberFormatType.WORD)}}</p>
+    <p class="upgrade-current-level">Current Level // {{ upgrade.level }}</p>
+    <p>-- Click to purchase --</p>
+</ng-template>
