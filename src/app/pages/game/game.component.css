@@ -6,7 +6,7 @@
   margin-top: 50px;
   margin-bottom: 50px;
   overflow-y: auto;
-  height: 800px;
+  height: 1122px;
 }
 
 .store-btn {
@@ -61,7 +61,8 @@
   margin: 40px 0;
 }
 
-.card3d, .card3d img {
+.card3d,
+.card3d img {
   transition: all 250ms ease-out;
 }
 
@@ -115,7 +116,8 @@
 }
 
 @keyframes fadeinout {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0;
   }
   25% {
@@ -182,12 +184,16 @@
   user-select: none;
 }
 
-.card:hover, .card:focus, .card:active {
+.card:hover,
+.card:focus,
+.card:active {
   background-color: #90e0ef;
   border-color: #0096c7;
 }
 
-.stats:hover, .stats:focus, .stats:active {
+.stats:hover,
+.stats:focus,
+.stats:active {
   background-color: #90e0ef;
   border-color: #0096c7;
   cursor: default;
@@ -204,11 +210,20 @@
   line-height: 1.5;
 }
 
+.upgrades:hover,
+.upgrades:focus,
+.upgrades:active {
+  cursor: default;
+  background-color: transparent;
+  border: 4px solid #eaeaea;
+}
+
 .building-cookies-per-second {
   color: white;
   font-size: 1rem;
   font-weight: 600;
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 .logo {
@@ -231,7 +246,8 @@
     overflow: hidden;
     touch-action: manipulation;
   }
-  .the-cookie-mobile:hover, .the-cookie-mobile:active {
+  .the-cookie-mobile:hover,
+  .the-cookie-mobile:active {
     transform: none;
   }
   .btn:focus {
