@@ -17,17 +17,13 @@ This is a simple clone of the popular web game, [Cookie Clicker](https://orteil.
 
 Note: All of these commands are to be used from the root directory of the project.
 
-- We recommend that you install the Angular CLI
-```
-npm install -g @angular/cli
-```
 - Install node packages
 ```
 npm install
 ```
 - Start the server
 ```
-ng serve
+npm run dev
 ```
 
 
@@ -35,7 +31,8 @@ ng serve
 
 ### The production build of our Cookie Cloner is available [here](https://cookie-cloner.vercel.app/)!
 #### Desktop View
-![image](https://user-images.githubusercontent.com/77583463/135737224-99e9b83c-510a-4d20-80af-d4cbf659a5a7.png)
+<img width="607" alt="Screen Shot 2021-10-07 at 3 30 53 PM" src="https://user-images.githubusercontent.com/77583463/136465136-160c3fbe-cac2-48f9-838e-d0a8b0c80d9a.png">
+
 #### Mobile View
 <img src="https://user-images.githubusercontent.com/77583463/135737242-893c2878-c0b5-40ae-9dc6-b97460cd52fa.png" alt="mobile-view" width="300"/>
     
