@@ -6,6 +6,8 @@
         <div class="col-8">
             <p class="store-title">{{building.name}}</p>
             <p class="store-cost" id="building-buy-cost"><img src="../../../public/images/cookie-logo.png" /> {{formatLargerNumber(building.buyCost, NumberFormatType.WORD)}}</p>
+            <br />
+            <p class="store-cost">Each makes {{formatLargerNumber(building.cookiesPerSecond, NumberFormatType.WORD)}} <img src="../../../public/images/cookie-logo.png" /> per second</p>
         </div>
         <div class="col-2">
             <p class="store-am" id="building-amount-owned">{{building.amountOwned}}</p>
