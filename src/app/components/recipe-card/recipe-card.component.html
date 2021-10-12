@@ -1,4 +1,4 @@
-<p>recipe-card works!</p>
+<!-- <p>recipe-card works!</p>
 
 <a href="{{ hits.recipe.uri }}"> Link </a>
 <p>{{ hits.recipe.label }}</p>
@@ -7,4 +7,51 @@
 <p>{{ hits.recipe.url }}</p>
 <a href="{{ hits.recipe.shareAs }}">Share</a>
 <p>Yield: {{ hits.recipe.yield }}</p>
-<p>Calories: {{ hits.recipe.calories }}</p>
+<p>Calories: {{ hits.recipe.calories }}</p> -->
+
+<div class="row">
+    <div class="col-lg-4 col-md-6">
+        <div class="card">
+            <img class="card-img-top" src="{{ hits.recipe.image }}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{ hits.recipe.label }}</h5>
+                <p class="card-text">Calories: {{ hits.recipe.calories }}</p>
+                <p class="card-text">Yield: {{ hits.recipe.yield }}</p>
+                <a href="{{ hits.recipe.url }}" class="btn btn-primary">View Page</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+        <div class="card">
+            <img class="card-img-top" src="{{ hits.recipe.image }}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{ hits.recipe.label }}</h5>
+                <p class="card-text">Calories: {{ hits.recipe.calories }}</p>
+                <p class="card-text">Yield: {{ hits.recipe.yield }}</p>
+                <a href="{{ hits.recipe.url }}" class="btn btn-primary">View Page</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+        <div class="card">
+            <img class="card-img-top" src="{{ hits.recipe.image }}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{ hits.recipe.label }}</h5>
+                <p class="card-text">Calories: {{ hits.recipe.calories }}</p>
+                <p class="card-text">Yield: {{ hits.recipe.yield }}</p>
+                <a href="{{ hits.recipe.url }}" class="btn btn-primary">View Page</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4 col-md-6">
+        <div class="card">
+            <img class="card-img-top" src="{{ hits.recipe.image }}" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{ hits.recipe.label }}</h5>
+                <p class="card-text">Calories: {{ hits.recipe.calories }}</p>
+                <p class="card-text">Yield: {{ hits.recipe.yield }}</p>
+                <a href="{{ hits.recipe.url }}" class="btn btn-primary">View Page</a>
+            </div>
+        </div>
+    </div>
+</div>

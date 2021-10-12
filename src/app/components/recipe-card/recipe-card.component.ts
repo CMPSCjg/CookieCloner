@@ -14,5 +14,4 @@ export class RecipeCardComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
