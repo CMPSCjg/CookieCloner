@@ -1,4 +1,4 @@
-<div placement="auto" [animation]="true" [ngbTooltip]="tooltip" container="body" class="upgrade-square" (click)="clickedUpgrade(building.id)">
+<div placement="auto" [animation]="true" [autoClose]="'inside'" [ngbTooltip]="tooltip" container="body" class="upgrade-square" (click)="clickedUpgrade(building.id)">
     <img [ngStyle]="{ width: '50px' }" src="{{building.icon}}" />
     <img class="upgrade-icon" src="../../../public/images/upgrade-arrow.png" />
 </div>
@@ -8,5 +8,5 @@
     <p id="building-upgrade-owned-requirement">You must own at least <strong>{{ upgrade.unlockAmount[upgrade.level + 1]}}</strong> of this building to buy this upgrade!</p>
     <p id="building-upgrade-cost"><img class="upgrade-cost" src="../../../public/images/cookie-logo.png" /> {{ formatLargerNumber(upgrade.buyCost[upgrade.level + 1], NumberFormatType.WORD)}}</p>
     <p class="upgrade-current-level">Current Level // {{ upgrade.level }}</p>
-    <p>-- Click to purchase --</p>
+    <p>-- Double click to buy --</p>
 </ng-template>
