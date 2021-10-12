@@ -9,18 +9,30 @@ import { NumberFormatType } from '../../models/NumberFormatType';
 export class UpgradeCardComponent implements OnInit {
 
   NumberFormatType = NumberFormatType;
+  clickCounter = 0;
 
   @Input() building;
   @Input() upgrade;
   @Output() upgradeClick = new EventEmitter<number>();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   clickedUpgrade(id: number) {
-    this.upgradeClick.emit(id)
+
+    // As a compromise for mobile devices, we felt it would be best to make the upgrade purchases require at least a DOUBLE CLICK to be successful.
+    this.clickCounter++;
+    setTimeout(() => {
+
+      // If the user at least double clicks, emit the upgrade click, purchasing that upgrade.
+      if (this.clickCounter >= 2) {
+        this.upgradeClick.emit(id)
+      }
+
+      // Reset the click counter back to zero.
+      this.clickCounter = 0;
+    }, 500)
   }
 
   formatLargerNumber(numberToFormat: number, format?: NumberFormatType): string {
