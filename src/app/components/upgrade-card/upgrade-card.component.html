@@ -1,4 +1,4 @@
-<div placement="auto" [animation]="true" [ngbTooltip]="tooltip" container="body" class="upgrade-square" (click)="clickedUpgrade(building.id)">
+<div placement="auto" [animation]="true" [autoClose]="'inside'" [ngbTooltip]="tooltip" container="body" class="upgrade-square" (click)="clickedUpgrade(building.id)">
     <img [ngStyle]="{ width: '50px' }" src="{{building.icon}}" />
     <img class="upgrade-icon" src="../../../public/images/upgrade-arrow.png" />
 </div>
