@@ -350,8 +350,8 @@ export class GameComponent implements OnInit, OnDestroy {
         let img = card.querySelector('img');
         let mouseX = ev.offsetX;
         let mouseY = ev.offsetY;
-        let rotateY = this.map(mouseX, 0, 180, -25, 25);
-        let rotateX = this.map(mouseY, 0, 250, 25, -25);
+        let rotateY = this.map(mouseX, 0, 180, -50, 50);
+        let rotateX = this.map(mouseY, 0, 250, 50, -50);
         let brightness = this.map(mouseY, 0, 250, 1.5, 0.5);
 
         img.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
@@ -659,10 +659,41 @@ export class GameComponent implements OnInit, OnDestroy {
     }
 
     async importSavedGameProgress(event: any) {
-        // Retrieve the data from the text file uploaded by the player.
-        const incomingFile = event?.target?.files?.item(0);
-        const incomingFileText = await incomingFile?.text();
-        window.localStorage.setItem('CookieClonerGameProgress', incomingFileText);
+
+        if (!this.isMobile) {
+
+            // Retrieve the data from the text file uploaded by the player.
+            const incomingFile = event?.target?.files?.item(0);
+            const incomingFileText = await incomingFile?.text();
+            window.localStorage.setItem('CookieClonerGameProgress', incomingFileText);
+
+        } else {
+
+            // Prompt user to enter their saved game progress text string.
+            // Added error handling to prevent random text from overwriting actual game progress.
+            let incomingTextString = window.prompt('Please enter your saved game progress text!');
+            try {
+                if(!atob(incomingTextString).includes(';')) {
+                    incomingTextString = '';
+                }
+            } catch (error) {
+                incomingTextString = '';
+            }
+
+            while (!incomingTextString) {
+                incomingTextString = window.prompt('Please enter your saved game progress text!');
+                try {
+                    if(!atob(incomingTextString).includes(';')) {
+                        incomingTextString = '';
+                    }
+                } catch (error) {
+                    incomingTextString = '';
+                }
+            }
+
+            // Store saved game progress text string into local storage.
+            window.localStorage.setItem('CookieClonerGameProgress', incomingTextString);
+        }
 
         // Refresh the page to pull in the updated game progress from their browser Local Storage.
         window.location.reload();
@@ -742,7 +773,7 @@ export class GameComponent implements OnInit, OnDestroy {
     exportSavedGameProgress() {
         const gameProgress = window.localStorage.getItem('CookieClonerGameProgress');
         if (gameProgress) {
-            const savedGameProgressFile = new Blob([gameProgress], { type: 'text/plain' });
+            const savedGameProgressFile = !this.isMobile ? new Blob([gameProgress], { type: 'text/plain' }) : new Blob([gameProgress, '\n\nCopy the text above to backup your game progress!'], { type: 'text/plain' });
             const downloadUrl = URL.createObjectURL(savedGameProgressFile);
             const anchor = document.createElement('a')
 
