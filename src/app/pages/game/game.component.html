@@ -152,8 +152,8 @@
                                 </div>
                                 <div class="col-12">
                                     <label class="game-save-button">
-                                        <input type="file" [ngStyle]="{ display: 'none' }"
-                                            (change)="importSavedGameProgress($event)" />
+                                        <input type="button" [ngStyle]="{ display: 'none' }"
+                                            (click)="importSavedGameProgress($event)" />
                                         IMPORT SAVE
                                     </label>
                                     <button class="game-save-button" (click)="saveGameProgress()">SAVE</button>
