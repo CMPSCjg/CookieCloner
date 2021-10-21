@@ -7,6 +7,23 @@ export class ChancemakerUpgrades {
     buyCost: number[] = 
         [0, 260000000000000000, 1300000000000000000, 13000000000000000000, 1300000000000000000000, 130000000000000000000000, 13000000000000000000000000, 13000000000000000000000000000, 13000000000000000000000000000000, 13000000000000000000000000000000000, 
             13000000000000000000000000000000000000, 130000000000000000000000000000000000000000, 1300000000000000000000000000000000000000000000, 13000000000000000000000000000000000000000000000000];
+    upgradeDescription: string[] = [
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+    ]
 
     constructor(level: number) {
         this.level = level;

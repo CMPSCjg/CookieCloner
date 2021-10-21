@@ -7,7 +7,24 @@ export class FarmUpgrades {
     buyCost: number[] = 
         [0, 11000, 55000, 550000, 55000000, 5500000000, 550000000000, 550000000000000, 550000000000000000, 550000000000000000000, 
             550000000000000000000000, 5500000000000000000000000000, 55000000000000000000000000000000, 550000000000000000000000000000000000];
-
+    upgradeDescription: string[] = [
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+    ]
+    
     constructor(level: number) {
         this.level = level;
     }

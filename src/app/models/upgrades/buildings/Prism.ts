@@ -7,6 +7,23 @@ export class PrismUpgrades {
     buyCost: number[] = 
         [0, 21000000000000000, 105000000000000000, 1050000000000000000, 105000000000000000000, 10500000000000000000000, 1050000000000000000000000, 1050000000000000000000000000, 1050000000000000000000000000000, 1050000000000000000000000000000000, 
             1050000000000000000000000000000000000, 10500000000000000000000000000000000000000, 105000000000000000000000000000000000000000000, 1050000000000000000000000000000000000000000000000];
+    upgradeDescription: string[] = [
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+    ]
 
     constructor(level: number) {
         this.level = level;

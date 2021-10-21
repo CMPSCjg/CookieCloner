@@ -833,7 +833,7 @@ export class GameComponent implements OnInit, OnDestroy {
 
             // For 'Cursor upgrades', the bonuses to cookiesPerSecond are different from the 'twice as efficient' effect for all the other store buildings.
             if (index === 0) {
-                let rawCursorCookiesPerSecond = (building.amountOwned * building.cookiesPerSecond)
+                let rawCursorCookiesPerSecond = building.cookiesPerSecond
                 for (let level = 0; level <= buildingUpgrades[index].level; level++) {
                     switch (level) {
                         case 0:
@@ -852,10 +852,10 @@ export class GameComponent implements OnInit, OnDestroy {
                             rawCursorCookiesPerSecond += (0.1 * this.calculateNumberOfBuildingsOwnedExcludingCursors(buildings))
                             break
                         case 5:
-                            rawCursorCookiesPerSecond += 5 * (0.1 * this.calculateNumberOfBuildingsOwnedExcludingCursors(buildings))
+                            rawCursorCookiesPerSecond *= 5
                             break
                         case 6:
-                            rawCursorCookiesPerSecond += 10 * (0.1 * this.calculateNumberOfBuildingsOwnedExcludingCursors(buildings))
+                            rawCursorCookiesPerSecond *= 10
                             break
                         case 7:
                         case 8:
@@ -864,11 +864,11 @@ export class GameComponent implements OnInit, OnDestroy {
                         case 11:
                         case 12:
                         case 13:    
-                            rawCursorCookiesPerSecond += 20 * (0.1 * this.calculateNumberOfBuildingsOwnedExcludingCursors(buildings))
+                            rawCursorCookiesPerSecond *= 20
                             break
                     }
                 }
-                cookiesPerSecond += rawCursorCookiesPerSecond
+                cookiesPerSecond += (rawCursorCookiesPerSecond * building.amountOwned)
             } else {
             cookiesPerSecond += (
                 (Math.pow(2, buildingUpgrades[index] ? buildingUpgrades[index].level : 0)) * (building.amountOwned * building.cookiesPerSecond)
@@ -901,10 +901,10 @@ export class GameComponent implements OnInit, OnDestroy {
                     manualCookieClickAmount += (0.1 * this.calculateNumberOfBuildingsOwnedExcludingCursors(buildings))
                     break
                 case 5:
-                    manualCookieClickAmount += 5 * (0.1 * this.calculateNumberOfBuildingsOwnedExcludingCursors(buildings))
+                    manualCookieClickAmount *= 5
                     break
                 case 6:
-                    manualCookieClickAmount += 10 * (0.1 * this.calculateNumberOfBuildingsOwnedExcludingCursors(buildings))
+                    manualCookieClickAmount *= 10
                     break
                 case 7:
                 case 8:
@@ -913,7 +913,7 @@ export class GameComponent implements OnInit, OnDestroy {
                 case 11:
                 case 12:
                 case 13:    
-                    manualCookieClickAmount += 20 * (0.1 * this.calculateNumberOfBuildingsOwnedExcludingCursors(buildings))
+                    manualCookieClickAmount *= 20
                     break
             }
         }

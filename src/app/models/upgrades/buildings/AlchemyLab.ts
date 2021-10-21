@@ -7,6 +7,23 @@ export class AlchemyLabUpgrades {
     buyCost: number[] = 
         [0, 750000000000, 3750000000000, 37500000000000, 3750000000000000, 375000000000000000, 37500000000000000000, 37500000000000000000000, 37500000000000000000000000, 37500000000000000000000000000, 
             37500000000000000000000000000000, 375000000000000000000000000000000000, 3750000000000000000000000000000000000000, 37500000000000000000000000000000000000000000];
+    upgradeDescription: string[] = [
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+    ]
 
     constructor(level: number) {
         this.level = level;

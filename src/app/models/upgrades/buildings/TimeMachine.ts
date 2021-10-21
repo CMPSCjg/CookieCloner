@@ -7,6 +7,23 @@ export class TimeMachineUpgrades {
     buyCost: number[] = 
         [0, 140000000000000, 700000000000000, 7000000000000000, 700000000000000000, 70000000000000000000, 7000000000000000000000, 7000000000000000000000000, 7000000000000000000000000000, 7000000000000000000000000000000, 
             7000000000000000000000000000000000, 70000000000000000000000000000000000000, 700000000000000000000000000000000000000000, 7000000000000000000000000000000000000000000000];
+    upgradeDescription: string[] = [
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+    ]
 
     constructor(level: number) {
         this.level = level;

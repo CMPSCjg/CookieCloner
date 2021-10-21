@@ -7,6 +7,23 @@ export class ShipmentUpgrades {
     buyCost: number[] = 
         [0, 51000000000, 255000000000, 2550000000000, 255000000000000, 25500000000000000, 2550000000000000000, 2550000000000000000000, 2550000000000000000000000, 2550000000000000000000000000, 
             2550000000000000000000000000000, 25500000000000000000000000000000000, 255000000000000000000000000000000000000, 2550000000000000000000000000000000000000000];
+    upgradeDescription: string[] = [
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+    ]
 
     constructor(level: number) {
         this.level = level;
