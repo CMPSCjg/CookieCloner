@@ -300,9 +300,7 @@ export class GameComponent implements OnInit, OnDestroy {
         this.detectScreenSize();
     }
 
-    ngAfterContentInit() {
-        this.detectScreenSize();
-
+    ngAfterViewInit() {
         // Card array
         var cards = document.querySelectorAll('.card3d');
 
@@ -318,6 +316,10 @@ export class GameComponent implements OnInit, OnDestroy {
                 img.style.filter = 'brightness(1)';
             });
         });
+    }
+
+    ngAfterContentInit() {
+        this.detectScreenSize();
     }
 
     private detectScreenSize() {
