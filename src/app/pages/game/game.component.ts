@@ -300,7 +300,7 @@ export class GameComponent implements OnInit, OnDestroy {
         this.detectScreenSize();
     }
 
-    ngAfterViewInit() {
+    ngAfterContentInit() {
         this.detectScreenSize();
 
         // Card array
