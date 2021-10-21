@@ -7,6 +7,23 @@ export class FractalEngineUpgrades {
     buyCost: number[] = 
         [0, 3100000000000000000, 15500000000000000000, 155000000000000000000, 15500000000000000000000, 1550000000000000000000000, 155000000000000000000000000, 155000000000000000000000000000, 155000000000000000000000000000000, 155000000000000000000000000000000000, 
             155000000000000000000000000000000000000, 1550000000000000000000000000000000000000000, 15500000000000000000000000000000000000000000000, 155000000000000000000000000000000000000000000000000];
+    upgradeDescription: string[] = [
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+    ]
 
     constructor(level: number) {
         this.level = level;

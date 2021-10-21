@@ -7,6 +7,23 @@ export class WizardTowerUpgrades {
     buyCost: number[] = 
         [0, 3300000000, 16500000000, 165000000000, 16500000000000, 1650000000000000, 165000000000000000, 165000000000000000000, 165000000000000000000000, 165000000000000000000000000, 
             165000000000000000000000000000, 1650000000000000000000000000000000, 16500000000000000000000000000000000000, 165000000000000000000000000000000000000000];
+    upgradeDescription: string[] = [
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+        `${this.name} cookies per second are doubled.`,
+    ]
 
     constructor(level: number) {
         this.level = level;
